@@ -7,8 +7,8 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures body stretches to full viewport height */
-    overflow-x: hidden; /* Prevents horizontal scroll */
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: #eef2f6; /* Soft, light background */
     color: #34495e; /* Darker blue-gray for main text for better contrast */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -64,7 +64,7 @@ body {
 .side-nav {
     width: 280px; /* Fixed width for the sidebar */
     min-width: 280px; /* Prevent shrinking */
-    background-color: #2c3e50; /* Dark blue-gray for sidebar */
+    background-color: #2b3e50; /* Dark blue-gray for sidebar base - slightly darker for contrast */
     color: #ecf0f1;
     padding: 1.5rem 0;
     display: flex;
@@ -76,105 +76,158 @@ body {
 
 .side-nav .nav-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.08); /* Lighter, subtle border */
     padding-bottom: 1rem;
 }
 
 .side-nav .nav-header h3 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    color: #4CAF50; /* Green for header */
+    color: #4CAF50; /* Vibrant green for sidebar title */
     margin-bottom: 0.5rem;
+    letter-spacing: 0.05rem;
 }
 
 .side-nav .level-list {
-    flex-grow: 1; /* Allows the list to take available space */
+    flex-grow: 1;
+    padding-left: 0; /* Ensure no default padding from ul */
 }
 
 .side-nav .level-list > li {
-    margin-bottom: 0.5rem; /* Space between levels */
+    /* No margin-bottom here; padding of nav-item creates spacing */
 }
 
 .side-nav .nav-item {
-    display: block;
-    padding: 0.8rem 1.5rem;
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Vertically center icon and text */
+    padding: 0.9rem 1.5rem; /* Generous padding for click area and spacing */
     color: #ecf0f1;
     font-weight: 500;
-    font-size: 1.05rem;
-    white-space: nowrap; /* Prevent text wrapping */
+    font-size: 1.05rem; /* Larger font size */
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for long text */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-left: 5px solid transparent; /* Accent border on hover/active */
+    text-overflow: ellipsis;
+    transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+    border-left: 5px solid transparent; /* Left border for active/hover state */
 }
 
+/* Styling for the icon placeholder - THIS IS THE KEY FIX */
+.nav-item::before {
+    /* We'll use Font Awesome (or similar) later. For now, a placeholder with proper spacing. */
+    /* If you're using Unicode characters or emojis, replace content: */
+    /* content: '\f009'; for dashboard, or '\f111' for circle (FontAwesome examples) */
+    content: ''; /* Start with empty content, will be set by JS or specific classes later if using icon fonts */
+    font-family: 'Font Awesome 5 Free', 'Segoe UI Symbol', 'Noto Color Emoji'; /* Prepare for icon fonts */
+    font-weight: 900; /* For FontAwesome solid icons */
+    margin-right: 0.8rem; /* **This creates the proper space for the icon** */
+    color: rgba(255,255,255,0.7); /* Slightly muted icon color */
+    font-size: 1.1em; /* Size relative to text */
+    width: 1.2em; /* Ensure consistent width for alignment (e.g., 20px) */
+    text-align: center;
+    /* Optional: add specific icons using classes */
+    /* E.g., for dashboard: content: '\f009'; */
+}
+
+/* Specific content for nav-item icons (Example, requires Font Awesome library loaded in HTML) */
+.nav-item.icon-home::before { content: '\f015'; } /* Home icon */
+.nav-item.icon-level::before { content: '\f111'; } /* Circle icon for levels */
+.nav-item.icon-module::before { content: '\f061'; } /* Arrow right for modules */
+.nav-item.icon-dashboard::before { content: '\f009'; } /* Dashboard icon */
+
+
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
-    background-color: #34495e; /* Darker background on hover */
+    background-color: #3e5060; /* Slightly lighter background on hover */
     color: #4CAF50; /* Green text on hover */
-    border-left-color: #4CAF50;
+    border-left-color: #4CAF50; /* Green accent border */
 }
 
 .side-nav .nav-item.active {
-    background-color: #3f5870; /* Slightly lighter than default for active */
-    color: #4CAF50; /* Green for active item */
+    background-color: #4CAF50; /* Vibrant green for active item */
+    color: #fff; /* White text for active */
     font-weight: 700;
-    border-left-color: #4CAF50;
-    box-shadow: inset 3px 0 8px rgba(0,0,0,0.2); /* Inner shadow for active state */
+    border-left-color: #fff; /* White accent border for active */
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.3); /* Inner shadow for active state */
     cursor: default;
 }
 .side-nav .nav-item.active:hover { /* Maintain active style on hover */
-    background-color: #3f5870;
-    color: #4CAF50;
+    background-color: #4CAF50;
+    color: #fff;
 }
+.side-nav .nav-item.active::before { /* Active icon color */
+    color: #fff;
+}
+
 
 /* Module list styling (nested under levels) */
 .side-nav .module-list {
-    margin-left: 1rem; /* Indent modules */
-    margin-top: 0.3rem;
-    padding-left: 0; /* Remove default padding */
-    border-left: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+    margin-left: 1.5rem; /* Indent modules further */
+    margin-top: 0.5rem;
+    padding-left: 0.8rem; /* Space for the subtle border */
+    border-left: 2px solid rgba(255,255,255,0.05); /* Very subtle separator for module groups */
 }
 
 .side-nav .module-list li {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem; /* Less space between module items */
 }
 
 .side-nav .module-list .nav-item {
-    padding: 0.6rem 1.5rem 0.6rem 2.5rem; /* Adjust padding for indentation */
-    font-size: 0.95rem;
+    padding: 0.7rem 1.5rem 0.7rem 2.5rem; /* Adjust padding for deeper indentation and icons */
+    font-size: 0.95rem; /* Slightly smaller font for modules */
     font-weight: 400;
 }
-.side-nav .module-list .nav-item.active {
-    background-color: #455d72; /* Darker background for active sub-item */
+.side-nav .module-list .nav-item::before {
+    /* Use a simple dash or dot for sub-modules if not using icon font */
+    content: '\2023'; /* Unicode for a small bullet */
+    font-weight: normal; /* Override Font Awesome weight */
+    font-size: 0.8em; /* Smaller bullet */
+    color: rgba(255,255,255,0.6);
+}
+.side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
+    background-color: rgba(62, 80, 96, 0.5); /* Semi-transparent background for module hover */
+    color: #ecf0f1;
     border-left-color: #4CAF50;
 }
+
+.side-nav .module-list .nav-item.active {
+    background-color: #55728a; /* Darker background for active sub-item */
+    border-left-color: #ecf0f1; /* Lighter accent border for sub-item */
+    color: #ecf0f1;
+    font-weight: 600;
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
+}
 .side-nav .module-list .nav-item.active:hover {
-    background-color: #455d72;
+    background-color: #55728a;
+}
+.side-nav .module-list .nav-item.active::before {
+    color: #ecf0f1;
 }
 
 .side-nav .nav-item.disabled {
-    opacity: 0.6;
+    opacity: 0.4; /* Make disabled items more faded */
     cursor: not-allowed;
-    background-color: #2c3e50; /* No background change on hover for disabled */
-    color: rgba(255,255,255,0.5); /* Faded color */
+    background-color: transparent; /* No background change on hover for disabled */
+    color: rgba(255,255,255,0.4);
     border-left-color: transparent;
 }
 .side-nav .nav-item.disabled:hover {
-    background-color: #2c3e50;
-    color: rgba(255,255,255,0.5);
+    background-color: transparent;
+    color: rgba(255,255,255,0.4);
     transform: none;
     box-shadow: none;
+}
+.side-nav .nav-item.disabled::before {
+    color: rgba(255,255,255,0.3);
 }
 
 .side-nav .nav-footer {
     padding: 1.5rem;
     margin-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.08); /* Lighter, subtle border */
     text-align: center;
     font-size: 0.9rem;
-    color: #ccc;
+    color: #aeb6bf; /* Slightly darker grey for footer text */
 }
 
 
@@ -338,7 +391,7 @@ body {
     color: #ecf0f1;
     text-align: center;
     padding: 1.5rem 0;
-    /* margin-top: auto; (Removed as app-container handles flex grow) */
+    margin-top: 3rem;
     font-size: 0.95rem;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
@@ -502,10 +555,17 @@ body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
+    .main-header { /* Restore header for mobile - display it */
+        display: block;
+        padding: 1.5rem 0;
+        border-radius: 0;
+        margin-bottom: 0; /* Remove margin below header */
+    }
+
     .app-container {
         flex-direction: column; /* Stack sidebar and content */
-        margin: 1rem auto;
-        border-radius: 0; /* No rounded corners on small screens for full width */
+        margin: 0; /* Remove margin for full width on mobile */
+        border-radius: 0;
         box-shadow: none;
     }
     .side-nav {
@@ -548,7 +608,7 @@ body {
         transform: none; /* No vertical lift */
     }
     .side-nav .nav-item.active {
-        background-color: #34495e;
+        background-color: #34495e; /* Maintain dark background on active */
         border-left-color: transparent;
         border-bottom-color: #4CAF50;
         box-shadow: none;
@@ -571,12 +631,6 @@ body {
         border-top-right-radius: 0;
         box-shadow: none;
     }
-    .main-header { /* Restore header for mobile */
-        display: block;
-        padding: 1.5rem 0;
-        border-radius: 0;
-        margin-bottom: 0;
-    }
 
     .main-header h1 {
         font-size: 2.5rem;
@@ -585,7 +639,7 @@ body {
         font-size: 1.1rem;
     }
     .course-dashboard h2, .module-content h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Adjusted for smaller screens */
         padding-bottom: 0.6rem;
     }
     .module-content h3 {
@@ -668,6 +722,12 @@ body {
     .side-nav .nav-item {
         text-align: center;
         width: 100%;
+    }
+    /* Specific adjustment for the icon spacing on very small mobile if nav-item has 100% width */
+    .side-nav .nav-item::before {
+        margin-right: 0.5rem; /* Reduce space slightly for tighter layout */
+        /* Optionally, hide icons on smallest screens for maximum space for text */
+        /* display: none; */
     }
     .course-dashboard h2, .module-content h2 {
         font-size: 1.4rem;
