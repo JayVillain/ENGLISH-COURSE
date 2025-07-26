@@ -3,31 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contoh Sidebar</title>
-    <link rel="stylesheet" href="kanjut.css">
+    <title>Sidebar Interaktif dengan Konten Artikel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <button class="toggle-btn" id="toggleBtn">☰ Buka/Tutup Sidebar</button>
+    <button class="toggle-btn" id="toggleBtn">
+        <i class="fas fa-bars"></i> Buka Menu
+    </button>
+
+    <div class="overlay" id="overlay"></div>
 
     <div class="sidebar" id="mySidebar">
-        <h2>Menu Sidebar</h2>
-        <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Tentang Kami</a></li>
-            <li><a href="#">Layanan</a></li>
-            <li><a href="#">Kontak</a></li>
+        <button class="close-btn" id="closeBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="sidebar-header">
+            <h3>Menu Utama</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+            <li><a href="#"><i class="fas fa-newspaper"></i> Artikel Terbaru</a></li>
+            <li><a href="#"><i class="fas fa-briefcase"></i> Portofolio</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Kontak</a></li>
         </ul>
-        <button class="close-btn" id="closeBtn">X Tutup</button>
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Situs Saya</p>
+        </div>
     </div>
 
     <div class="main-content" id="mainContent">
-        <h1>Selamat Datang di Halaman Utama</h1>
-        <p>Ini adalah area konten utama Anda. Saat sidebar terbuka, konten ini akan sedikit bergeser.</p>
-        <p>Anda bisa menempatkan teks, gambar, atau elemen lainnya di sini.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, provident! Autem, neque. Exercitationem, nostrum. Voluptatibus, dignissimos. Autem, voluptatibus. Consequatur, quis.</p>
+        <header class="page-header">
+            <h1>Selamat Datang di Halaman Artikel Kami</h1>
+            <p>Temukan berbagai informasi dan wawasan menarik di sini.</p>
+        </header>
+
+        <section class="articles-section">
+            <article class="article-card">
+                <h2>Judul Artikel Pertama</h2>
+                <p class="article-meta">Dipublikasikan pada 25 Juli 2025 oleh Admin</p>
+                <img src="https://via.placeholder.com/600x300?text=Gambar+Artikel+1" alt="Gambar Artikel 1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut.</p>
+                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="article-card">
+                <h2>Strategi Pengembangan Web Modern</h2>
+                <p class="article-meta">Dipublikasikan pada 24 Juli 2025 oleh Budi</p>
+                <img src="https://via.placeholder.com/600x300?text=Gambar+Artikel+2" alt="Gambar Artikel 2">
+                <p>Quia et laborum non et molestiae velit vel iure. Dolorum quasi et sint dicta numquam aut. Quam aut et eveniet quo sunt. Expedita ducimus ut officiis voluptas sit et inventore enim. Quae iste vero officiis. Qui ut nihil voluptatum eum at quia iste.</p>
+                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="article-card">
+                <h2>Tips Memaksimalkan Produktivitas</h2>
+                <p class="article-meta">Dipublikasikan pada 23 Juli 2025 oleh Siti</p>
+                <img src="https://via.placeholder.com/600x300?text=Gambar+Artikel+3" alt="Gambar Artikel 3">
+                <p>Earum debitis eos ea voluptatem. Velit aut et et doloremque. Ut labore quis ut vel. Quae voluptatem autem dolorum. Et et aut laudantium non corporis. Omnis omnis voluptatem qui et.</p>
+                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 Situs Artikel Interaktif. Hak Cipta Dilindungi.</p>
+        </footer>
     </div>
 
-    <script src="meki.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
