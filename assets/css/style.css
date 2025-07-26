@@ -16,12 +16,12 @@ body {
     font-size: 1rem; /* Base font size */
 }
 
-/* Add a global transition for smoother changes (mostly for hover/active states) */
+/* Add a global transition for smoother changes */
 * {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, margin 0.3s ease-in-out;
 }
 
-/* --- Header Styling (remains above the app container) --- */
+/* --- Header Styling --- */
 .main-header {
     background-color: #2c3e50; /* Deep blue-gray */
     color: #ecf0f1; /* Off-white for text */
@@ -30,171 +30,196 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* More pronounced shadow */
     border-bottom-left-radius: 10px; /* Rounded corners for a softer look */
     border-bottom-right-radius: 10px;
-    margin-bottom: 2rem; /* Space below header */
-    position: relative; /* Needed for any potential future elements */
+    margin-bottom: 0; /* No margin below header */
+    position: relative;
+    z-index: 1002; /* Ensure header is above sidebar when open */
 }
 
 .main-header h1 {
-    font-size: 3.5rem; /* Larger, more impactful title */
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 800; /* Extra bold */
-    letter-spacing: 0.08rem; /* Tighter letter spacing for impact */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Subtle text shadow */
+    font-weight: 800;
+    letter-spacing: 0.08rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .main-header .tagline {
-    font-size: 1.3rem; /* Larger tagline */
+    font-size: 1.3rem;
     opacity: 0.95;
-    font-weight: 300; /* Lighter font weight */
+    font-weight: 300;
 }
 
-/* --- App Container (Main Layout for Side Nav and Content) --- */
-.app-container {
-    display: flex; /* Use flexbox for side-by-side layout */
-    flex: 1; /* Allows it to grow and fill available vertical space */
-    width: 100%;
-    max-width: 1400px; /* Max width for the entire app layout */
-    margin: 0 auto 2rem auto; /* Center the whole app container, add bottom margin */
-    background-color: #fff; /* White background for the main app area */
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* More pronounced shadow for the app */
-    overflow: hidden; /* Important for containing sidebar/content */
+/* --- Sidebar Toggle Button (Open Menu) --- */
+.sidebar-toggle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4CAF50; /* Green button */
+    color: #fff;
+    border: none;
+    font-size: 1.1rem; /* Smaller button text */
+    padding: 8px 15px; /* Button padding */
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex; /* For icon and text alignment */
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    z-index: 1001; /* Ensure it's clickable */
 }
 
-/* --- Side Navigation Styling --- */
+.sidebar-toggle:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.sidebar-toggle .fas { /* Style for Font Awesome icon within the button */
+    font-size: 1.1rem; /* Adjust icon size */
+}
+
+/* --- Side Navigation (Overlay) --- */
 .side-nav {
-    width: 280px; /* Fixed width for the sidebar */
-    min-width: 280px; /* Prevent shrinking */
-    background-color: #2b3e50; /* Dark blue-gray for sidebar base */
+    position: fixed; /* KUNCI: Fixed positioning for overlay */
+    top: 0; /* Mulai dari atas viewport */
+    left: 0;
+    width: 280px; /* Lebar sidebar */
+    height: 100vh; /* Tinggi penuh viewport */
+    background-color: #2b3e50; /* Warna sidebar */
     color: #ecf0f1;
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Shadow for separation */
-    overflow-y: auto; /* Allow scrolling for long navigation lists */
-    flex-shrink: 0; /* Prevent side-nav from shrinking if content is too wide */
+    box-shadow: 4px 0 15px rgba(0,0,0,0.4); /* Shadow yang lebih kuat untuk overlay */
+    z-index: 1000; /* Di atas konten utama, di bawah header */
+    transform: translateX(-100%); /* KUNCI: Sembunyikan ke kiri secara default */
+    transition: transform 0.3s ease-in-out; /* Transisi untuk efek geser */
 }
 
+/* Class 'sidebar-open' ditambahkan ke body/html saat sidebar terbuka */
+body.sidebar-open .side-nav {
+    transform: translateX(0); /* KUNCI: Geser masuk saat terbuka */
+}
+
+/* --- Close Sidebar Button (Inside Side Nav) --- */
 .side-nav .nav-header {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08); /* Lighter, subtle border */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     padding-bottom: 1rem;
 }
 
 .side-nav .nav-header h3 {
     font-size: 1.7rem;
     font-weight: 700;
-    color: #4CAF50; /* Vibrant green for sidebar title */
-    margin-bottom: 0.5rem;
+    color: #4CAF50;
+    margin-bottom: 0; /* Override default h3 margin-bottom */
     letter-spacing: 0.05rem;
 }
 
+.close-sidebar-toggle {
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-sidebar-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #e74c3c; /* Red color for close button on hover */
+}
+
+/* --- Navigation List Items (Inside Side Nav) --- */
 .side-nav .level-list {
     flex-grow: 1;
-    padding-left: 0; /* Ensure no default padding from ul */
+    padding-left: 0;
 }
 
 .side-nav .level-list > li {
-    /* No margin-bottom here; padding of nav-item creates spacing */
+    margin-bottom: 0.5rem;
 }
 
 .side-nav .nav-item {
-    display: flex; /* Use flexbox for icon and text alignment */
-    align-items: center; /* Vertically center icon and text */
-    padding: 0.9rem 1.5rem; /* Generous padding for click area and spacing */
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
     color: #ecf0f1;
     font-weight: 500;
     font-size: 1.05rem;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
-    border-left: 5px solid transparent; /* Left border for active/hover state */
+    border-left: 5px solid transparent;
 }
 
-/* --- Ikon Styling Menggunakan ::before (Kunci Perbaikan Tampilan) --- */
-/* Pastikan Font Awesome CSS sudah dimuat di HTML Anda */
-.nav-item::before {
-    font-family: "Font Awesome 5 Free"; /* Font family untuk Font Awesome */
-    font-weight: 900; /* Untuk ikon Solid (fas) */
-    margin-right: 0.8rem; /* RUANG KUNCI: Ruang antara ikon dan teks */
-    color: rgba(255,255,255,0.7); /* Warna ikon standar */
-    font-size: 1.1em; /* Ukuran ikon relatif terhadap teks */
-    width: 1.2em; /* Memastikan lebar ikon konsisten untuk perataan */
-    text-align: center; /* Memusatkan ikon dalam lebarnya */
+/* Ikon Styling for nav-item */
+.nav-item i { /* Target Font Awesome <i> tag directly */
+    margin-right: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1em;
+    width: 1.2em; /* Ensure consistent width for icon area */
+    text-align: center;
 }
-
-/* Definisi Ikon Spesifik untuk Setiap Nav Item */
-.nav-item.icon-dashboard::before { content: "\f009"; } /* fa-th-large (squares) */
-.nav-item.icon-level0::before { content: "\f02d"; } /* fa-book-open (book) - Level 0 */
-.nav-item.icon-module01::before { content: "\f028"; } /* fa-volume-up (sound) - Modul 0.1 */
-.nav-item.icon-module02::before { content: "\f075"; } /* fa-comments (chat) - Modul 0.2 */
-.nav-item.icon-module03::before { content: "\f059"; } /* fa-question-circle (question) - Modul 0.3 */
-.nav-item.icon-level1::before { content: "\f12d"; } /* fa-cube (cube) - Level 1 */
-/* Lanjutkan dengan ikon untuk level/modul lainnya */
-.nav-item.icon-level::before { content: "\f02d"; } /* General Level Icon (fallback) */
-.nav-item.icon-module-placeholder::before { content: "\f101"; } /* Default module icon */
-
 
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
-    background-color: #3e5060; /* Slightly lighter background on hover */
-    color: #4CAF50; /* Green text on hover */
-    border-left-color: #4CAF50; /* Green accent border */
+    background-color: #3e5060;
+    color: #4CAF50;
+    border-left-color: #4CAF50;
 }
 
 .side-nav .nav-item.active {
-    background-color: #4CAF50; /* Vibrant green for active item */
-    color: #fff; /* White text for active */
+    background-color: #4CAF50;
+    color: #fff;
     font-weight: 700;
-    border-left-color: #fff; /* White accent border for active */
-    box-shadow: inset 3px 0 8px rgba(0,0,0,0.3); /* Inner shadow for active state */
+    border-left-color: #fff;
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
     cursor: default;
 }
-.side-nav .nav-item.active:hover { /* Maintain active style on hover */
+.side-nav .nav-item.active:hover {
     background-color: #4CAF50;
     color: #fff;
 }
-.side-nav .nav-item.active::before { /* Active icon color */
+.side-nav .nav-item.active i {
     color: #fff;
 }
 
-
 /* Module list styling (nested under levels) */
 .side-nav .module-list {
-    margin-left: 1.5rem; /* Indent modules further */
+    margin-left: 1.5rem;
     margin-top: 0.5rem;
-    padding-left: 0.8rem; /* Space for the subtle border */
-    border-left: 2px solid rgba(255,255,255,0.05); /* Very subtle separator for module groups */
+    padding-left: 0.8rem;
+    border-left: 2px solid rgba(255,255,255,0.05);
 }
 
 .side-nav .module-list li {
-    margin-bottom: 0.1rem; /* Less space between module items */
+    margin-bottom: 0.1rem;
 }
 
 .side-nav .module-list .nav-item {
     padding: 0.7rem 1.5rem 0.7rem 2.5rem; /* Adjust padding for deeper indentation and icons */
-    font-size: 0.95rem; /* Slightly smaller font for modules */
+    font-size: 0.95rem;
     font-weight: 400;
 }
-.side-nav .module-list .nav-item::before {
-    /* Gunakan Font Awesome untuk ikon sub-modul juga */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Solid icon */
-    content: "\f061"; /* fa-arrow-right icon for modules */
-    font-size: 0.8em; /* Smaller relative to parent nav-item */
+.side-nav .module-list .nav-item i {
     color: rgba(255,255,255,0.6);
 }
 .side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(62, 80, 96, 0.5); /* Semi-transparent background for module hover */
+    background-color: rgba(62, 80, 96, 0.5);
     color: #ecf0f1;
     border-left-color: #4CAF50;
 }
 
 .side-nav .module-list .nav-item.active {
-    background-color: #55728a; /* Darker background for active sub-item */
-    border-left-color: #ecf0f1; /* Lighter accent border for sub-item */
+    background-color: #55728a;
+    border-left-color: #ecf0f1;
     color: #ecf0f1;
     font-weight: 600;
     box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
@@ -202,14 +227,14 @@ body {
 .side-nav .module-list .nav-item.active:hover {
     background-color: #55728a;
 }
-.side-nav .module-list .nav-item.active::before {
+.side-nav .module-list .nav-item.active i {
     color: #ecf0f1;
 }
 
 .side-nav .nav-item.disabled {
-    opacity: 0.4; /* Make disabled items more faded */
+    opacity: 0.4;
     cursor: not-allowed;
-    background-color: transparent; /* No background change on hover for disabled */
+    background-color: transparent;
     color: rgba(255,255,255,0.4);
     border-left-color: transparent;
 }
@@ -219,28 +244,52 @@ body {
     transform: none;
     box-shadow: none;
 }
-.side-nav .nav-item.disabled::before {
+.side-nav .nav-item.disabled i {
     color: rgba(255,255,255,0.3);
 }
 
 .side-nav .nav-footer {
     padding: 1.5rem;
     margin-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08); /* Lighter, subtle border */
+    border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
     font-size: 0.9rem;
-    color: #aeb6bf; /* Slightly darker grey for footer text */
+    color: #aeb6bf;
 }
 
-
-/* --- Main Content Area (Dashboard & General Sections) --- */
-.main-content-area {
+/* --- Main Content Wrapper (KONTEN UTAMA) --- */
+.main-content-wrapper {
     flex-grow: 1; /* Takes remaining space */
-    padding: 2rem; /* Consistent padding */
+    padding: 2rem; /* Consistent padding inside the wrapper */
     background-color: #ffffff;
-    overflow-y: auto; /* Allow content scrolling within this area if needed */
+    border-radius: 12px; /* Rounded corners for the content wrapper */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08); /* Shadow for content wrapper */
+    margin: 2rem; /* Margin around the content wrapper itself */
+    position: relative; /* For overlay positioning */
+    z-index: 1; /* Ensure content is below sidebar overlay */
 }
 
+/* Overlay Background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Di atas main content, di bawah sidebar */
+    opacity: 0; /* Sembunyikan default */
+    visibility: hidden; /* Sembunyikan dari interaksi mouse */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* State when sidebar is open */
+body.sidebar-open .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* KONTEN DALAM MAIN-CONTENT-AREA (Tidak berubah signifikan, hanya untuk kejelasan) */
 .module-content h2, .course-dashboard h2 {
     font-size: 2.2rem;
     color: #2c3e50;
@@ -555,195 +604,50 @@ body {
 }
 
 
-/* --- Responsive Adjustments (Simplified for Always-Open Sidebar) --- */
+/* --- Responsive Adjustments --- */
+/* DEFAULT: Desktop view (no @media for this) - Sidebar is hidden by default, pops out */
+/* All screens will use the collapsible overlay behavior for consistency with user request */
+
 @media (max-width: 992px) {
-    /* Pada mobile, sidebar akan menumpuk di atas konten utama */
-    .main-header {
-        display: block; /* Pastikan header terlihat */
-        padding: 1.5rem 0;
-        border-radius: 0;
-        margin-bottom: 0;
-    }
-    .sidebar-toggle { /* Sembunyikan tombol toggle di mobile jika sidebar selalu terlihat */
-        display: none;
-    }
-
-    .app-container {
-        flex-direction: column; /* Stack sidebar and content */
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    .side-nav {
-        width: 100%; /* Sidebar takes full width */
-        min-width: unset;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Shadow at bottom */
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        position: static; /* Tidak lagi fixed/sticky */
-        padding-bottom: 1rem;
-        /* Hapus semua properti transisi width/transform dari sini jika ingin selalu full */
-    }
-    .side-nav .nav-header {
-        margin-bottom: 1rem;
-    }
-    .side-nav .nav-header h3 {
-        font-size: 1.5rem;
-    }
-    .side-nav .level-list {
-        display: flex; /* Jadikan horizontal di mobile */
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 1rem;
-    }
-    .side-nav .level-list > li {
-        width: auto; /* Otomatis lebar */
-        margin: 0.5rem 0.8rem; /* Spasi horizontal */
-    }
-    .side-nav .nav-item {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.9rem;
-        border-left: none; /* Hilangkan border samping */
-        border-bottom: 3px solid transparent; /* Border bawah untuk active */
-        border-radius: 0;
-    }
-    .side-nav .nav-item:hover:not(.active):not(.disabled) {
-        background-color: #34495e;
-        border-bottom-color: #4CAF50;
-        border-left-color: transparent;
-        color: #ecf0f1;
-        transform: none;
-    }
-    .side-nav .nav-item.active {
-        background-color: #34495e;
-        border-left-color: transparent;
-        border-bottom-color: #4CAF50;
-        box-shadow: none;
-    }
-    .side-nav .nav-item.active:hover {
-        background-color: #34495e;
-    }
-    /* Ikon dan teks di mobile (jika horizontal) */
-    .side-nav .nav-item::before {
-        margin-right: 0.5rem; /* Sedikit spasi di mobile */
-        font-size: 0.9em;
-    }
-    .side-nav .module-list {
-        display: none; /* Sembunyikan sub-modul di nav horizontal mobile */
-    }
-    .side-nav .nav-footer {
-        display: none; /* Sembunyikan footer nav di mobile */
-    }
-
-    .main-content-area {
-        padding: 1.5rem;
-        margin-top: 0; /* Tanpa margin atas */
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        box-shadow: none;
-    }
-
-    .main-header h1 {
-        font-size: 2.5rem;
-    }
-    .main-header .tagline {
-        font-size: 1.1rem;
-    }
-    .course-dashboard h2, .module-content h2 {
-        font-size: 1.8rem;
-        padding-bottom: 0.6rem;
-    }
-    .module-content h3 {
-        font-size: 1.4rem;
-    }
-    .module-content h4 {
-        font-size: 1.1rem;
-    }
-    .level-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
-    }
+    /* Main Header and Toggle button are already set for mobile/tablet in the default style */
 }
 
 @media (max-width: 768px) {
-    .main-header {
-        padding: 1.2rem 0;
-    }
-    .main-header h1 {
-        font-size: 2rem;
-    }
-    .main-header .tagline {
-        font-size: 1rem;
-    }
-    .side-nav .level-list > li {
-        margin: 0.3rem 0.5rem;
-    }
-    .side-nav .nav-item {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.7rem;
-    }
-    .main-content-area {
-        padding: 1rem;
-    }
-    .course-dashboard h2, .module-content h2 {
-        font-size: 1.7rem;
-    }
-    .module-content h3 {
-        font-size: 1.3rem;
-    }
-    .module-content h4 {
-        font-size: 1.1rem;
-    }
-    .lesson-section {
-        padding: 1rem;
-    }
-    .quiz-section {
-        padding: 1.2rem;
-    }
-    .quiz-section h3 {
-        font-size: 1.6rem;
-    }
-    .quiz-section input[type="text"],
-    .quiz-section select,
-    .quiz-section textarea,
-    .quiz-section button {
-        font-size: 0.95rem;
-        padding: 0.6rem;
-    }
+    /* Continue to use full-width/overlay behavior from default */
 }
 
 @media (max-width: 480px) {
-    .main-header h1 {
-        font-size: 1.6rem;
-    }
-    .main-header .tagline {
-        font-size: 0.8rem;
-    }
-    .side-nav .nav-header h3 {
-        font-size: 1.2rem;
-    }
-    .side-nav .level-list {
-        flex-direction: column; /* Tumpuk vertikal lagi di layar sangat kecil */
-        align-items: center;
-    }
-    .side-nav .level-list > li {
-        width: calc(100% - 2rem); /* Lebar penuh dengan padding */
-        margin: 0.2rem 0;
-    }
-    .side-nav .nav-item {
-        text-align: left; /* Teks rata kiri */
-        justify-content: flex-start; /* Ikon dan teks rata kiri */
-        width: 100%;
-        padding: 0.6rem 1rem; /* Padding lebih banyak untuk teks rata kiri */
-    }
-    .side-nav .nav-item::before {
-        margin-right: 0.8rem; /* Pastikan spasi ikon tetap ada */
-        font-size: 1em; /* Ukuran normal */
-    }
-    .course-dashboard h2, .module-content h2 {
-        font-size: 1.4rem;
-    }
-    .level-cards {
-        grid-template-columns: 1fr;
-    }
+    /* Continue to use full-width/overlay behavior from default */
+}
+
+/* Base header/footer for all screens, as they are outside main-content-wrapper */
+.main-header {
+    background-color: #2c3e50; /* Deep blue-gray */
+    color: #ecf0f1; /* Off-white for text */
+    padding: 1.5rem 0; /* Reduced padding for more compact header */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Lighter shadow */
+    border-bottom-left-radius: 0; /* No radius */
+    border-bottom-right-radius: 0; /* No radius */
+    margin-bottom: 0; /* Kunci: Tidak ada margin di bawah header */
+    position: relative;
+    z-index: 1002;
+}
+
+.main-header h1 {
+    font-size: 2.5rem; /* Smaller title for compact header */
+    letter-spacing: 0.05rem;
+}
+.main-header .tagline {
+    font-size: 1.1rem;
+}
+
+.main-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem 0; /* Reduced padding for footer */
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    margin-top: auto; /* Push footer to the bottom */
 }
