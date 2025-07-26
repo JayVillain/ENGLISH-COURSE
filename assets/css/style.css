@@ -9,144 +9,194 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Ensures body stretches to full viewport height */
     overflow-x: hidden; /* Prevents horizontal scroll */
+    background-color: #eef2f6; /* Soft, light background */
+    color: #34495e; /* Darker blue-gray for main text for better contrast */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.7; /* Slightly more spacious line-height */
+    font-size: 1rem; /* Base font size */
 }
 
+/* Add a global transition for smoother changes */
+* {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+
 .container {
-    max-width: 1200px;
+    max-width: 1280px; /* Slightly wider container */
     margin: 0 auto;
-    padding: 1.25rem; /* 20px */
+    padding: 1.5rem; /* 24px */
 }
 
 /* --- Header Styling --- */
 .main-header {
-    background-color: #2c3e50; /* Dark blue/grey */
-    color: #ecf0f1; /* Light grey */
-    padding: 1.5rem 0; /* 24px */
+    background-color: #2c3e50; /* Deep blue-gray */
+    color: #ecf0f1; /* Off-white for text */
+    padding: 2.5rem 0; /* More vertical padding for a grander feel */
     text-align: center;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); /* 0 2px 4px */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* More pronounced shadow */
+    border-bottom-left-radius: 10px; /* Rounded corners for a softer look */
+    border-bottom-right-radius: 10px;
+    margin-bottom: 2rem; /* Space below header */
 }
 
 .main-header h1 {
-    font-size: 2.8rem; /* ~45px */
-    margin-bottom: 0.3125rem; /* 5px */
-    font-weight: 700;
-    letter-spacing: 0.05rem;
+    font-size: 3.5rem; /* Larger, more impactful title */
+    margin-bottom: 0.5rem;
+    font-weight: 800; /* Extra bold */
+    letter-spacing: 0.08rem; /* Tighter letter spacing for impact */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Subtle text shadow */
 }
 
 .main-header .tagline {
-    font-size: 1.1rem; /* ~18px */
-    opacity: 0.9;
+    font-size: 1.3rem; /* Larger tagline */
+    opacity: 0.95;
+    font-weight: 300; /* Lighter font weight */
 }
 
 /* --- Navigation Styling --- */
 .main-nav {
-    background-color: #34495e; /* Slightly lighter dark blue/grey */
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); /* 0 2px 4px */
+    background-color: #34495e; /* Darker blue-gray */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Improved shadow */
+    padding: 0.8rem 0; /* More padding */
+    position: sticky; /* Sticky navigation for easy access */
+    top: 0;
+    z-index: 1000; /* Ensure nav stays on top */
 }
 
 .main-nav ul {
     display: flex;
     justify-content: center;
-    padding: 0.625rem 0; /* 10px */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .main-nav li {
-    margin: 0 0.9375rem; /* 0 15px */
+    margin: 0 1rem; /* More spacing between nav items */
 }
 
 .main-nav a {
     color: #ecf0f1;
-    padding: 0.5rem 0.9375rem; /* 8px 15px */
+    padding: 0.8rem 1.2rem; /* Larger click area */
     display: block;
+    border-radius: 5px; /* Slightly more rounded */
+    font-weight: 600; /* Bolder text */
+    font-size: 1rem;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase; /* Uppercase for nav items */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    border-radius: 0.25rem; /* 4px */
-    font-weight: 500;
-    font-size: 0.95rem;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-    background-color: #2980b9; /* Bright blue for hover/active */
+    background-color: #4CAF50; /* A vibrant green for active/hover */
     color: #fff;
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow on hover */
 }
+.main-nav a.active {
+    cursor: default; /* No hover effect on active link */
+    transform: none;
+    box-shadow: none;
+}
+
 
 /* --- Main Content Area (Dashboard & General Sections) --- */
-.course-dashboard, .module-content {
-    flex-grow: 1; /* Allows main content to take up available space */
-    padding: 1.875rem 1.25rem; /* 30px 20px */
-    max-width: 62.5rem; /* 1000px */
-    margin: 1.25rem auto; /* 20px auto */
-    background-color: #fff;
-    border-radius: 0.5rem; /* 8px */
-    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.05); /* 0 4px 10px */
+.module-content, .course-dashboard {
+    flex-grow: 1;
+    padding: 2rem; /* More generous padding */
+    max-width: 900px; /* Slightly narrower for readability */
+    margin: 2rem auto; /* More margin around the content block */
+    background-color: #ffffff; /* Pure white background for content */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Deeper shadow */
+    border: 1px solid #e0e0e0; /* Subtle border */
 }
 
-.course-dashboard h2, .module-content h2, .module-content h3 {
-    font-size: 2rem; /* ~32px */
+.module-content h2, .course-dashboard h2 {
+    font-size: 2.2rem; /* Larger section titles */
     color: #2c3e50;
-    margin-bottom: 1.25rem; /* 20px */
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.625rem; /* 10px */
+    margin-bottom: 1.5rem; /* More space below title */
+    border-bottom: 3px solid #4CAF50; /* Vibrant green underline */
+    padding-bottom: 0.8rem;
+    font-weight: 700;
+    text-align: center; /* Center main headings for impact */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%; /* Limit width of underline */
+}
+.module-content h3 {
+    font-size: 1.8rem; /* Slightly larger sub-headings */
+    color: #34495e;
+    margin-top: 2rem; /* More space above */
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0; /* Lighter, more subtle border */
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+.module-content h4 {
+    font-size: 1.4rem;
+    color: #4CAF50; /* Green for sub-sub headings */
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
     font-weight: 600;
 }
 
-.module-content h3 {
-    font-size: 1.7rem; /* ~27px */
-    margin-top: 1.5rem;
+.module-content p {
     margin-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.module-content h4 {
-    font-size: 1.4rem; /* ~22px */
-    color: #34495e;
-    margin-top: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.course-dashboard p, .module-content p {
-    margin-bottom: 0.9375rem; /* 15px */
-    line-height: 1.7;
-    font-size: 1rem;
+    line-height: 1.8; /* Even more spacious line-height for readability */
+    font-size: 1.05rem; /* Slightly larger body text */
 }
 
 .module-content ul, .module-content ol {
-    margin-left: 1.5rem;
+    margin-left: 2rem; /* More indent */
     margin-bottom: 1rem;
-    list-style-type: disc; /* Default bullet for ul */
-}
-
-.module-content ol {
-    list-style-type: decimal; /* Default numbers for ol */
+    list-style-position: outside; /* Ensure bullets/numbers are outside content */
 }
 
 .module-content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
 }
+
+/* --- Welcome and Progress Section Specifics --- */
+.welcome-section, .progress-overview {
+    text-align: center; /* Center align text */
+    margin-bottom: 2.5rem;
+}
+.welcome-section p {
+    max-width: 80%; /* Constrain width for readability */
+    margin: 0.8rem auto; /* Center text */
+}
+.progress-overview p {
+    font-size: 1.1rem; /* Slightly larger instruction */
+    font-weight: 500;
+    color: #555;
+}
+
 
 /* --- Progress Bar Styling --- */
-.progress-overview {
-    margin-bottom: 2.5rem; /* 40px */
-}
-
 .progress-bar-container {
     background-color: #e0e0e0;
-    border-radius: 0.3125rem; /* 5px */
-    height: 1.5625rem; /* 25px */
+    border-radius: 50px; /* Fully rounded corners */
+    height: 30px; /* Taller bar */
     overflow: hidden;
-    margin-top: 0.9375rem; /* 15px */
+    margin-top: 1.5rem;
     position: relative;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15); /* More prominent inner shadow */
 }
 
 .progress-bar {
-    background-color: #27ae60; /* Green */
+    background: linear-gradient(to right, #4CAF50, #8bc34a); /* Green gradient */
     height: 100%;
-    width: 0%; /* Initial width, will be updated by JS */
-    border-radius: 0.3125rem; /* 5px */
-    transition: width 0.5s ease-in-out;
+    width: 0%;
+    border-radius: 50px;
+    transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .progress-text {
@@ -154,58 +204,62 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #2c3e50;
+    color: #2c3e50; /* Darker text for contrast */
     font-weight: bold;
-    font-size: 0.9rem;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+    font-size: 1.1rem; /* Larger text */
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.8); /* More visible shadow */
 }
 
 /* --- Level Cards Styling --- */
 .level-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); /* min 280px */
-    gap: 1.5625rem; /* 25px */
-    margin-top: 1.875rem; /* 30px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min card size */
+    gap: 1.875rem; /* 30px gap */
+    margin-top: 3rem; /* More space above cards */
 }
 
 .level-card {
-    background-color: #ecf0f1; /* Light background for cards */
-    padding: 1.5625rem; /* 25px */
-    border-radius: 0.5rem; /* 8px */
-    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* 0 2px 5px */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f8fbfd; /* Very light blue tint for cards */
+    padding: 1.8rem; /* More padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #e0e7ee; /* Subtle border */
 }
 
 .level-card:hover {
-    transform: translateY(-0.3125rem); /* -5px */
-    box-shadow: 0 0.375rem 0.9375rem rgba(0,0,0,0.15); /* 0 6px 15px */
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+    background-color: #ffffff; /* White on hover */
 }
 
 .level-card h3 {
-    font-size: 1.5rem; /* ~24px */
+    font-size: 1.6rem; /* Larger card title */
     color: #2c3e50;
-    margin-bottom: 0.625rem; /* 10px */
-    padding-bottom: 0; /* Override default h3 padding-bottom */
-    border-bottom: none; /* Override default h3 border-bottom */
+    margin-bottom: 0.8rem;
+    padding-bottom: 0;
+    border-bottom: none;
+    text-align: left; /* Ensure card titles are left-aligned */
 }
 
 .level-card h3 a {
-    font-weight: 600;
-    color: #2c3e50; /* Make the link color consistent with heading */
+    font-weight: 700;
+    color: #2c3e50;
     transition: color 0.3s ease;
 }
 
 .level-card h3 a:hover {
-    color: #2980b9; /* Change color on hover for link */
+    color: #4CAF50; /* Green on hover */
 }
 
 .level-card p {
-    font-size: 0.95rem; /* ~15px */
+    font-size: 0.95rem;
     color: #555;
     margin-bottom: 0;
+    line-height: 1.6;
 }
 
 /* --- Footer Styling --- */
@@ -213,97 +267,329 @@ body {
     background-color: #2c3e50;
     color: #ecf0f1;
     text-align: center;
-    padding: 1.25rem 0; /* 20px */
-    margin-top: auto; /* Push footer to the bottom */
-    font-size: 0.9rem;
+    padding: 1.5rem 0; /* More padding */
+    margin-top: 3rem; /* More space from content */
+    font-size: 0.95rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Shadow for footer */
 }
 
 /* --- General Input/Button Styling for Quizzes (Future Use) --- */
+.quiz-section {
+    background-color: #f8fbfd; /* Consistent light background for quizzes */
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #e0e7ee;
+    margin-top: 2.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.quiz-section h3 {
+    color: #4CAF50; /* Green for quiz headings */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #a8d5ed;
+    padding-bottom: 0.8rem;
+    text-align: center;
+}
+
+.quiz-section p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
 .quiz-section input[type="text"],
-.quiz-section textarea,
-.quiz-section select {
+.quiz-section select,
+.quiz-section textarea {
     width: 100%;
-    padding: 0.75rem; /* 12px */
-    margin-bottom: 1rem; /* 16px */
+    padding: 0.8rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 0.25rem; /* 4px */
+    border-radius: 5px;
     font-size: 1rem;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
-    transition: border-color 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.07);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .quiz-section input[type="text"]:focus,
-.quiz-section textarea:focus,
-.quiz-section select:focus {
-    border-color: #2980b9;
-    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+.quiz-section select:focus,
+.quiz-section textarea:focus {
+    border-color: #4CAF50; /* Green focus highlight */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
 .quiz-section button {
-    background-color: #2980b9;
+    background-color: #4CAF50; /* Vibrant green button */
     color: #fff;
-    padding: 0.75rem 1.25rem; /* 12px 20px */
-    border-radius: 0.25rem; /* 4px */
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .quiz-section button:hover {
-    background-color: #2471a3;
+    background-color: #45a049; /* Darker green on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+/* Feedback messages for quizzes */
+.feedback {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: block; /* Ensure it takes full width */
+}
+
+.feedback.correct {
+    background-color: #e6ffe6; /* Light green background */
+    color: #28a745; /* Dark green text */
+    border: 1px solid #28a745;
+}
+
+.feedback.incorrect {
+    background-color: #ffe6e6; /* Light red background */
+    color: #dc3545; /* Dark red text */
+    border: 1px solid #dc3545;
+}
+
+/* --- Navigation Buttons at Bottom of Modules --- */
+.navigation-buttons {
+    margin-top: 3rem; /* More space */
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee; /* Separator line */
+}
+
+.navigation-buttons .btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem; /* Larger buttons */
+    border-radius: 50px; /* Pill-shaped buttons */
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 0 0.8rem; /* More space between buttons */
+    text-transform: uppercase; /* Uppercase text for buttons */
+    letter-spacing: 0.03rem;
+}
+
+.navigation-buttons .btn-primary {
+    background-color: #4CAF50; /* Primary green */
+    color: white;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
+}
+
+.navigation-buttons .btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.navigation-buttons .btn-secondary {
+    background-color: #f0f4f8; /* Light background for secondary */
+    color: #34495e;
+    border: 1px solid #c2c9d2; /* Subtle border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.navigation-buttons .btn-secondary:hover {
+    background-color: #e0e7ee;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Lesson Section Specific Styles (for modules) --- */
+.lesson-section {
+    margin-bottom: 2rem; /* More space between sections */
+    padding: 1.5rem;
+    background-color: #fcfdfe; /* Very light, almost white background */
+    border-left: 6px solid #4CAF50; /* A vibrant green accent bar */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for sections */
+}
+
+.lesson-section h3 {
+    color: #2c3e50;
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee; /* Lighter border for sub-headings */
+    padding-bottom: 0.6rem;
+    text-align: left; /* Ensure lesson section headings are left-aligned */
+}
+
+.lesson-section h4 {
+    color: #34495e;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.lesson-section p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.lesson-section ul, .lesson-section ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+    padding: 0;
+}
+.lesson-section ol {
+    list-style-type: decimal;
+}
+
+.lesson-section li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Specific styling for alphabet list in Modul 0.1 */
+.lesson-section ul:has(li:first-child:not(:last-child)) li {
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 0.6rem;
+    color: #444;
+}
+
+/* Quiz Item Styling (for individual quiz containers) */
+.quiz-item {
+    background-color: #ffffff; /* White background for quiz items */
+    border: 1px solid #dcdfe3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem; /* Jarak antar item kuis */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.quiz-item p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+
 /* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .main-header h1 {
-        font-size: 2.2rem;
+        font-size: 3rem;
     }
     .main-header .tagline {
-        font-size: 1rem;
+        font-size: 1.2rem;
+    }
+    .main-nav ul {
+        justify-content: space-around;
+        padding: 0.6rem;
+    }
+    .main-nav li {
+        margin: 0 0.5rem;
+    }
+    .main-nav a {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+    .course-dashboard, .module-content {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 2rem;
+    }
+    .module-content h3 {
+        font-size: 1.6rem;
+    }
+    .module-content h4 {
+        font-size: 1.3rem;
+    }
+    .level-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 2rem 0;
+    }
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+    .main-header .tagline {
+        font-size: 1.1rem;
     }
     .main-nav ul {
         flex-direction: column;
         align-items: center;
     }
     .main-nav li {
-        margin: 0.3125rem 0; /* 5px 0 */
+        margin: 0.4rem 0;
     }
     .main-nav a {
-        padding: 0.625rem 1rem; /* 10px 16px */
+        padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
     .course-dashboard, .module-content {
-        padding: 1.25rem; /* 20px */
-        margin: 0.9375rem auto; /* 15px auto */
+        padding: 1rem;
+        margin: 1rem auto;
     }
     .course-dashboard h2, .module-content h2 {
         font-size: 1.8rem;
+        padding-bottom: 0.6rem;
     }
     .module-content h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     .module-content h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
-    .level-cards {
-        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    .lesson-section {
+        padding: 1rem;
+    }
+    .quiz-section {
+        padding: 1.5rem;
+    }
+    .navigation-buttons .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+        margin: 0 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .main-header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .main-header .tagline {
         font-size: 0.9rem;
     }
+    .main-nav a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.5rem;
+    }
+    .level-cards {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
     .level-card {
-        padding: 1.25rem; /* 20px */
+        padding: 1.25rem;
     }
     .level-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+    }
+    .quiz-section {
+        padding: 1rem;
+    }
+    .quiz-section input, .quiz-section select, .quiz-section button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
     }
 }
