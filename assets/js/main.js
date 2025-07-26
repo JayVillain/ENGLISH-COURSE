@@ -1,4 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const closeSidebarToggle = document.querySelector('.close-sidebar-toggle');
+    const body = document.body; // Kita akan menambahkan kelas ke body untuk mengontrol overlay
+    const overlay = document.querySelector('.overlay'); // Ambil elemen overlay
+
+    // --- Sidebar Toggle Functionality ---
+    const openSidebar = () => {
+        body.classList.add('sidebar-open');
+    };
+
+    const closeSidebar = () => {
+        body.classList.remove('sidebar-open');
+    };
+
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', openSidebar);
+    }
+
+    if (closeSidebarToggle) {
+        closeSidebarToggle.addEventListener('click', closeSidebar);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeSidebar); // Tutup sidebar saat overlay diklik
+    }
+
     // --- Highlight Active Nav Item Functionality ---
     const highlightActiveNavItem = () => {
         const currentPath = window.location.pathname;
@@ -8,17 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.remove('active'); // Hapus 'active' dari semua item
 
             let itemHref = item.getAttribute('href');
-            if (!itemHref || itemHref === '#') return; // Lewati link kosong atau placeholder
+            if (!itemHref || itemHref === '#' || itemHref === '') return; // Lewati link kosong atau placeholder
 
-            // Dapatkan path relatif dari item.href (misalnya: "/levels/level0-absolute-beginner/index.html")
+            // Dapatkan path relatif dari item.href
             const relativeItemPath = new URL(itemHref, window.location.origin).pathname;
 
             // Cek apakah currentPath cocok dengan itemHref atau merupakan bagian dari itu
-            // Ini menangani kasus:
-            // - index.html (root)
-            // - levelX/index.html
-            // - levelX/moduleY/index.html
-            if (currentPath === relativeItemPath || currentPath.startsWith(relativeItemPath) && relativeItemPath !== '/') {
+            // Gunakan endsWith untuk lebih fleksibel, atau perbandingan penuh jika path sangat spesifik
+            if (currentPath.endsWith(relativeItemPath) || (currentPath.endsWith('/') && relativeItemPath.endsWith('/index.html') && currentPath.slice(0, -1) === relativeItemPath.slice(0, -1))) {
                 item.classList.add('active');
 
                 // Jika item aktif adalah modul, pastikan level induknya juga aktif
@@ -35,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Panggil fungsi saat DOMContentLoaded dan setiap kali hash berubah (jika ada)
     highlightActiveNavItem();
     window.addEventListener('hashchange', highlightActiveNavItem);
 
