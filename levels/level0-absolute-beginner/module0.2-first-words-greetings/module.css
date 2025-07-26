@@ -1,0 +1,28 @@
+/*
+ * Module 0.2 Specific Styles
+ * Anda bisa menambahkan gaya khusus untuk modul ini di sini jika diperlukan.
+ * Jika tidak ada gaya khusus, file ini bisa kosong atau dihapus.
+ * Namun, disarankan tetap ada untuk konsistensi struktur.
+ */
+
+.lesson-section ul li {
+    margin-bottom: 8px; /* Sedikit spasi antar poin daftar */
+}
+
+.lesson-section ul ul li {
+    font-weight: normal; /* Untuk sub-daftar */
+    margin-bottom: 5px;
+}
+
+.quiz-item {
+    background-color: #f0f8ff; /* Warna latar belakang yang sedikit berbeda untuk setiap kuis */
+    border: 1px solid #cce7f0;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px; /* Jarak antar item kuis */
+}
+
+.quiz-item p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
