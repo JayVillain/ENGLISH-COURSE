@@ -71,6 +71,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative; /* Needed for absolute positioning of buttons */
+    padding-left: 100px; /* Space for left button */
+    padding-right: 100px; /* Space for right button */
 }
 
 .main-nav li {
@@ -100,6 +103,66 @@ body {
     cursor: default; /* No hover effect on active link */
     transform: none;
     box-shadow: none;
+    background-color: transparent; /* Override hover background for active */
+    color: #ecf0f1; /* Keep text color */
+    border-bottom: 2px solid #4CAF50; /* Add a subtle underline */
+    border-radius: 0;
+}
+.main-nav a.active:hover { /* Disable hover effect for active */
+    background-color: transparent;
+    color: #ecf0f1;
+}
+
+/* --- Adjustments for Nav Buttons (specific to module nav) --- */
+.main-nav .nav-button-left,
+.main-nav .nav-button-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0; /* Remove default list item margin */
+    display: flex; /* To center the link within the li */
+    align-items: center;
+    justify-content: center;
+}
+
+.main-nav .nav-button-left {
+    left: 1rem; /* Adjust as needed */
+}
+
+.main-nav .nav-button-right {
+    right: 1rem; /* Adjust as needed */
+}
+
+.main-nav .btn-nav {
+    padding: 0.6rem 1rem; /* Slightly smaller padding for nav buttons */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-nav .btn-nav.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.main-nav .btn-nav.btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.main-nav .btn-nav.btn-secondary {
+    background-color: #f0f4f8;
+    color: #34495e;
+    border: 1px solid #c2c9d2;
+}
+
+.main-nav .btn-nav.btn-secondary:hover {
+    background-color: #e0e7ee;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 
@@ -330,7 +393,7 @@ body {
 }
 
 .quiz-section button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
@@ -355,51 +418,6 @@ body {
     background-color: #ffe6e6; /* Light red background */
     color: #dc3545; /* Dark red text */
     border: 1px solid #dc3545;
-}
-
-/* --- Navigation Buttons at Bottom of Modules --- */
-.navigation-buttons {
-    margin-top: 3rem; /* More space */
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee; /* Separator line */
-}
-
-.navigation-buttons .btn {
-    display: inline-block;
-    padding: 0.8rem 1.8rem; /* Larger buttons */
-    border-radius: 50px; /* Pill-shaped buttons */
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    margin: 0 0.8rem; /* More space between buttons */
-    text-transform: uppercase; /* Uppercase text for buttons */
-    letter-spacing: 0.03rem;
-}
-
-.navigation-buttons .btn-primary {
-    background-color: #4CAF50; /* Primary green */
-    color: white;
-    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
-}
-
-.navigation-buttons .btn-primary:hover {
-    background-color: #45a049;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-}
-
-.navigation-buttons .btn-secondary {
-    background-color: #f0f4f8; /* Light background for secondary */
-    color: #34495e;
-    border: 1px solid #c2c9d2; /* Subtle border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.navigation-buttons .btn-secondary:hover {
-    background-color: #e0e7ee;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* --- Lesson Section Specific Styles (for modules) --- */
@@ -525,8 +543,10 @@ body {
     }
     .main-nav ul {
         flex-direction: column;
-        align-items: center;
+        padding-left: 0;
+        padding-right: 0;
     }
+
     .main-nav li {
         margin: 0.4rem 0;
     }
@@ -554,10 +574,28 @@ body {
     .quiz-section {
         padding: 1.5rem;
     }
-    .navigation-buttons .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
-        margin: 0 0.5rem;
+    .quiz-section input, .quiz-section select, .quiz-section button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    /* Adjust nav buttons for mobile */
+    .main-nav .nav-button-left,
+    .main-nav .nav-button-right {
+        position: static; /* Remove absolute positioning */
+        transform: none;
+        width: 100%; /* Take full width */
+        margin-top: 0.5rem; /* Add some margin */
+        order: 10; /* Push them to the bottom of the column */
+    }
+    .main-nav .nav-button-left { order: 11; } /* Specific order for visual flow */
+    .main-nav .nav-button-right { order: 12; }
+
+    .main-nav .btn-nav {
+        display: block; /* Make buttons block level */
+        width: calc(100% - 2rem); /* Account for padding */
+        margin: 0.5rem auto; /* Center them */
+        text-align: center;
     }
 }
 
