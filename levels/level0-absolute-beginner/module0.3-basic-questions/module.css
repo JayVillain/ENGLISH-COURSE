@@ -1,0 +1,33 @@
+/*
+ * Module 0.3 Specific Styles
+ * Menggunakan gaya dari style.css dan modul sebelumnya untuk konsistensi.
+ * Tambahkan gaya spesifik di sini jika ada elemen unik yang memerlukan penyesuaian.
+ */
+
+.lesson-section ul li {
+    margin-bottom: 8px; /* Sedikit spasi antar poin daftar */
+}
+
+.lesson-section ul ul li {
+    font-weight: normal; /* Untuk sub-daftar */
+    margin-bottom: 5px;
+}
+
+.quiz-item {
+    background-color: #f0f8ff; /* Warna latar belakang yang sedikit berbeda untuk setiap kuis */
+    border: 1px solid #cce7f0;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px; /* Jarak antar item kuis */
+}
+
+.quiz-item p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Penyesuaian untuk input kuis agar seragam */
+.quiz-section input[type="text"] {
+    width: 100%; /* Pastikan input mengambil lebar penuh */
+    box-sizing: border-box; /* Pastikan padding termasuk dalam lebar */
+}
