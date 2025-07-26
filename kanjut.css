@@ -1,68 +1,118 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     overflow-x: hidden; /* Mencegah scrollbar horizontal yang tidak diinginkan */
-    background-color: #f4f4f4;
+    background-color: #f0f2f5; /* Warna latar belakang yang lebih modern */
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Gaya untuk Tombol Toggle */
 .toggle-btn {
-    position: fixed; /* Membuat tombol tetap di posisi saat di-scroll */
+    position: fixed;
     top: 20px;
     left: 20px;
-    padding: 10px 15px;
+    padding: 12px 18px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Lebih halus */
     cursor: pointer;
-    z-index: 1001; /* Pastikan tombol di atas elemen lain */
+    z-index: 1002; /* Pastikan tombol di atas overlay dan sidebar */
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    display: flex; /* Untuk ikon dan teks sejajar */
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .toggle-btn:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Gaya untuk Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna semi-transparan */
+    z-index: 999; /* Di bawah sidebar, di atas konten */
+    display: none; /* Awalnya tersembunyi */
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 /* Gaya untuk Sidebar */
 .sidebar {
-    height: 100%; /* Sidebar akan mengisi seluruh tinggi viewport */
+    height: 100%;
     width: 0; /* Awalnya lebar 0 (tersembunyi) */
-    position: fixed; /* Tetap di posisi yang sama saat di-scroll */
-    z-index: 1000; /* Pastikan sidebar di atas konten utama */
+    position: fixed;
+    z-index: 1001; /* Di atas overlay, di bawah tombol toggle */
     top: 0;
     left: 0;
-    background-color: #333;
-    overflow-x: hidden; /* Sembunyikan konten yang meluap secara horizontal */
-    transition: 0.5s; /* Efek transisi saat membuka/menutup */
-    padding-top: 60px; /* Ruang untuk konten di dalam sidebar */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    background-color: #2c3e50; /* Warna gelap yang elegan */
+    overflow-x: hidden;
+    transition: 0.5s ease; /* Efek transisi yang lebih halus */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.4);
+    display: flex; /* Untuk tata letak header, menu, footer */
+    flex-direction: column;
 }
 
-.sidebar h2 {
+.sidebar-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     text-align: center;
-    margin-bottom: 30px;
 }
 
-.sidebar ul {
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.sidebar-menu {
     list-style: none;
-    padding: 0;
+    padding: 20px 0;
+    flex-grow: 1; /* Agar menu mengisi ruang yang tersedia */
 }
 
-.sidebar ul li a {
+.sidebar-menu li a {
     padding: 15px 25px;
     text-decoration: none;
-    font-size: 18px;
-    color: #818181;
-    display: block; /* Agar link mengisi seluruh lebar */
-    transition: 0.3s;
+    font-size: 17px;
+    color: #aebacd; /* Warna teks menu */
+    display: flex; /* Untuk ikon dan teks sejajar */
+    align-items: center;
+    gap: 15px; /* Jarak antara ikon dan teks */
+    transition: 0.3s ease;
 }
 
-.sidebar ul li a:hover {
-    color: #f1f1f1;
-    background-color: #575757;
+.sidebar-menu li a:hover {
+    color: white;
+    background-color: #34495e; /* Warna hover */
+    padding-left: 30px; /* Efek sedikit geser saat hover */
+}
+
+.sidebar-menu li a i {
+    font-size: 20px;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aebacd;
+    font-size: 14px;
+    text-align: center;
 }
 
 /* Tombol Tutup di dalam Sidebar */
@@ -70,27 +120,160 @@ body {
     position: absolute;
     top: 15px;
     right: 25px;
-    font-size: 30px;
-    color: #818181;
+    font-size: 28px;
+    color: #aebacd;
     background: none;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    padding: 5px; /* Area klik lebih besar */
 }
 
 .sidebar .close-btn:hover {
-    color: #f1f1f1;
+    color: white;
+    transform: rotate(90deg); /* Efek putar saat hover */
 }
 
 /* Gaya untuk Konten Utama */
 .main-content {
-    margin-left: 0; /* Awalnya tidak ada margin */
+    margin-left: 0;
     padding: 20px;
-    transition: margin-left 0.5s; /* Efek transisi saat margin berubah */
+    transition: margin-left 0.5s ease;
+    max-width: 1000px; /* Batasi lebar konten */
+    margin-right: auto; /* Pusatkan konten */
+    margin-left: auto; /* Pusatkan konten */
 }
 
-/* Media Queries untuk Responsif (opsional tapi disarankan) */
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar ul li a {font-size: 16px;}
+.page-header {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.page-header h1 {
+    font-size: 3em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.articles-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif grid */
+    gap: 30px; /* Jarak antar artikel */
+}
+
+.article-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden; /* Pastikan gambar tidak meluap */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar tetap */
+    object-fit: cover; /* Pastikan gambar mengisi ruang tanpa distorsi */
+    display: block;
+}
+
+.article-card h2 {
+    font-size: 1.8em;
+    color: #34495e;
+    padding: 15px 20px 0;
+    margin-bottom: 5px;
+}
+
+.article-meta {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.article-card p {
+    font-size: 1em;
+    color: #555;
+    padding: 0 20px 15px;
+}
+
+.read-more {
+    display: block;
+    text-align: right;
+    padding: 0 20px 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.read-more i {
+    margin-left: 5px;
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    color: #777;
+}
+
+/* Media Queries untuk Responsif */
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .sidebar {
+        width: 0; /* Pastikan di mobile awalnya 0 */
+    }
+    .sidebar.open { /* Class baru untuk mobile */
+        width: 280px;
+    }
+
+    .main-content {
+        margin-left: 0; /* Di mobile, konten utama tidak bergeser */
+    }
+
+    .page-header h1 {
+        font-size: 2.2em;
+    }
+
+    .articles-section {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+}
+
+/* Penyesuaian saat sidebar terbuka */
+.main-content.sidebar-open {
+    margin-left: 250px; /* Geser konten hanya di layar besar */
+}
+
+/* Menjaga tombol toggle tetap di posisi aslinya di desktop saat sidebar terbuka */
+.toggle-btn.sidebar-open-btn {
+    left: 270px; /* Geser tombol ke kanan */
 }
