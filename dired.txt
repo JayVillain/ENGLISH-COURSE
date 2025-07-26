@@ -1,0 +1,260 @@
+english-mastery-course/
+├── README.md                                   # Deskripsi Proyek: Panduan & Informasi Kursus
+├── index.html                                  # Halaman Utama Kursus: Dashboard & Navigasi Level
+├── assets/
+│   ├── css/
+│   │   ├── style.css                           # Gaya Umum Kursus: Desain Global & Responsivitas
+│   │   └── reset.css                           # Reset CSS: Konsistensi Tampilan Lintas Browser
+│   ├── js/
+│   │   ├── main.js                             # Skrip Utama: Logika Aplikasi & Pelacakan Progres
+│   │   └── utils.js                            # Skrip Utilitas: Fungsi Pembantu & Reusable
+│   └── fonts/                                  # Koleksi Font Kustom (Opsional)
+│       └── <nama-font>.ttf/woff/woff2
+│
+├── levels/
+│   ├── level0-absolute-beginner/               # Level 0: Absolute Beginner (Pre-A1)
+│   │   ├── index.html                          # Pengantar Level 0: Memulai dari Nol Mutlak
+│   │   ├── module0.1-intro-to-english-sounds/  # Modul 0.1: Pengantar & Mengenal Bunyi Bahasa Inggris
+│   │   │   ├── index.html                      # Konten: Mengapa Belajar, Alfabet, Bunyi Dasar
+│   │   │   ├── module.css                      # Gaya Modul 0.1
+│   │   │   └── module.js                       # Logika Interaktif Modul 0.1
+│   │   ├── module0.2-first-words-greetings/    # Modul 0.2: Kata-kata Pertama & Sapaan
+│   │   │   ├── index.html                      # Konten: Salam, Ungkapan Sopan, Angka 1-10
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module0.3-basic-questions/          # Modul 0.3: Pertanyaan & Respons Paling Sederhana
+│   │       ├── index.html                      # Konten: "What is this?", "It is a..."
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   ├── level1-building-blocks/                 # Level 1: Building Blocks (A1)
+│   │   ├── index.html                          # Pengantar Level 1: Membangun Fondasi Kokoh
+│   │   ├── module1.1-the-verb-to-be/           # Modul 1.1: Saya Adalah, Kamu Adalah (The Verb 'To Be')
+│   │   │   ├── index.html                      # Konten: Subjek Pronouns, Konjugasi 'To Be', Kalimat (+/-/?), Jawaban Singkat
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module1.2-introducing-self-others/  # Modul 1.2: Mengenali & Memperkenalkan Diri/Orang Lain
+│   │   │   ├── index.html                      # Konten: Informasi Pribadi, Profesi, Keluarga
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module1.3-nouns-articles/           # Modul 1.3: Kata Benda & Kata Sandang (Nouns & Articles)
+│   │   │   ├── index.html                      # Konten: Common/Proper Nouns, Singular/Plural, A/An/The
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module1.4-describing-things-adjectives-colors/ # Modul 1.4: Mendeskripsikan Sesuatu (Adjectives & Colors)
+│   │   │   ├── index.html                      # Konten: Adjectives Dasar, Warna, Posisi Adjectives
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module1.5-numbers-11-100-age/       # Modul 1.5: Angka (11-100) & Umur
+│   │   │   ├── index.html                      # Konten: Angka Puluhan, Menanyakan/Menyatakan Umur
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module1.6-where-things-are-prepositions/ # Modul 1.6: Di Mana Lokasi (Prepositions of Place)
+│   │       ├── index.html                      # Konten: In/On/At/Under, There is/There are
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   ├── level2-expanding-communication/         # Level 2: Expanding Communication (A2)
+│   │   ├── index.html                          # Pengantar Level 2: Berkomunikasi Sehari-hari
+│   │   ├── module2.1-daily-routines-present-simple/ # Modul 2.1: Rutinitas Harian (Present Simple Tense)
+│   │   │   ├── index.html                      # Konten: Kata Kerja Aksi Umum, Aturan -s/-es, Do/Does
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module2.2-talking-about-yesterday-regular-verbs/ # Modul 2.2: Berbicara Tentang Kemarin (Past Simple - Regular Verbs)
+│   │   │   ├── index.html                      # Konten: Bentuk -ed, Pelafalan -ed, Did
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module2.3-irregular-past-simple-verbs/ # Modul 2.3: Masa Lalu Tak Beraturan (Past Simple - Irregular Verbs)
+│   │   │   ├── index.html                      # Konten: Daftar Esensial Verb 1 & Verb 2 Irregular
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module2.4-planning-ahead-future-simple/ # Modul 2.4: Merencanakan Masa Depan (Future Simple - Will & Be Going To)
+│   │   │   ├── index.html                      # Konten: Penggunaan & Nuansa Will vs Be Going To
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module2.5-more-or-less-comparatives-superlatives/ # Modul 2.5: Lebih atau Kurang (Comparatives & Superlatives)
+│   │   │   ├── index.html                      # Konten: Bentuk -er/-est, More/Most, Irregular Forms
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module2.6-quantities-measures/      # Modul 2.6: Kuantitas dan Ukuran (Quantifiers)
+│   │   │   ├── index.html                      # Konten: Countable/Uncountable, Some/Any/Much/Many
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module2.7-possession-adjectives-nouns/ # Modul 2.7: Kepemilikan (Possessive Adjectives & Nouns)
+│   │       ├── index.html                      # Konten: My/Your/His, Apostrof 's
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   ├── level3-building-fluency/                # Level 3: Building Fluency (B1)
+│   │   ├── index.html                          # Pengantar Level 3: Meningkatkan Kefasihan Berkomunikasi
+│   │   ├── module3.1-experiences-duration-present-perfect/ # Modul 3.1: Pengalaman & Durasi (Present Perfect Simple)
+│   │   │   ├── index.html                      # Konten: Present Perfect untuk Pengalaman, For/Since
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.2-ongoing-actions-continuous-tenses/ # Modul 3.2: Sedang Berlangsung (Present & Past Continuous)
+│   │   │   ├── index.html                      # Konten: Present Continuous, Past Continuous, Kombinasi Tenses
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.3-possibility-probability-modal-verbs/ # Modul 3.3: Kemungkinan & Probabilitas (Modal Verbs: Can, Could, May, Might)
+│   │   │   ├── index.html                      # Konten: Kemampuan, Izin, Kemungkinan
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.4-advice-obligation-modal-verbs/ # Modul 3.4: Memberi Nasihat & Kewajiban (Modal Verbs: Should, Must, Have To)
+│   │   │   ├── index.html                      # Konten: Nasihat, Keharusan, Perbedaan Must/Have To
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.5-if-then-conditional-type-1/ # Modul 3.5: Jika...Maka... (Conditional Sentences Type 1)
+│   │   │   ├── index.html                      # Konten: Real Conditionals, When/As Soon As/Unless
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.6-basic-reported-speech/    # Modul 3.6: Melaporkan Percakapan (Reported Speech) - Dasar
+│   │   │   ├── index.html                      # Konten: Aturan Dasar Pernyataan, Say/Tell
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module3.7-expressing-opinions-agreement/ # Modul 3.7: Ekspresi Opini & Persetujuan/Ketidaksetujuan
+│   │   │   ├── index.html                      # Konten: Frasa Opini, Agree/Disagree
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module3.8-basic-conjunctions/       # Modul 3.8: Menggunakan Kata Penghubung Dasar (Conjunctions)
+│   │       ├── index.html                      # Konten: FANBOYS (For, And, Nor, But, Or, Yet, So)
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   ├── level4-complex-ideas/                   # Level 4: Complex Ideas (B2)
+│   │   ├── index.html                          # Pengantar Level 4: Memahami & Menyusun Gagasan Kompleks
+│   │   ├── module4.1-advanced-tense-nuances/   # Modul 4.1: Penggunaan Tenses Lanjutan & Perbedaan Nuansa
+│   │   │   ├── index.html                      # Konten: Perbedaan Nuansa Antar Tenses (misal: Present Perfect vs Past Simple)
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.2-the-passive-voice/        # Modul 4.2: Kata Kerja Pasif (The Passive Voice)
+│   │   │   ├── index.html                      # Konten: Pembentukan Passive Voice, Kapan Menggunakannya
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.3-relative-clauses/         # Modul 4.3: Kalimat Relatif (Relative Clauses)
+│   │   │   ├── index.html                      # Konten: Relative Pronouns (Who, Which, That), Defining/Non-Defining
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.4-hypothetical-conditional-type-2/ # Modul 4.4: Hipotetis & Tidak Nyata (Conditional Sentences Type 2)
+│   │   │   ├── index.html                      # Konten: Unreal Conditionals, "If I were you..."
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.5-essential-phrasal-verbs/  # Modul 4.5: Kata Kerja Frasa (Phrasal Verbs) - Yang Esensial
+│   │   │   ├── index.html                      # Konten: Daftar Phrasal Verbs Umum, Separable/Inseparable
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.6-advanced-reported-speech/ # Modul 4.6: Melaporkan Percakapan Lanjutan (Reported Speech)
+│   │   │   ├── index.html                      # Konten: Melaporkan Pertanyaan & Perintah, Perubahan Detail
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module4.7-gerunds-infinitives/      # Modul 4.7: Frasa Gerund & Infinitif
+│   │   │   ├── index.html                      # Konten: Penggunaan Gerunds/Infinitives, Perbedaan Makna
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module4.8-advanced-conjunctions-adverbials/ # Modul 4.8: Menghubungkan Pikiran (Advanced Conjunctions & Adverbials)
+│   │       ├── index.html                      # Konten: Kata Penghubung untuk Penambahan, Kontras, Sebab Akibat
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   ├── level5-mastering-nuance/                # Level 5: Mastering Nuance (C1)
+│   │   ├── index.html                          # Pengantar Level 5: Menguasai Kehalusan Bahasa Inggris
+│   │   ├── module5.1-perfect-continuous-aspects/ # Modul 5.1: Aspek Perfect Berkelanjutan (Present & Past Perfect Continuous)
+│   │   │   ├── index.html                      # Konten: Penggunaan dan Perbedaan dari Simple Perfect
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.2-deeper-conditionals-mixed/ # Modul 5.2: Hipotetis yang Lebih Dalam (Conditional Sentences Type 3 & Mixed)
+│   │   │   ├── index.html                      # Konten: Past Unreal Conditionals, Kombinasi Waktu
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.3-advanced-modal-verbs/     # Modul 5.3: Kata Kerja Modal Tingkat Lanjut
+│   │   │   ├── index.html                      # Konten: Spekulasi Masa Lalu, Kritik/Penyesalan, Modal Pasif
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.4-inversion/                # Modul 5.4: Inversi (Inversion)
+│   │   │   ├── index.html                      # Konten: Inversi dengan Adverbia Negatif & Kondisional
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.5-advanced-collocations-idioms/ # Modul 5.5: Kosakata Tingkat Lanjut - Kolokasi & Idiom
+│   │   │   ├── index.html                      # Konten: Kolokasi Kunci, Idiom Umum & Konteks
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.6-register-formal-vs-informal/ # Modul 5.6: Register (Formal vs. Informal Language)
+│   │   │   ├── index.html                      # Konten: Perbedaan Gaya Bahasa, Kapan Menggunakan
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.7-advanced-passive-voice/   # Modul 5.7: Suara Pasif Tingkat Lanjut
+│   │   │   ├── index.html                      # Konten: Passive Voice di Tenses Kompleks, Impersonal Passive
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.8-deeper-phrasal-verb-concepts/ # Modul 5.8: Konsep Kata Kerja Phrasal yang Lebih Dalam
+│   │   │   ├── index.html                      # Konten: Transitive/Intransitive, Tiga Bagian, Penggunaan Metaforis
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   ├── module5.9-word-derivation-families/ # Modul 5.9: Derivasi Kata & Keluarga Kata
+│   │   │   ├── index.html                      # Konten: Prefixes/Suffixes, Membangun Kosakata
+│   │   │   ├── module.css
+│   │   │   └── module.js
+│   │   └── module5.10-advanced-article-usage/  # Modul 5.10: Variasi Penggunaan Articles Tingkat Lanjut
+│   │       ├── index.html                      # Konten: Aturan Kompleks, Pengecualian, Zero Article
+│   │       ├── module.css
+│   │       └── module.js
+│   │
+│   └── level6-expert-command/                  # Level 6: Expert Command (C2)
+│       ├── index.html                          # Pengantar Level 6: Penguasaan Bahasa Inggris Penuh
+│       ├── module6.1-highly-complex-sentence-structures/ # Modul 6.1: Struktur Kalimat Sangat Kompleks
+│       │   ├── index.html                      # Konten: Cleft Sentences, Appositives, Participial Clauses, Absolute Phrases
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.2-advanced-vocabulary-nuance/ # Modul 6.2: Kosakata Tingkat Ahli & Nuansa Makna
+│       │   ├── index.html                      # Konten: Bahasa Figuratif, Subtlety in Word Choice, Kosakata Akademik
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.3-cohesion-coherence-writing/ # Modul 6.3: Kohesi & Koherensi Tingkat Lanjut dalam Penulisan
+│       │   ├── index.html                      # Konten: Advanced Linking Devices, Paragraph Unity, Essay Structure
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.4-style-tone/               # Modul 6.4: Gaya & Nada (Style & Tone)
+│       │   ├── index.html                      # Konten: Menyesuaikan Gaya, Menganalisis Nada, Menulis Efektif
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.5-advanced-punctuation/     # Modul 6.5: Punctuation (Tanda Baca) Tingkat Lanjut
+│       │   ├── index.html                      # Konten: Koma, Semicolon, Kolon, Hyphen, Dash
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.6-critical-text-analysis/   # Modul 6.6: Keterampilan Analisis Teks Kritis
+│       │   ├── index.html                      # Konten: Subtext, Implikasi, Bias, Retorika, Meringkas/Memparafrase
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.7-grammatical-consistency-parallelism/ # Modul 6.7: Konsistensi Gramatikal & Paralelisme
+│       │   ├── index.html                      # Konten: Konsistensi Tata Bahasa, Prinsip Paralelisme
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.8-diction-connotation/      # Modul 6.8: Pilihan Kata (Diction) & Konotasi
+│       │   ├── index.html                      # Konten: Denotation vs Connotation, Memilih Kata Tepat
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.9-humor-irony-sarcasm-in-text/ # Modul 6.9: Humor, Ironi, & Sarkasme dalam Teks
+│       │   ├── index.html                      # Konten: Bagaimana Disampaikan dalam Tulisan, Analisis Contoh
+│       │   ├── module.css
+│       │   └── module.js
+│       ├── module6.10-rhetorical-analysis/     # Modul 6.10: Analisis Retorika (Teks)
+│       │   ├── index.html                      # Konten: Teknik Persuasi, Argumen Utama, Bukti Pendukung
+│       │   ├── module.css
+│       │   └── module.js
+│       └── module6.11-american-vs-british-english/ # Modul 6.11: Perbedaan Bahasa Inggris Amerika vs. Inggris (Hanya Teks)
+│           ├── index.html                      # Konten: Perbedaan Ejaan, Kosakata, Tata Bahasa Minor
+│           ├── module.css
+│           └── module.js
+│
+└── data/                                       # Data Statis Terstruktur (JSON)
+    ├── vocabulary/                             # Kosakata per Level/Modul
+    │   ├── level0-vocab.json
+    │   ├── level1-vocab.json
+    │   └── ... (hingga level 6)
+    ├── quizzes/                                # Data Kuis per Level/Modul
+    │   ├── level0-quizzes.json
+    │   ├── level1-quizzes.json
+    │   └── ... (hingga level 6)
+    └── grammar-rules/                          # Aturan Tata Bahasa Kompleks (Opsional, untuk referensi terpusat)
+        ├── tense-rules.json
+        ├── modal-rules.json
+        └── ... (sesuai kebutuhan)
