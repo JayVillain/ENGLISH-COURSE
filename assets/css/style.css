@@ -18,7 +18,7 @@ body {
 
 /* Add a global transition for smoother changes */
 * {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
 }
 
 /* --- Header Styling (remains above the app container) --- */
@@ -31,6 +31,7 @@ body {
     border-bottom-left-radius: 10px; /* Rounded corners for a softer look */
     border-bottom-right-radius: 10px;
     margin-bottom: 2rem; /* Space below header */
+    position: relative; /* For positioning the toggle button */
 }
 
 .main-header h1 {
@@ -45,6 +46,28 @@ body {
     font-size: 1.3rem; /* Larger tagline */
     opacity: 0.95;
     font-weight: 300; /* Lighter font weight */
+}
+
+/* --- Sidebar Toggle Button --- */
+.sidebar-toggle {
+    position: absolute;
+    left: 20px; /* Position it on the left */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    font-size: 1.8rem; /* Larger icon */
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 1001; /* Ensure it's above other elements if needed */
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #4CAF50;
 }
 
 /* --- App Container (Main Layout for Side Nav and Content) --- */
@@ -72,6 +95,7 @@ body {
     box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Shadow for separation */
     overflow-y: auto; /* Allow scrolling for long navigation lists */
     flex-shrink: 0; /* Prevent side-nav from shrinking if content is too wide */
+    transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out; /* Smooth transition for width */
 }
 
 .side-nav .nav-header {
@@ -80,6 +104,7 @@ body {
     padding: 0 1.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.08); /* Lighter, subtle border */
     padding-bottom: 1rem;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .side-nav .nav-header h3 {
@@ -109,15 +134,11 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease, padding 0.3s ease;
     border-left: 5px solid transparent; /* Left border for active/hover state */
 }
 
 /* --- Ikon Styling (Kunci Perbaikan Tampilan) --- */
-/* Penting: Untuk ikon sebenarnya seperti di gambar, Anda perlu mengintegrasikan Font Awesome.
-   Tambahkan baris berikut di <head> semua file HTML Anda:
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-*/
 .nav-item::before {
     font-family: "Font Awesome 5 Free"; /* Font family untuk Font Awesome */
     font-weight: 900; /* Untuk ikon Solid (fas) */
@@ -126,6 +147,7 @@ body {
     font-size: 1.1em; /* Ukuran ikon relatif terhadap teks */
     width: 1.2em; /* Memastikan lebar ikon konsisten untuk perataan */
     text-align: center; /* Memusatkan ikon dalam lebarnya */
+    transition: margin-right 0.3s ease, opacity 0.3s ease;
 }
 
 /* Kode Ikon Spesifik (Setelah Font Awesome terintegrasi) */
@@ -163,6 +185,7 @@ body {
     margin-top: 0.5rem;
     padding-left: 0.8rem; /* Space for the subtle border */
     border-left: 2px solid rgba(255,255,255,0.05); /* Very subtle separator for module groups */
+    transition: opacity 0.3s ease-in-out;
 }
 
 .side-nav .module-list li {
@@ -225,6 +248,7 @@ body {
     text-align: center;
     font-size: 0.9rem;
     color: #aeb6bf; /* Slightly darker grey for footer text */
+    transition: opacity 0.3s ease-in-out;
 }
 
 
@@ -236,9 +260,39 @@ body {
     overflow-y: auto; /* Allow content scrolling within this area if needed */
 }
 
-/* --- Adjustments for main-header on app-container layout --- */
-/* The main-header is outside app-container, so it always spans full width */
-/* No specific adjustments here, as it retains its original global styling */
+/* --- Collapsed Sidebar Styles (KUNCI UTAMA) --- */
+/* Class 'collapsed' akan ditambahkan ke body atau app-container oleh JavaScript */
+.app-container.collapsed .side-nav {
+    width: 80px; /* Lebar sidebar saat tertutup, hanya cukup untuk ikon */
+    min-width: 80px; /* Pastikan tidak menyusut lebih kecil */
+    padding: 1.5rem 0; /* Sesuaikan padding jika perlu */
+}
+
+.app-container.collapsed .side-nav .nav-header,
+.app-container.collapsed .side-nav .nav-footer,
+.app-container.collapsed .side-nav .module-list {
+    opacity: 0; /* Sembunyikan teks dan footer */
+    pointer-events: none; /* Nonaktifkan interaksi mouse */
+}
+
+.app-container.collapsed .side-nav .nav-item {
+    padding: 0.9rem 0; /* Padding lebih kecil saat collapsed */
+    justify-content: center; /* Pusatkan ikon */
+}
+
+.app-container.collapsed .side-nav .nav-item::before {
+    margin-right: 0; /* Hapus margin kanan ikon */
+}
+
+.app-container.collapsed .side-nav .nav-item span { /* Jika ada span untuk teks */
+    display: none; /* Sembunyikan teks */
+}
+
+/* Pastikan konten utama menyesuaikan diri saat sidebar collapsed */
+.app-container.collapsed .main-content-area {
+    margin-left: 0; /* Pastikan tidak ada margin tambahan */
+    width: auto; /* Biarkan flexbox menyesuaikan lebar */
+}
 
 
 .module-content h2, .course-dashboard h2 {
@@ -563,6 +617,10 @@ body {
         border-radius: 0;
         margin-bottom: 0; /* Remove margin below header */
     }
+    .sidebar-toggle {
+        left: 15px; /* Adjust position for smaller screens */
+        font-size: 1.5rem;
+    }
 
     .app-container {
         flex-direction: column; /* Stack sidebar and content */
@@ -654,6 +712,31 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1rem;
     }
+
+    /* Collapsed state on mobile: no change, as sidebar is already full width/hidden */
+    .app-container.collapsed .sidebar-toggle {
+        left: 15px; /* Keep toggle button visible */
+    }
+    .app-container.collapsed .side-nav {
+        width: 100%; /* Always full width on mobile */
+        min-width: unset;
+    }
+    .app-container.collapsed .side-nav .nav-header,
+    .app-container.collapsed .side-nav .nav-footer,
+    .app-container.collapsed .side-nav .module-list {
+        opacity: 1; /* Ensure visible on mobile */
+        pointer-events: auto;
+    }
+    .app-container.collapsed .side-nav .nav-item {
+        padding: 0.5rem 0.8rem; /* Restore normal mobile padding */
+        justify-content: center;
+    }
+    .app-container.collapsed .side-nav .nav-item::before {
+        margin-right: 0.5rem; /* Restore normal mobile icon margin */
+    }
+    .app-container.collapsed .side-nav .nav-item span {
+        display: inline; /* Ensure text is visible */
+    }
 }
 
 @media (max-width: 768px) {
@@ -665,6 +748,9 @@ body {
     }
     .main-header .tagline {
         font-size: 1rem;
+    }
+    .sidebar-toggle {
+        font-size: 1.3rem;
     }
     .side-nav .level-list > li {
         margin: 0.3rem 0.5rem;
@@ -709,6 +795,10 @@ body {
     }
     .main-header .tagline {
         font-size: 0.8rem;
+    }
+    .sidebar-toggle {
+        left: 10px;
+        font-size: 1.2rem;
     }
     .side-nav .nav-header h3 {
         font-size: 1.2rem;
