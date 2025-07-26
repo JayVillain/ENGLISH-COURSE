@@ -18,7 +18,7 @@ body {
 
 /* Add a global transition for smoother changes */
 * {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, width 0.3s ease-in-out, margin-left 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* --- Header Styling (remains above the app container) --- */
@@ -131,7 +131,7 @@ body {
     color: #ecf0f1;
     font-weight: 500;
     font-size: 1.05rem; /* Larger font size */
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis;
     transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease, padding 0.3s ease;
@@ -139,9 +139,7 @@ body {
 }
 
 /* --- Ikon Styling (Kunci Perbaikan Tampilan) --- */
-.nav-item::before {
-    font-family: "Font Awesome 5 Free"; /* Font family untuk Font Awesome */
-    font-weight: 900; /* Untuk ikon Solid (fas) */
+.nav-item i { /* Target the <i> element directly for Font Awesome icons */
     margin-right: 0.8rem; /* Ruang antara ikon dan teks */
     color: rgba(255,255,255,0.7); /* Warna ikon standar */
     font-size: 1.1em; /* Ukuran ikon relatif terhadap teks */
@@ -149,12 +147,6 @@ body {
     text-align: center; /* Memusatkan ikon dalam lebarnya */
     transition: margin-right 0.3s ease, opacity 0.3s ease;
 }
-
-/* Kode Ikon Spesifik (Setelah Font Awesome terintegrasi) */
-.nav-item.icon-dashboard::before { content: "\f009"; } /* Icon: squares/dashboard */
-.nav-item.icon-level::before    { content: "\f02d"; } /* Icon: book/levels */
-.nav-item.icon-module::before   { content: "\f101"; } /* Icon: arrow-circle-right/module */
-
 
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
     background-color: #3e5060; /* Slightly lighter background on hover */
@@ -174,7 +166,7 @@ body {
     background-color: #4CAF50;
     color: #fff;
 }
-.side-nav .nav-item.active::before { /* Active icon color */
+.side-nav .nav-item.active i { /* Active icon color */
     color: #fff;
 }
 
@@ -197,8 +189,8 @@ body {
     font-size: 0.95rem; /* Slightly smaller font for modules */
     font-weight: 400;
 }
-.side-nav .module-list .nav-item::before {
-    content: "\f101"; /* Default module icon (arrow-circle-right) */
+.side-nav .module-list .nav-item i {
+    /* Use a simple dash or dot for sub-modules if not using icon font */
     font-family: "Font Awesome 5 Free"; /* Ensure FontAwesome is used */
     font-weight: 900; /* Solid icon */
     font-size: 0.9em; /* Smaller relative to parent nav-item */
@@ -220,7 +212,7 @@ body {
 .side-nav .module-list .nav-item.active:hover {
     background-color: #55728a;
 }
-.side-nav .module-list .nav-item.active::before {
+.side-nav .module-list .nav-item.active i {
     color: #ecf0f1;
 }
 
@@ -237,7 +229,7 @@ body {
     transform: none;
     box-shadow: none;
 }
-.side-nav .nav-item.disabled::before {
+.side-nav .nav-item.disabled i {
     color: rgba(255,255,255,0.3);
 }
 
@@ -258,9 +250,10 @@ body {
     padding: 2rem; /* Consistent padding */
     background-color: #ffffff;
     overflow-y: auto; /* Allow content scrolling within this area if needed */
+    transition: margin-left 0.3s ease-in-out; /* Smooth transition for content shift */
 }
 
-/* --- Collapsed Sidebar Styles (KUNCI UTAMA) --- */
+/* --- Collapsed Sidebar Styles (KUNCI UTAMA UNTUK MENGECILKAN) --- */
 /* Class 'collapsed' akan ditambahkan ke body atau app-container oleh JavaScript */
 .app-container.collapsed .side-nav {
     width: 80px; /* Lebar sidebar saat tertutup, hanya cukup untuk ikon */
@@ -270,9 +263,13 @@ body {
 
 .app-container.collapsed .side-nav .nav-header,
 .app-container.collapsed .side-nav .nav-footer,
-.app-container.collapsed .side-nav .module-list {
+.app-container.collapsed .side-nav .module-list,
+.app-container.collapsed .side-nav .nav-item span { /* Target span for text */
     opacity: 0; /* Sembunyikan teks dan footer */
     pointer-events: none; /* Nonaktifkan interaksi mouse */
+    width: 0; /* Sembunyikan teks dengan lebar 0 */
+    overflow: hidden; /* Pastikan teks terpotong */
+    margin-left: -100%; /* Geser teks keluar dari pandangan */
 }
 
 .app-container.collapsed .side-nav .nav-item {
@@ -280,19 +277,13 @@ body {
     justify-content: center; /* Pusatkan ikon */
 }
 
-.app-container.collapsed .side-nav .nav-item::before {
-    margin-right: 0; /* Hapus margin kanan ikon */
+.app-container.collapsed .side-nav .nav-item i { /* Target Font Awesome ikon di sini */
+    margin-right: 0; /* Hapus margin kanan ikon saat collapsed */
+    color: #ecf0f1; /* Pastikan warna ikon konsisten */
 }
 
-.app-container.collapsed .side-nav .nav-item span { /* Jika ada span untuk teks */
-    display: none; /* Sembunyikan teks */
-}
-
-/* Pastikan konten utama menyesuaikan diri saat sidebar collapsed */
-.app-container.collapsed .main-content-area {
-    margin-left: 0; /* Pastikan tidak ada margin tambahan */
-    width: auto; /* Biarkan flexbox menyesuaikan lebar */
-}
+/* Konten utama menyesuaikan diri saat sidebar collapsed */
+/* Tidak perlu margin-left karena flexbox akan menangani */
 
 
 .module-content h2, .course-dashboard h2 {
@@ -611,20 +602,19 @@ body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
-    .main-header { /* This header is now displayed for mobile views */
-        display: block;
+    .main-header {
         padding: 1.5rem 0;
         border-radius: 0;
-        margin-bottom: 0; /* Remove margin below header */
+        margin-bottom: 0;
     }
     .sidebar-toggle {
-        left: 15px; /* Adjust position for smaller screens */
+        left: 15px;
         font-size: 1.5rem;
     }
 
     .app-container {
         flex-direction: column; /* Stack sidebar and content */
-        margin: 0; /* Remove margin for full width on mobile */
+        margin: 0;
         border-radius: 0;
         box-shadow: none;
     }
@@ -661,11 +651,11 @@ body {
         border-radius: 0;
     }
     .side-nav .nav-item:hover:not(.active):not(.disabled) {
-        background-color: #34495e; /* Darker background on hover */
+        background-color: #34495e;
         border-bottom-color: #4CAF50;
         border-left-color: transparent;
         color: #ecf0f1;
-        transform: none; /* No vertical lift */
+        transform: none;
     }
     .side-nav .nav-item.active {
         background-color: #34495e; /* Maintain dark background on active */
@@ -699,7 +689,7 @@ body {
         font-size: 1.1rem;
     }
     .course-dashboard h2, .module-content h2 {
-        font-size: 1.8rem; /* Adjusted for smaller screens */
+        font-size: 1.8rem;
         padding-bottom: 0.6rem;
     }
     .module-content h3 {
@@ -713,35 +703,42 @@ body {
         gap: 1rem;
     }
 
-    /* Collapsed state on mobile: no change, as sidebar is already full width/hidden */
-    .app-container.collapsed .sidebar-toggle {
-        left: 15px; /* Keep toggle button visible */
-    }
+    /* Collapsed state on mobile: sidebar is hidden completely (or slides out) */
+    /* For mobile, instead of collapsing, we often just hide/show the entire sidebar */
     .app-container.collapsed .side-nav {
-        width: 100%; /* Always full width on mobile */
-        min-width: unset;
+        /* This state will typically be controlled by JS changing display or transform */
+        /* For now, we'll make it slide out of view */
+        transform: translateX(-100%); /* Slide out to the left */
+        position: fixed; /* Make it fixed so it slides over content */
+        height: calc(100vh - var(--header-height)); /* Adjust based on header height */
+        top: var(--header-height); /* Position below header */
+        left: 0;
+        z-index: 999;
     }
-    .app-container.collapsed .side-nav .nav-header,
-    .app-container.collapsed .side-nav .nav-footer,
-    .app-container.collapsed .side-nav .module-list {
-        opacity: 1; /* Ensure visible on mobile */
-        pointer-events: auto;
+    .app-container.collapsed .sidebar-toggle {
+        /* Change icon to close (X) */
+        /* content: "\f00d"; if using Font Awesome directly in button */
     }
-    .app-container.collapsed .side-nav .nav-item {
-        padding: 0.5rem 0.8rem; /* Restore normal mobile padding */
-        justify-content: center;
-    }
-    .app-container.collapsed .side-nav .nav-item::before {
-        margin-right: 0.5rem; /* Restore normal mobile icon margin */
-    }
-    .app-container.collapsed .side-nav .nav-item span {
-        display: inline; /* Ensure text is visible */
+
+    /* Overlay for mobile when sidebar is open */
+    .app-container.collapsed .main-content-area::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        z-index: 998; /* Below sidebar, above content */
+        cursor: pointer;
     }
 }
 
 @media (max-width: 768px) {
     .main-header {
         padding: 1.2rem 0;
+        /* Define --header-height for mobile */
+        --header-height: 4.6rem; /* Example: adjust based on actual header height */
     }
     .main-header h1 {
         font-size: 2rem;
@@ -814,12 +811,6 @@ body {
     .side-nav .nav-item {
         text-align: center;
         width: 100%;
-    }
-    /* Specific adjustment for the icon spacing on very small mobile if nav-item has 100% width */
-    .side-nav .nav-item::before {
-        margin-right: 0.5rem; /* Reduce space slightly for tighter layout */
-        /* Optionally, hide icons on smallest screens for maximum space for text */
-        /* display: none; */
     }
     .course-dashboard h2, .module-content h2 {
         font-size: 1.4rem;
