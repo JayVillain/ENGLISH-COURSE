@@ -1,0 +1,309 @@
+/*
+ * Main Stylesheet
+ * This file contains global styling for the English Mastery Course.
+ */
+
+/* --- Base Styles --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body stretches to full viewport height */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem; /* 20px */
+}
+
+/* --- Header Styling --- */
+.main-header {
+    background-color: #2c3e50; /* Dark blue/grey */
+    color: #ecf0f1; /* Light grey */
+    padding: 1.5rem 0; /* 24px */
+    text-align: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); /* 0 2px 4px */
+}
+
+.main-header h1 {
+    font-size: 2.8rem; /* ~45px */
+    margin-bottom: 0.3125rem; /* 5px */
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+}
+
+.main-header .tagline {
+    font-size: 1.1rem; /* ~18px */
+    opacity: 0.9;
+}
+
+/* --- Navigation Styling --- */
+.main-nav {
+    background-color: #34495e; /* Slightly lighter dark blue/grey */
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); /* 0 2px 4px */
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0.625rem 0; /* 10px */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.main-nav li {
+    margin: 0 0.9375rem; /* 0 15px */
+}
+
+.main-nav a {
+    color: #ecf0f1;
+    padding: 0.5rem 0.9375rem; /* 8px 15px */
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-radius: 0.25rem; /* 4px */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: #2980b9; /* Bright blue for hover/active */
+    color: #fff;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* --- Main Content Area (Dashboard & General Sections) --- */
+.course-dashboard, .module-content {
+    flex-grow: 1; /* Allows main content to take up available space */
+    padding: 1.875rem 1.25rem; /* 30px 20px */
+    max-width: 62.5rem; /* 1000px */
+    margin: 1.25rem auto; /* 20px auto */
+    background-color: #fff;
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.05); /* 0 4px 10px */
+}
+
+.course-dashboard h2, .module-content h2, .module-content h3 {
+    font-size: 2rem; /* ~32px */
+    color: #2c3e50;
+    margin-bottom: 1.25rem; /* 20px */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.625rem; /* 10px */
+    font-weight: 600;
+}
+
+.module-content h3 {
+    font-size: 1.7rem; /* ~27px */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.module-content h4 {
+    font-size: 1.4rem; /* ~22px */
+    color: #34495e;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.course-dashboard p, .module-content p {
+    margin-bottom: 0.9375rem; /* 15px */
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.module-content ul, .module-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    list-style-type: disc; /* Default bullet for ul */
+}
+
+.module-content ol {
+    list-style-type: decimal; /* Default numbers for ol */
+}
+
+.module-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Progress Bar Styling --- */
+.progress-overview {
+    margin-bottom: 2.5rem; /* 40px */
+}
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 0.3125rem; /* 5px */
+    height: 1.5625rem; /* 25px */
+    overflow: hidden;
+    margin-top: 0.9375rem; /* 15px */
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    background-color: #27ae60; /* Green */
+    height: 100%;
+    width: 0%; /* Initial width, will be updated by JS */
+    border-radius: 0.3125rem; /* 5px */
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+}
+
+/* --- Level Cards Styling --- */
+.level-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); /* min 280px */
+    gap: 1.5625rem; /* 25px */
+    margin-top: 1.875rem; /* 30px */
+}
+
+.level-card {
+    background-color: #ecf0f1; /* Light background for cards */
+    padding: 1.5625rem; /* 25px */
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* 0 2px 5px */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.level-card:hover {
+    transform: translateY(-0.3125rem); /* -5px */
+    box-shadow: 0 0.375rem 0.9375rem rgba(0,0,0,0.15); /* 0 6px 15px */
+}
+
+.level-card h3 {
+    font-size: 1.5rem; /* ~24px */
+    color: #2c3e50;
+    margin-bottom: 0.625rem; /* 10px */
+    padding-bottom: 0; /* Override default h3 padding-bottom */
+    border-bottom: none; /* Override default h3 border-bottom */
+}
+
+.level-card h3 a {
+    font-weight: 600;
+    color: #2c3e50; /* Make the link color consistent with heading */
+    transition: color 0.3s ease;
+}
+
+.level-card h3 a:hover {
+    color: #2980b9; /* Change color on hover for link */
+}
+
+.level-card p {
+    font-size: 0.95rem; /* ~15px */
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* --- Footer Styling --- */
+.main-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1.25rem 0; /* 20px */
+    margin-top: auto; /* Push footer to the bottom */
+    font-size: 0.9rem;
+}
+
+/* --- General Input/Button Styling for Quizzes (Future Use) --- */
+.quiz-section input[type="text"],
+.quiz-section textarea,
+.quiz-section select {
+    width: 100%;
+    padding: 0.75rem; /* 12px */
+    margin-bottom: 1rem; /* 16px */
+    border: 1px solid #ccc;
+    border-radius: 0.25rem; /* 4px */
+    font-size: 1rem;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
+    transition: border-color 0.3s ease;
+}
+
+.quiz-section input[type="text"]:focus,
+.quiz-section textarea:focus,
+.quiz-section select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+}
+
+.quiz-section button {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* 12px 20px */
+    border-radius: 0.25rem; /* 4px */
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.quiz-section button:hover {
+    background-color: #2471a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.2rem;
+    }
+    .main-header .tagline {
+        font-size: 1rem;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-nav li {
+        margin: 0.3125rem 0; /* 5px 0 */
+    }
+    .main-nav a {
+        padding: 0.625rem 1rem; /* 10px 16px */
+        font-size: 0.9rem;
+    }
+    .course-dashboard, .module-content {
+        padding: 1.25rem; /* 20px */
+        margin: 0.9375rem auto; /* 15px auto */
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.8rem;
+    }
+    .module-content h3 {
+        font-size: 1.5rem;
+    }
+    .module-content h4 {
+        font-size: 1.2rem;
+    }
+    .level-cards {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    .main-header .tagline {
+        font-size: 0.9rem;
+    }
+    .level-card {
+        padding: 1.25rem; /* 20px */
+    }
+    .level-card h3 {
+        font-size: 1.3rem;
+    }
+}
