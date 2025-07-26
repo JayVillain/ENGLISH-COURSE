@@ -21,14 +21,7 @@ body {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-
-.container {
-    max-width: 1280px; /* Slightly wider container */
-    margin: 0 auto;
-    padding: 1.5rem; /* 24px */
-}
-
-/* --- Header Styling --- */
+/* --- Header Styling (remains above the app container) --- */
 .main-header {
     background-color: #2c3e50; /* Deep blue-gray */
     color: #ecf0f1; /* Off-white for text */
@@ -54,154 +47,169 @@ body {
     font-weight: 300; /* Lighter font weight */
 }
 
-/* --- Navigation Styling --- */
-.main-nav {
-    background-color: #34495e; /* Darker blue-gray */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Improved shadow */
-    padding: 0.8rem 0; /* More padding */
-    position: sticky; /* Sticky navigation for easy access */
-    top: 0;
-    z-index: 1000; /* Ensure nav stays on top */
+/* --- App Container (Main Layout for Side Nav and Content) --- */
+.app-container {
+    display: flex; /* Use flexbox for side-by-side layout */
+    flex: 1; /* Allows it to grow and fill available vertical space */
+    width: 100%;
+    max-width: 1400px; /* Max width for the entire app layout */
+    margin: 0 auto 2rem auto; /* Center the whole app container, add bottom margin */
+    background-color: #fff; /* White background for the main app area */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* More pronounced shadow for the app */
+    overflow: hidden; /* Important for containing sidebar/content (especially on scroll) */
 }
 
-.main-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    position: relative; /* Needed for absolute positioning of buttons */
-    padding-left: 100px; /* Space for left button */
-    padding-right: 100px; /* Space for right button */
-}
-
-.main-nav li {
-    margin: 0 1rem; /* More spacing between nav items */
-}
-
-.main-nav a {
+/* --- Side Navigation Styling --- */
+.side-nav {
+    width: 280px; /* Fixed width for the sidebar */
+    min-width: 280px; /* Prevent shrinking */
+    background-color: #2c3e50; /* Dark blue-gray for sidebar */
     color: #ecf0f1;
-    padding: 0.8rem 1.2rem; /* Larger click area */
-    display: block;
-    border-radius: 5px; /* Slightly more rounded */
-    font-weight: 600; /* Bolder text */
-    font-size: 1rem;
-    letter-spacing: 0.03rem;
-    text-transform: uppercase; /* Uppercase for nav items */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Shadow for separation */
+    overflow-y: auto; /* Allow scrolling for long navigation lists */
+    flex-shrink: 0; /* Prevent side-nav from shrinking if content is too wide */
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-    background-color: #4CAF50; /* A vibrant green for active/hover */
-    color: #fff;
-    transform: translateY(-3px); /* More pronounced lift */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow on hover */
+.side-nav .nav-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
 }
-.main-nav a.active {
-    cursor: default; /* No hover effect on active link */
+
+.side-nav .nav-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4CAF50; /* Green for header */
+    margin-bottom: 0.5rem;
+}
+
+.side-nav .level-list {
+    flex-grow: 1; /* Allows the list to take available space */
+}
+
+.side-nav .level-list > li {
+    margin-bottom: 0.5rem; /* Space between levels */
+}
+
+.side-nav .nav-item {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: #ecf0f1;
+    font-weight: 500;
+    font-size: 1.05rem;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 5px solid transparent; /* Accent border on hover/active */
+}
+
+.side-nav .nav-item:hover:not(.active):not(.disabled) {
+    background-color: #34495e; /* Darker background on hover */
+    color: #4CAF50; /* Green text on hover */
+    border-left-color: #4CAF50;
+}
+
+.side-nav .nav-item.active {
+    background-color: #3f5870; /* Slightly lighter than default for active */
+    color: #4CAF50; /* Green for active item */
+    font-weight: 700;
+    border-left-color: #4CAF50;
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.2); /* Inner shadow for active state */
+    cursor: default;
+}
+.side-nav .nav-item.active:hover { /* Maintain active style on hover */
+    background-color: #3f5870;
+    color: #4CAF50;
+}
+
+/* Module list styling (nested under levels) */
+.side-nav .module-list {
+    margin-left: 1rem; /* Indent modules */
+    margin-top: 0.3rem;
+    padding-left: 0; /* Remove default padding */
+    border-left: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+}
+
+.side-nav .module-list li {
+    margin-bottom: 0.2rem;
+}
+
+.side-nav .module-list .nav-item {
+    padding: 0.6rem 1.5rem 0.6rem 2.5rem; /* Adjust padding for indentation */
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+.side-nav .module-list .nav-item.active {
+    background-color: #455d72; /* Darker background for active sub-item */
+    border-left-color: #4CAF50;
+}
+.side-nav .module-list .nav-item.active:hover {
+    background-color: #455d72;
+}
+
+.side-nav .nav-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #2c3e50; /* No background change on hover for disabled */
+    color: rgba(255,255,255,0.5); /* Faded color */
+    border-left-color: transparent;
+}
+.side-nav .nav-item.disabled:hover {
+    background-color: #2c3e50;
+    color: rgba(255,255,255,0.5);
     transform: none;
     box-shadow: none;
-    background-color: transparent; /* Override hover background for active */
-    color: #ecf0f1; /* Keep text color */
-    border-bottom: 2px solid #4CAF50; /* Add a subtle underline */
-    border-radius: 0;
-}
-.main-nav a.active:hover { /* Disable hover effect for active */
-    background-color: transparent;
-    color: #ecf0f1;
 }
 
-/* --- Adjustments for Nav Buttons (specific to module nav) --- */
-.main-nav .nav-button-left,
-.main-nav .nav-button-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0; /* Remove default list item margin */
-    display: flex; /* To center the link within the li */
-    align-items: center;
-    justify-content: center;
-}
-
-.main-nav .nav-button-left {
-    left: 1rem; /* Adjust as needed */
-}
-
-.main-nav .nav-button-right {
-    right: 1rem; /* Adjust as needed */
-}
-
-.main-nav .btn-nav {
-    padding: 0.6rem 1rem; /* Slightly smaller padding for nav buttons */
-    font-size: 0.9rem; /* Slightly smaller font size */
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 50px; /* Pill shape */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.main-nav .btn-nav.btn-primary {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.main-nav .btn-nav.btn-primary:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.main-nav .btn-nav.btn-secondary {
-    background-color: #f0f4f8;
-    color: #34495e;
-    border: 1px solid #c2c9d2;
-}
-
-.main-nav .btn-nav.btn-secondary:hover {
-    background-color: #e0e7ee;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.side-nav .nav-footer {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ccc;
 }
 
 
 /* --- Main Content Area (Dashboard & General Sections) --- */
-.module-content, .course-dashboard {
-    flex-grow: 1;
-    padding: 2rem; /* More generous padding */
-    max-width: 900px; /* Slightly narrower for readability */
-    margin: 2rem auto; /* More margin around the content block */
-    background-color: #ffffff; /* Pure white background for content */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Deeper shadow */
-    border: 1px solid #e0e0e0; /* Subtle border */
+.main-content-area {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 2rem; /* Consistent padding */
+    background-color: #ffffff;
+    overflow-y: auto; /* Allow content scrolling within this area if needed */
 }
 
 .module-content h2, .course-dashboard h2 {
-    font-size: 2.2rem; /* Larger section titles */
+    font-size: 2.2rem;
     color: #2c3e50;
-    margin-bottom: 1.5rem; /* More space below title */
-    border-bottom: 3px solid #4CAF50; /* Vibrant green underline */
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #4CAF50;
     padding-bottom: 0.8rem;
     font-weight: 700;
-    text-align: center; /* Center main headings for impact */
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: 90%; /* Limit width of underline */
+    max-width: 90%;
 }
 .module-content h3 {
-    font-size: 1.8rem; /* Slightly larger sub-headings */
+    font-size: 1.8rem;
     color: #34495e;
-    margin-top: 2rem; /* More space above */
+    margin-top: 2rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0; /* Lighter, more subtle border */
+    border-bottom: 1px solid #e0e0e0;
     padding-bottom: 0.5rem;
     font-weight: 600;
 }
 .module-content h4 {
     font-size: 1.4rem;
-    color: #4CAF50; /* Green for sub-sub headings */
+    color: #4CAF50;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
@@ -209,14 +217,14 @@ body {
 
 .module-content p {
     margin-bottom: 1rem;
-    line-height: 1.8; /* Even more spacious line-height for readability */
-    font-size: 1.05rem; /* Slightly larger body text */
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 .module-content ul, .module-content ol {
-    margin-left: 2rem; /* More indent */
+    margin-left: 2rem;
     margin-bottom: 1rem;
-    list-style-position: outside; /* Ensure bullets/numbers are outside content */
+    list-style-position: outside;
 }
 
 .module-content li {
@@ -224,39 +232,38 @@ body {
     font-size: 1rem;
 }
 
-/* --- Welcome and Progress Section Specifics --- */
+/* --- Welcome and Progress Section Specifics (for Dashboard) --- */
 .welcome-section, .progress-overview {
-    text-align: center; /* Center align text */
+    text-align: center;
     margin-bottom: 2.5rem;
 }
 .welcome-section p {
-    max-width: 80%; /* Constrain width for readability */
-    margin: 0.8rem auto; /* Center text */
+    max-width: 80%;
+    margin: 0.8rem auto;
 }
 .progress-overview p {
-    font-size: 1.1rem; /* Slightly larger instruction */
+    font-size: 1.1rem;
     font-weight: 500;
     color: #555;
 }
 
-
 /* --- Progress Bar Styling --- */
 .progress-bar-container {
     background-color: #e0e0e0;
-    border-radius: 50px; /* Fully rounded corners */
-    height: 30px; /* Taller bar */
+    border-radius: 50px;
+    height: 30px;
     overflow: hidden;
     margin-top: 1.5rem;
     position: relative;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15); /* More prominent inner shadow */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #4CAF50, #8bc34a); /* Green gradient */
+    background: linear-gradient(to right, #4CAF50, #8bc34a);
     height: 100%;
     width: 0%;
     border-radius: 50px;
-    transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,45 +274,45 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #2c3e50; /* Darker text for contrast */
+    color: #2c3e50;
     font-weight: bold;
-    font-size: 1.1rem; /* Larger text */
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.8); /* More visible shadow */
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
 }
 
-/* --- Level Cards Styling --- */
+/* --- Level Cards Styling (for Dashboard) --- */
 .level-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min card size */
-    gap: 1.875rem; /* 30px gap */
-    margin-top: 3rem; /* More space above cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.875rem;
+    margin-top: 3rem;
 }
 
 .level-card {
-    background-color: #f8fbfd; /* Very light blue tint for cards */
-    padding: 1.8rem; /* More padding */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Soft shadow */
+    background-color: #f8fbfd;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #e0e7ee; /* Subtle border */
+    border: 1px solid #e0e7ee;
 }
 
 .level-card:hover {
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Stronger shadow on hover */
-    background-color: #ffffff; /* White on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: #ffffff;
 }
 
 .level-card h3 {
-    font-size: 1.6rem; /* Larger card title */
+    font-size: 1.6rem;
     color: #2c3e50;
     margin-bottom: 0.8rem;
     padding-bottom: 0;
     border-bottom: none;
-    text-align: left; /* Ensure card titles are left-aligned */
+    text-align: left;
 }
 
 .level-card h3 a {
@@ -315,7 +322,7 @@ body {
 }
 
 .level-card h3 a:hover {
-    color: #4CAF50; /* Green on hover */
+    color: #4CAF50;
 }
 
 .level-card p {
@@ -330,15 +337,15 @@ body {
     background-color: #2c3e50;
     color: #ecf0f1;
     text-align: center;
-    padding: 1.5rem 0; /* More padding */
-    margin-top: 3rem; /* More space from content */
+    padding: 1.5rem 0;
+    /* margin-top: auto; (Removed as app-container handles flex grow) */
     font-size: 0.95rem;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Shadow for footer */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
-/* --- General Input/Button Styling for Quizzes (Future Use) --- */
+/* --- General Input/Button Styling for Quizzes --- */
 .quiz-section {
-    background-color: #f8fbfd; /* Consistent light background for quizzes */
+    background-color: #f8fbfd;
     padding: 2rem;
     border-radius: 10px;
     border: 1px solid #e0e7ee;
@@ -347,7 +354,7 @@ body {
 }
 
 .quiz-section h3 {
-    color: #4CAF50; /* Green for quiz headings */
+    color: #4CAF50;
     font-size: 2rem;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid #a8d5ed;
@@ -377,12 +384,12 @@ body {
 .quiz-section input[type="text"]:focus,
 .quiz-section select:focus,
 .quiz-section textarea:focus {
-    border-color: #4CAF50; /* Green focus highlight */
+    border-color: #4CAF50;
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
 .quiz-section button {
-    background-color: #4CAF50; /* Vibrant green button */
+    background-color: #4CAF50;
     color: #fff;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
@@ -405,29 +412,29 @@ body {
     border-radius: 5px;
     font-weight: 600;
     font-size: 1rem;
-    display: block; /* Ensure it takes full width */
+    display: block;
 }
 
 .feedback.correct {
-    background-color: #e6ffe6; /* Light green background */
-    color: #28a745; /* Dark green text */
+    background-color: #e6ffe6;
+    color: #28a745;
     border: 1px solid #28a745;
 }
 
 .feedback.incorrect {
-    background-color: #ffe6e6; /* Light red background */
-    color: #dc3545; /* Dark red text */
+    background-color: #ffe6e6;
+    color: #dc3545;
     border: 1px solid #dc3545;
 }
 
 /* --- Lesson Section Specific Styles (for modules) --- */
 .lesson-section {
-    margin-bottom: 2rem; /* More space between sections */
+    margin-bottom: 2rem;
     padding: 1.5rem;
-    background-color: #fcfdfe; /* Very light, almost white background */
-    border-left: 6px solid #4CAF50; /* A vibrant green accent bar */
+    background-color: #fcfdfe;
+    border-left: 6px solid #4CAF50;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for sections */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .lesson-section h3 {
@@ -435,9 +442,9 @@ body {
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #eee; /* Lighter border for sub-headings */
+    border-bottom: 1px solid #eee;
     padding-bottom: 0.6rem;
-    text-align: left; /* Ensure lesson section headings are left-aligned */
+    text-align: left;
 }
 
 .lesson-section h4 {
@@ -470,23 +477,23 @@ body {
 
 /* Specific styling for alphabet list in Modul 0.1 */
 .lesson-section ul:has(li:first-child:not(:last-child)) li {
-    font-weight: 500; /* Medium weight */
+    font-weight: 500;
     margin-bottom: 0.6rem;
     color: #444;
 }
 
 /* Quiz Item Styling (for individual quiz containers) */
 .quiz-item {
-    background-color: #ffffff; /* White background for quiz items */
+    background-color: #ffffff;
     border: 1px solid #dcdfe3;
     padding: 1.5rem;
     border-radius: 8px;
-    margin-bottom: 1.5rem; /* Jarak antar item kuis */
+    margin-bottom: 1.5rem;
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 
 .quiz-item p {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     font-weight: 500;
     font-size: 1rem;
     color: #34495e;
@@ -495,68 +502,87 @@ body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
-    .main-header h1 {
-        font-size: 3rem;
+    .app-container {
+        flex-direction: column; /* Stack sidebar and content */
+        margin: 1rem auto;
+        border-radius: 0; /* No rounded corners on small screens for full width */
+        box-shadow: none;
     }
-    .main-header .tagline {
-        font-size: 1.2rem;
+    .side-nav {
+        width: 100%; /* Sidebar takes full width */
+        min-width: unset;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Shadow at bottom */
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: static; /* No longer sticky on small screens */
+        padding-bottom: 1rem;
     }
-    .main-nav ul {
-        justify-content: space-around;
-        padding: 0.6rem;
+    .side-nav .nav-header {
+        margin-bottom: 1rem;
     }
-    .main-nav li {
-        margin: 0 0.5rem;
+    .side-nav .nav-header h3 {
+        font-size: 1.5rem;
     }
-    .main-nav a {
-        padding: 0.7rem 1rem;
-        font-size: 0.95rem;
+    .side-nav .level-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 1rem;
     }
-    .course-dashboard, .module-content {
-        padding: 1.5rem;
-        margin: 1.5rem auto;
+    .side-nav .level-list > li {
+        width: auto;
+        margin: 0.5rem 0.8rem; /* Horizontal spacing */
     }
-    .course-dashboard h2, .module-content h2 {
-        font-size: 2rem;
+    .side-nav .nav-item {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+        border-left: none; /* No side border on horizontal layout */
+        border-bottom: 3px solid transparent; /* Bottom border for active */
+        border-radius: 0;
     }
-    .module-content h3 {
-        font-size: 1.6rem;
+    .side-nav .nav-item:hover:not(.active):not(.disabled) {
+        background-color: #34495e; /* Darker background on hover */
+        border-bottom-color: #4CAF50;
+        border-left-color: transparent;
+        color: #ecf0f1;
+        transform: none; /* No vertical lift */
     }
-    .module-content h4 {
-        font-size: 1.3rem;
+    .side-nav .nav-item.active {
+        background-color: #34495e;
+        border-left-color: transparent;
+        border-bottom-color: #4CAF50;
+        box-shadow: none;
     }
-    .level-cards {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+    .side-nav .nav-item.active:hover {
+        background-color: #34495e;
     }
-}
+    /* Hide module list on mobile when it's a top nav */
+    .side-nav .module-list {
+        display: none; /* Hide sub-modules in horizontal nav */
+    }
+    .side-nav .nav-footer {
+        display: none; /* Hide footer on small nav */
+    }
 
-@media (max-width: 768px) {
-    .main-header {
-        padding: 2rem 0;
+    .main-content-area {
+        padding: 1.5rem;
+        margin-top: 0; /* No top margin as it's directly after sidebar */
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        box-shadow: none;
     }
+    .main-header { /* Restore header for mobile */
+        display: block;
+        padding: 1.5rem 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+
     .main-header h1 {
         font-size: 2.5rem;
     }
     .main-header .tagline {
         font-size: 1.1rem;
-    }
-    .main-nav ul {
-        flex-direction: column;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .main-nav li {
-        margin: 0.4rem 0;
-    }
-    .main-nav a {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
-    .course-dashboard, .module-content {
-        padding: 1rem;
-        margin: 1rem auto;
     }
     .course-dashboard h2, .module-content h2 {
         font-size: 1.8rem;
@@ -568,66 +594,85 @@ body {
     .module-content h4 {
         font-size: 1.1rem;
     }
+    .level-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1.2rem 0;
+    }
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .main-header .tagline {
+        font-size: 1rem;
+    }
+    .side-nav .level-list > li {
+        margin: 0.3rem 0.5rem;
+    }
+    .side-nav .nav-item {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+    }
+    .main-content-area {
+        padding: 1rem;
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.7rem;
+    }
+    .module-content h3 {
+        font-size: 1.3rem;
+    }
+    .module-content h4 {
+        font-size: 1.1rem;
+    }
     .lesson-section {
         padding: 1rem;
     }
     .quiz-section {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
-    .quiz-section input, .quiz-section select, .quiz-section button {
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
+    .quiz-section h3 {
+        font-size: 1.6rem;
     }
-
-    /* Adjust nav buttons for mobile */
-    .main-nav .nav-button-left,
-    .main-nav .nav-button-right {
-        position: static; /* Remove absolute positioning */
-        transform: none;
-        width: 100%; /* Take full width */
-        margin-top: 0.5rem; /* Add some margin */
-        order: 10; /* Push them to the bottom of the column */
-    }
-    .main-nav .nav-button-left { order: 11; } /* Specific order for visual flow */
-    .main-nav .nav-button-right { order: 12; }
-
-    .main-nav .btn-nav {
-        display: block; /* Make buttons block level */
-        width: calc(100% - 2rem); /* Account for padding */
-        margin: 0.5rem auto; /* Center them */
-        text-align: center;
+    .quiz-section input[type="text"],
+    .quiz-section select,
+    .quiz-section textarea,
+    .quiz-section button {
+        font-size: 0.95rem;
+        padding: 0.6rem;
     }
 }
 
 @media (max-width: 480px) {
     .main-header h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     .main-header .tagline {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
-    .main-nav a {
-        font-size: 0.85rem;
-        padding: 0.5rem 0.8rem;
+    .side-nav .nav-header h3 {
+        font-size: 1.2rem;
+    }
+    .side-nav .level-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-nav .level-list > li {
+        width: calc(100% - 2rem);
+        margin: 0.2rem 0;
+    }
+    .side-nav .nav-item {
+        text-align: center;
+        width: 100%;
     }
     .course-dashboard h2, .module-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     .level-cards {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    .level-card {
-        padding: 1.25rem;
-    }
-    .level-card h3 {
-        font-size: 1.4rem;
-    }
-    .quiz-section {
-        padding: 1rem;
-    }
-    .quiz-section input, .quiz-section select, .quiz-section button {
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
     }
 }
