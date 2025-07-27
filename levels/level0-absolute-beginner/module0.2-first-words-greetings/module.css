@@ -1,6 +1,7 @@
 /*
  * Module 0.2 Specific Styles
  * Menggunakan gaya dari style.css global untuk sebagian besar styling.
+ * File ini sengaja minimalis untuk menghindari konflik gaya.
  */
 
 .lesson-section ul li {
@@ -25,9 +26,3 @@
     margin-bottom: 10px;
     font-weight: 500;
 }
-
-/* Pastikan input kuis seragam, ini sudah diatur di style.css global */
-/* .quiz-section input[type="text"] {
-    width: 100%;
-    box-sizing: border-box;
-} */
