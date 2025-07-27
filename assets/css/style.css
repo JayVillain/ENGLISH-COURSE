@@ -9,30 +9,30 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden; /* Prevents horizontal scroll */
-    background-color: #eef2f6; /* Soft, light background */
-    color: #34495e; /* Darker blue-gray for main text for better contrast */
+    background-color: #f0f4f8; /* Soft light blue-grey background - very soft */
+    color: #4a5568; /* Darker grey-blue for main text for good contrast */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    line-height: 1.7; /* Slightly more spacious line-height */
-    font-size: 1rem; /* Base font size */
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 /* Add a global transition for smoother changes */
 * {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* --- Header Styling --- */
 .main-header {
-    background-color: #2c3e50; /* Deep blue-gray */
-    color: #ecf0f1; /* Off-white for text */
-    padding: 2.5rem 0; /* More vertical padding for a grander feel */
+    background-color: #3f51b5; /* A soft, calming blue */
+    color: #e0e7ff; /* Lighter shade of blue for text */
+    padding: 2.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* More pronounced shadow */
-    border-bottom-left-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer shadow */
+    border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 0; /* No margin below header */
     position: relative;
-    z-index: 1002; /* Ensure header is above sidebar when open */
+    z-index: 1002;
 }
 
 .main-header h1 {
@@ -40,7 +40,7 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 800;
     letter-spacing: 0.08rem;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Softer text shadow */
 }
 
 .main-header .tagline {
@@ -55,50 +55,50 @@ body {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #4CAF50; /* Green button */
+    background-color: #4CAF50; /* Keep green for actionable button */
     color: #fff;
     border: none;
-    font-size: 1.1rem; /* Smaller button text */
-    padding: 8px 15px; /* Button padding */
+    font-size: 1.1rem;
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    display: flex; /* For icon and text alignment */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Softer shadow */
+    display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between icon and text */
-    z-index: 1001; /* Ensure it's clickable */
+    gap: 0.5rem;
+    z-index: 1001;
 }
 
 .sidebar-toggle:hover {
-    background-color: #45a049;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background-color: #45a049; /* Slightly darker green on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.sidebar-toggle .fas { /* Style for Font Awesome icon within the button */
-    font-size: 1.1rem; /* Adjust icon size */
+.sidebar-toggle .fas {
+    font-size: 1.1rem;
 }
 
 /* --- Side Navigation (Overlay) --- */
 .side-nav {
-    position: fixed; /* KUNCI: Fixed positioning for overlay */
-    top: 0; /* Mulai dari atas viewport */
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 280px; /* Lebar sidebar */
-    height: 100vh; /* Tinggi penuh viewport */
-    background-color: #2b3e50; /* Warna sidebar */
-    color: #ecf0f1;
+    width: 280px;
+    height: 100vh;
+    background-color: #3f51b5; /* Soft blue for sidebar - matches header */
+    color: #e0e7ff; /* Lighter text color */
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.4); /* Shadow yang lebih kuat untuk overlay */
-    z-index: 1000; /* Di atas konten utama, di bawah header */
-    transform: translateX(-100%); /* KUNCI: Sembunyikan ke kiri secara default */
-    transition: transform 0.3s ease-in-out; /* Transisi untuk efek geser */
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2); /* Softer shadow for overlay */
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Class 'sidebar-open' ditambahkan ke body/html saat sidebar terbuka */
+/* Class 'sidebar-open' ditambahkan ke body saat sidebar terbuka */
 body.sidebar-open .side-nav {
-    transform: translateX(0); /* KUNCI: Geser masuk saat terbuka */
+    transform: translateX(0);
 }
 
 /* --- Close Sidebar Button (Inside Side Nav) --- */
@@ -108,22 +108,22 @@ body.sidebar-open .side-nav {
     align-items: center;
     margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Softer border */
     padding-bottom: 1rem;
 }
 
 .side-nav .nav-header h3 {
     font-size: 1.7rem;
     font-weight: 700;
-    color: #4CAF50;
-    margin-bottom: 0; /* Override default h3 margin-bottom */
+    color: #8bc34a; /* Softer green for sidebar header */
+    margin-bottom: 0;
     letter-spacing: 0.05rem;
 }
 
 .close-sidebar-toggle {
     background: none;
     border: none;
-    color: #ecf0f1;
+    color: #e0e7ff; /* Lighter color */
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -133,7 +133,7 @@ body.sidebar-open .side-nav {
 
 .close-sidebar-toggle:hover {
     background-color: rgba(255,255,255,0.1);
-    color: #e74c3c; /* Red color for close button on hover */
+    color: #f44336; /* Soft red for close button */
 }
 
 /* --- Navigation List Items (Inside Side Nav) --- */
@@ -150,7 +150,7 @@ body.sidebar-open .side-nav {
     display: flex;
     align-items: center;
     padding: 0.9rem 1.5rem;
-    color: #ecf0f1;
+    color: #e0e7ff; /* Lighter text color */
     font-weight: 500;
     font-size: 1.05rem;
     white-space: nowrap;
@@ -161,30 +161,30 @@ body.sidebar-open .side-nav {
 }
 
 /* Ikon Styling for nav-item */
-.nav-item i { /* Target Font Awesome <i> tag directly */
+.nav-item i {
     margin-right: 0.8rem;
-    color: rgba(255,255,255,0.7);
+    color: #e0e7ff; /* Lighter icon color to match text */
     font-size: 1.1em;
-    width: 1.2em; /* Ensure consistent width for icon area */
+    width: 1.2em;
     text-align: center;
 }
 
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
-    background-color: #3e5060;
-    color: #4CAF50;
-    border-left-color: #4CAF50;
+    background-color: rgba(255,255,255,0.1); /* Soft, subtle hover background */
+    color: #8bc34a; /* Softer green text on hover */
+    border-left-color: #8bc34a;
 }
 
 .side-nav .nav-item.active {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #8bc34a; /* Softer green for active item */
+    color: #fff; /* White text for active */
     font-weight: 700;
-    border-left-color: #fff;
-    box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
+    border-left-color: #fff; /* White accent border for active */
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.2); /* Softer shadow */
     cursor: default;
 }
 .side-nav .nav-item.active:hover {
-    background-color: #4CAF50;
+    background-color: #8bc34a;
     color: #fff;
 }
 .side-nav .nav-item.active i {
@@ -204,48 +204,49 @@ body.sidebar-open .side-nav {
 }
 
 .side-nav .module-list .nav-item {
-    padding: 0.7rem 1.5rem 0.7rem 2.5rem; /* Adjust padding for deeper indentation and icons */
+    padding: 0.7rem 1.5rem 0.7rem 2.5rem;
     font-size: 0.95rem;
     font-weight: 400;
+    color: #c5cae9; /* Even softer text color for sub-modules */
 }
 .side-nav .module-list .nav-item i {
-    color: rgba(255,255,255,0.6);
+    color: #c5cae9;
 }
 .side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(62, 80, 96, 0.5);
-    color: #ecf0f1;
-    border-left-color: #4CAF50;
+    background-color: rgba(255,255,255,0.05); /* Very subtle hover */
+    color: #8bc34a; /* Softer green on hover */
+    border-left-color: #8bc34a;
 }
 
 .side-nav .module-list .nav-item.active {
-    background-color: #55728a;
-    border-left-color: #ecf0f1;
-    color: #ecf0f1;
+    background-color: #8bc34a; /* Soft green */
+    border-left-color: #fff;
+    color: #fff;
     font-weight: 600;
     box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
 }
 .side-nav .module-list .nav-item.active:hover {
-    background-color: #55728a;
+    background-color: #8bc34a;
 }
 .side-nav .module-list .nav-item.active i {
-    color: #ecf0f1;
+    color: #fff;
 }
 
 .side-nav .nav-item.disabled {
-    opacity: 0.4;
+    opacity: 0.3; /* More faded for disabled */
     cursor: not-allowed;
     background-color: transparent;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.3);
     border-left-color: transparent;
 }
 .side-nav .nav-item.disabled:hover {
     background-color: transparent;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.3);
     transform: none;
     box-shadow: none;
 }
 .side-nav .nav-item.disabled i {
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.2);
 }
 
 .side-nav .nav-footer {
@@ -257,16 +258,18 @@ body.sidebar-open .side-nav {
     color: #aeb6bf;
 }
 
-/* --- Main Content Wrapper (KONTEN UTAMA) --- */
+/* --- Main Content Wrapper --- */
 .main-content-wrapper {
-    flex-grow: 1; /* Takes remaining space */
-    padding: 2rem; /* Consistent padding inside the wrapper */
+    flex-grow: 1;
+    padding: 2rem;
     background-color: #ffffff;
-    border-radius: 12px; /* Rounded corners for the content wrapper */
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08); /* Shadow for content wrapper */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     margin: 2rem; /* Margin around the content wrapper itself */
-    position: relative; /* For overlay positioning */
-    z-index: 1; /* Ensure content is below sidebar overlay */
+    position: relative;
+    z-index: 1;
+    /* Transition for content wrapper to slide/scale when sidebar opens/closes (if desired) */
+    transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
 }
 
 /* Overlay Background */
@@ -276,10 +279,10 @@ body.sidebar-open .side-nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: 999; /* Di atas main content, di bawah sidebar */
-    opacity: 0; /* Sembunyikan default */
-    visibility: hidden; /* Sembunyikan dari interaksi mouse */
+    background-color: rgba(0, 0, 0, 0.4); /* Softer black overlay */
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
@@ -294,7 +297,7 @@ body.sidebar-open .overlay {
     font-size: 2.2rem;
     color: #2c3e50;
     margin-bottom: 1.5rem;
-    border-bottom: 3px solid #4CAF50;
+    border-bottom: 3px solid #8bc34a; /* Softer green underline */
     padding-bottom: 0.8rem;
     font-weight: 700;
     text-align: center;
@@ -313,7 +316,7 @@ body.sidebar-open .overlay {
 }
 .module-content h4 {
     font-size: 1.4rem;
-    color: #4CAF50;
+    color: #4CAF50; /* Keep green for accent headings */
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
@@ -359,11 +362,11 @@ body.sidebar-open .overlay {
     overflow: hidden;
     margin-top: 1.5rem;
     position: relative;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #4CAF50, #8bc34a);
+    background: linear-gradient(to right, #4CAF50, #8bc34a); /* Vibrant green gradient */
     height: 100%;
     width: 0%;
     border-radius: 50px;
@@ -393,21 +396,21 @@ body.sidebar-open .overlay {
 }
 
 .level-card {
-    background-color: #f8fbfd;
+    background-color: #ffffff; /* Pure white for cards */
     padding: 1.8rem;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #e0e7ee;
+    border: 1px solid #e0e0e0; /* Softer border */
 }
 
 .level-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12); /* Softer hover shadow */
+    background-color: #f8f8f8; /* Very light tint on hover */
 }
 
 .level-card h3 {
@@ -421,12 +424,12 @@ body.sidebar-open .overlay {
 
 .level-card h3 a {
     font-weight: 700;
-    color: #2c3e50;
+    color: #3f51b5; /* Blue for card titles */
     transition: color 0.3s ease;
 }
 
 .level-card h3 a:hover {
-    color: #4CAF50;
+    color: #8bc34a; /* Green on hover */
 }
 
 .level-card p {
@@ -438,30 +441,30 @@ body.sidebar-open .overlay {
 
 /* --- Footer Styling --- */
 .main-footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #3f51b5; /* Matches header blue */
+    color: #e0e7ff;
     text-align: center;
     padding: 1.5rem 0;
-    margin-top: 3rem;
+    margin-top: auto; /* Pushes footer to the bottom */
     font-size: 0.95rem;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 /* --- General Input/Button Styling for Quizzes --- */
 .quiz-section {
-    background-color: #f8fbfd;
+    background-color: #ffffff; /* White background */
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #e0e7ee;
+    border: 1px solid #e0e0e0; /* Softer border */
     margin-top: 2.5rem;
-    box-shadow: 0 4px 10px rgba(0,0/0,0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .quiz-section h3 {
     color: #4CAF50;
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #a8d5ed;
+    border-bottom: 2px solid #c8e6c9; /* Softer green border */
     padding-bottom: 0.8rem;
     text-align: center;
 }
@@ -478,18 +481,17 @@ body.sidebar-open .overlay {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #c5d0db; /* Softer border color */
     border-radius: 5px;
     font-size: 1rem;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.07);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .quiz-section input[type="text"]:focus,
 .quiz-section select:focus,
 .quiz-section textarea:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    border-color: #8bc34a; /* Softer green focus */
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
 }
 
 .quiz-section button {
@@ -535,8 +537,8 @@ body.sidebar-open .overlay {
 .lesson-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background-color: #fcfdfe;
-    border-left: 6px solid #4CAF50;
+    background-color: #ffffff; /* White background */
+    border-left: 6px solid #8bc34a; /* Softer green accent bar */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -546,13 +548,13 @@ body.sidebar-open .overlay {
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e0e0e0; /* Softer border */
     padding-bottom: 0.6rem;
     text-align: left;
 }
 
 .lesson-section h4 {
-    color: #34495e;
+    color: #4a5568; /* Matches main text color */
     font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
@@ -588,8 +590,8 @@ body.sidebar-open .overlay {
 
 /* Quiz Item Styling (for individual quiz containers) */
 .quiz-item {
-    background-color: #ffffff;
-    border: 1px solid #dcdfe3;
+    background-color: #fcfdfe; /* Very light background for quiz items */
+    border: 1px solid #e0e0e0; /* Softer border */
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -605,49 +607,120 @@ body.sidebar-open .overlay {
 
 
 /* --- Responsive Adjustments --- */
-/* DEFAULT: Desktop view (no @media for this) - Sidebar is hidden by default, pops out */
-/* All screens will use the collapsible overlay behavior for consistency with user request */
+/* Default for all screens is now sidebar overlay behavior */
 
 @media (max-width: 992px) {
-    /* Main Header and Toggle button are already set for mobile/tablet in the default style */
+    .main-header {
+        padding: 1.5rem 0;
+    }
+    .sidebar-toggle {
+        left: 15px;
+        font-size: 1.5rem;
+    }
+
+    .app-container {
+        flex-direction: column; /* Stack sidebar and content */
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .main-content-wrapper {
+        padding: 1.5rem;
+        margin: 0; /* Remove margin on mobile */
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .side-nav {
+        width: 250px; /* Lebar sidebar di mobile */
+        /* Tetap fixed, transform translateX akan mengontrol visibility */
+    }
+    /* Rest of the side-nav styles remain as defined above for its default (overlay) behavior */
+
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+    .main-header .tagline {
+        font-size: 1.1rem;
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.8rem;
+        padding-bottom: 0.6rem;
+    }
+    .module-content h3 {
+        font-size: 1.4rem;
+    }
+    .module-content h4 {
+        font-size: 1.1rem;
+    }
+    .level-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
-    /* Continue to use full-width/overlay behavior from default */
+    .main-header {
+        padding: 1.2rem 0;
+    }
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .main-header .tagline {
+        font-size: 1rem;
+    }
+    .sidebar-toggle {
+        font-size: 1.3rem;
+    }
+    .main-content-wrapper {
+        padding: 1rem;
+    }
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.7rem;
+    }
+    .module-content h3 {
+        font-size: 1.3rem;
+    }
+    .module-content h4 {
+        font-size: 1.1rem;
+    }
+    .lesson-section {
+        padding: 1rem;
+    }
+    .quiz-section {
+        padding: 1.2rem;
+    }
+    .quiz-section h3 {
+        font-size: 1.6rem;
+    }
+    .quiz-section input[type="text"],
+    .quiz-section select,
+    .quiz-section textarea,
+    .quiz-section button {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
 }
 
 @media (max-width: 480px) {
-    /* Continue to use full-width/overlay behavior from default */
-}
-
-/* Base header/footer for all screens, as they are outside main-content-wrapper */
-.main-header {
-    background-color: #2c3e50; /* Deep blue-gray */
-    color: #ecf0f1; /* Off-white for text */
-    padding: 1.5rem 0; /* Reduced padding for more compact header */
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Lighter shadow */
-    border-bottom-left-radius: 0; /* No radius */
-    border-bottom-right-radius: 0; /* No radius */
-    margin-bottom: 0; /* Kunci: Tidak ada margin di bawah header */
-    position: relative;
-    z-index: 1002;
-}
-
-.main-header h1 {
-    font-size: 2.5rem; /* Smaller title for compact header */
-    letter-spacing: 0.05rem;
-}
-.main-header .tagline {
-    font-size: 1.1rem;
-}
-
-.main-footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 1rem 0; /* Reduced padding for footer */
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    margin-top: auto; /* Push footer to the bottom */
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+    .main-header .tagline {
+        font-size: 0.8rem;
+    }
+    .sidebar-toggle {
+        left: 10px;
+        font-size: 1.2rem;
+    }
+    .side-nav .nav-header h3 {
+        font-size: 1.2rem;
+    }
+    /* Pada layar sangat kecil, item nav tidak perlu justify-content: flex-start; jika tidak ada ikon */
+    /* Mereka sudah punya padding dari .nav-item */
+    .course-dashboard h2, .module-content h2 {
+        font-size: 1.4rem;
+    }
+    .level-cards {
+        grid-template-columns: 1fr;
+    }
 }
