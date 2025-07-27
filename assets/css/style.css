@@ -8,9 +8,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevents horizontal scroll */
-    background-color: #f0f4f8; /* Soft light blue-grey background - very soft */
-    color: #4a5568; /* Darker grey-blue for main text for good contrast */
+    overflow-x: hidden;
+    background-color: #F5F5F5; /* Soft Off-white Background */
+    color: #263238; /* Dark Grey for main text - excellent contrast */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     line-height: 1.7;
     font-size: 1rem;
@@ -23,14 +23,14 @@ body {
 
 /* --- Header Styling --- */
 .main-header {
-    background-color: #3f51b5; /* A soft, calming blue */
-    color: #e0e7ff; /* Lighter shade of blue for text */
+    background-color: #4DB6AC; /* Primary Teal */
+    color: #E0F2F1; /* Very light teal for text */
     padding: 2.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer shadow */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-bottom: 0; /* No margin below header */
+    margin-bottom: 0;
     position: relative;
     z-index: 1002;
 }
@@ -40,7 +40,7 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 800;
     letter-spacing: 0.08rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Softer text shadow */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .main-header .tagline {
@@ -55,14 +55,14 @@ body {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #4CAF50; /* Keep green for actionable button */
-    color: #fff;
+    background-color: #FFB74D; /* Soft Orange for actionable button */
+    color: #3F4E4F; /* Dark Teal text for contrast */
     border: none;
     font-size: 1.1rem;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Softer shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -70,7 +70,7 @@ body {
 }
 
 .sidebar-toggle:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
+    background-color: #FFA726; /* Slightly darker orange on hover */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
@@ -85,12 +85,12 @@ body {
     left: 0;
     width: 280px;
     height: 100vh;
-    background-color: #3f51b5; /* Soft blue for sidebar - matches header */
-    color: #e0e7ff; /* Lighter text color */
+    background-color: #3F4E4F; /* Dark Teal for sidebar background */
+    color: #E0F2F1; /* Light text color */
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.2); /* Softer shadow for overlay */
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2);
     z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
@@ -108,14 +108,14 @@ body.sidebar-open .side-nav {
     align-items: center;
     margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* Softer border */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     padding-bottom: 1rem;
 }
 
 .side-nav .nav-header h3 {
     font-size: 1.7rem;
     font-weight: 700;
-    color: #8bc34a; /* Softer green for sidebar header */
+    color: #66BB6A; /* Soft Green for sidebar header title */
     margin-bottom: 0;
     letter-spacing: 0.05rem;
 }
@@ -123,7 +123,7 @@ body.sidebar-open .side-nav {
 .close-sidebar-toggle {
     background: none;
     border: none;
-    color: #e0e7ff; /* Lighter color */
+    color: #E0F2F1; /* Light text color */
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -133,7 +133,7 @@ body.sidebar-open .side-nav {
 
 .close-sidebar-toggle:hover {
     background-color: rgba(255,255,255,0.1);
-    color: #f44336; /* Soft red for close button */
+    color: #FFB74D; /* Soft Orange for close button hover */
 }
 
 /* --- Navigation List Items (Inside Side Nav) --- */
@@ -150,7 +150,7 @@ body.sidebar-open .side-nav {
     display: flex;
     align-items: center;
     padding: 0.9rem 1.5rem;
-    color: #e0e7ff; /* Lighter text color */
+    color: #E0F2F1; /* Light text color */
     font-weight: 500;
     font-size: 1.05rem;
     white-space: nowrap;
@@ -163,28 +163,28 @@ body.sidebar-open .side-nav {
 /* Ikon Styling for nav-item */
 .nav-item i {
     margin-right: 0.8rem;
-    color: #e0e7ff; /* Lighter icon color to match text */
+    color: rgba(224, 242, 241, 0.7); /* Slightly muted light text color */
     font-size: 1.1em;
     width: 1.2em;
     text-align: center;
 }
 
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(255,255,255,0.1); /* Soft, subtle hover background */
-    color: #8bc34a; /* Softer green text on hover */
-    border-left-color: #8bc34a;
+    background-color: rgba(255,255,255,0.08); /* Very subtle light hover */
+    color: #66BB6A; /* Soft Green text on hover */
+    border-left-color: #66BB6A;
 }
 
 .side-nav .nav-item.active {
-    background-color: #8bc34a; /* Softer green for active item */
+    background-color: #66BB6A; /* Soft Green for active item */
     color: #fff; /* White text for active */
     font-weight: 700;
-    border-left-color: #fff; /* White accent border for active */
-    box-shadow: inset 3px 0 8px rgba(0,0,0,0.2); /* Softer shadow */
+    border-left-color: #fff;
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.2);
     cursor: default;
 }
 .side-nav .nav-item.active:hover {
-    background-color: #8bc34a;
+    background-color: #66BB6A;
     color: #fff;
 }
 .side-nav .nav-item.active i {
@@ -207,46 +207,46 @@ body.sidebar-open .side-nav {
     padding: 0.7rem 1.5rem 0.7rem 2.5rem;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #c5cae9; /* Even softer text color for sub-modules */
+    color: rgba(224, 242, 241, 0.8); /* Slightly less vibrant for sub-modules */
 }
 .side-nav .module-list .nav-item i {
-    color: #c5cae9;
+    color: rgba(224, 242, 241, 0.6);
 }
 .side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(255,255,255,0.05); /* Very subtle hover */
-    color: #8bc34a; /* Softer green on hover */
-    border-left-color: #8bc34a;
+    background-color: rgba(255,255,255,0.03); /* Even more subtle hover */
+    color: #66BB6A;
+    border-left-color: #66BB6A;
 }
 
 .side-nav .module-list .nav-item.active {
-    background-color: #8bc34a; /* Soft green */
+    background-color: #66BB6A; /* Soft Green */
     border-left-color: #fff;
     color: #fff;
     font-weight: 600;
     box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
 }
 .side-nav .module-list .nav-item.active:hover {
-    background-color: #8bc34a;
+    background-color: #66BB6A;
 }
 .side-nav .module-list .nav-item.active i {
     color: #fff;
 }
 
 .side-nav .nav-item.disabled {
-    opacity: 0.3; /* More faded for disabled */
+    opacity: 0.3;
     cursor: not-allowed;
     background-color: transparent;
-    color: rgba(255,255,255,0.3);
+    color: rgba(224, 242, 241, 0.3);
     border-left-color: transparent;
 }
 .side-nav .nav-item.disabled:hover {
     background-color: transparent;
-    color: rgba(255,255,255,0.3);
+    color: rgba(224, 242, 241, 0.3);
     transform: none;
     box-shadow: none;
 }
 .side-nav .nav-item.disabled i {
-    color: rgba(255,255,255,0.2);
+    color: rgba(224, 242, 241, 0.2);
 }
 
 .side-nav .nav-footer {
@@ -255,8 +255,9 @@ body.sidebar-open .side-nav {
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
     font-size: 0.9rem;
-    color: #aeb6bf;
+    color: #B0BEC5; /* Soft Blue-Grey */
 }
+
 
 /* --- Main Content Wrapper --- */
 .main-content-wrapper {
@@ -268,7 +269,6 @@ body.sidebar-open .side-nav {
     margin: 2rem; /* Margin around the content wrapper itself */
     position: relative;
     z-index: 1;
-    /* Transition for content wrapper to slide/scale when sidebar opens/closes (if desired) */
     transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
 }
 
@@ -279,7 +279,7 @@ body.sidebar-open .side-nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Softer black overlay */
+    background-color: rgba(0, 0, 0, 0.3); /* Softer black overlay */
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -292,12 +292,12 @@ body.sidebar-open .overlay {
     visibility: visible;
 }
 
-/* KONTEN DALAM MAIN-CONTENT-AREA (Tidak berubah signifikan, hanya untuk kejelasan) */
+/* KONTEN DALAM MAIN-CONTENT-AREA */
 .module-content h2, .course-dashboard h2 {
     font-size: 2.2rem;
-    color: #2c3e50;
+    color: #3F4E4F; /* Dark Teal for main headings */
     margin-bottom: 1.5rem;
-    border-bottom: 3px solid #8bc34a; /* Softer green underline */
+    border-bottom: 3px solid #66BB6A; /* Soft Green underline */
     padding-bottom: 0.8rem;
     font-weight: 700;
     text-align: center;
@@ -307,16 +307,16 @@ body.sidebar-open .overlay {
 }
 .module-content h3 {
     font-size: 1.8rem;
-    color: #34495e;
+    color: #4A5568; /* Matches main text color */
     margin-top: 2rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #E0E0E0; /* Light Grey border */
     padding-bottom: 0.5rem;
     font-weight: 600;
 }
 .module-content h4 {
     font-size: 1.4rem;
-    color: #4CAF50; /* Keep green for accent headings */
+    color: #4DB6AC; /* Teal accent for sub-sub headings */
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
@@ -351,12 +351,12 @@ body.sidebar-open .overlay {
 .progress-overview p {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #555;
+    color: #78909C; /* Softer grey for instruction text */
 }
 
 /* --- Progress Bar Styling --- */
 .progress-bar-container {
-    background-color: #e0e0e0;
+    background-color: #E0E0E0;
     border-radius: 50px;
     height: 30px;
     overflow: hidden;
@@ -366,7 +366,7 @@ body.sidebar-open .overlay {
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #4CAF50, #8bc34a); /* Vibrant green gradient */
+    background: linear-gradient(to right, #66BB6A, #81C784); /* Soft Green gradient */
     height: 100%;
     width: 0%;
     border-radius: 50px;
@@ -381,7 +381,7 @@ body.sidebar-open .overlay {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #2c3e50;
+    color: #3F4E4F; /* Dark Teal for progress text */
     font-weight: bold;
     font-size: 1.1rem;
     text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
@@ -399,23 +399,23 @@ body.sidebar-open .overlay {
     background-color: #ffffff; /* Pure white for cards */
     padding: 1.8rem;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #e0e0e0; /* Softer border */
+    border: 1px solid #E0E0E0; /* Light Grey border */
 }
 
 .level-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12); /* Softer hover shadow */
-    background-color: #f8f8f8; /* Very light tint on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    background-color: #F8F8F8; /* Very light tint on hover */
 }
 
 .level-card h3 {
     font-size: 1.6rem;
-    color: #2c3e50;
+    color: #3F4E4F; /* Dark Teal for card titles */
     margin-bottom: 0.8rem;
     padding-bottom: 0;
     border-bottom: none;
@@ -424,12 +424,12 @@ body.sidebar-open .overlay {
 
 .level-card h3 a {
     font-weight: 700;
-    color: #3f51b5; /* Blue for card titles */
+    color: #4DB6AC; /* Primary Teal for card title links */
     transition: color 0.3s ease;
 }
 
 .level-card h3 a:hover {
-    color: #8bc34a; /* Green on hover */
+    color: #66BB6A; /* Soft Green on hover */
 }
 
 .level-card p {
@@ -441,8 +441,8 @@ body.sidebar-open .overlay {
 
 /* --- Footer Styling --- */
 .main-footer {
-    background-color: #3f51b5; /* Matches header blue */
-    color: #e0e7ff;
+    background-color: #4DB6AC; /* Matches header blue */
+    color: #E0F2F1;
     text-align: center;
     padding: 1.5rem 0;
     margin-top: auto; /* Pushes footer to the bottom */
@@ -452,19 +452,19 @@ body.sidebar-open .overlay {
 
 /* --- General Input/Button Styling for Quizzes --- */
 .quiz-section {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #e0e0e0; /* Softer border */
+    border: 1px solid #E0E0E0;
     margin-top: 2.5rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .quiz-section h3 {
-    color: #4CAF50;
+    color: #4DB6AC; /* Primary Teal for quiz headings */
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #c8e6c9; /* Softer green border */
+    border-bottom: 2px solid #E0E0E0;
     padding-bottom: 0.8rem;
     text-align: center;
 }
@@ -481,7 +481,7 @@ body.sidebar-open .overlay {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #c5d0db; /* Softer border color */
+    border: 1px solid #B0BEC5; /* Soft Blue-Grey border */
     border-radius: 5px;
     font-size: 1rem;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
@@ -490,13 +490,13 @@ body.sidebar-open .overlay {
 .quiz-section input[type="text"]:focus,
 .quiz-section select:focus,
 .quiz-section textarea:focus {
-    border-color: #8bc34a; /* Softer green focus */
-    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+    border-color: #FFB74D; /* Soft Orange focus highlight */
+    box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
 }
 
 .quiz-section button {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #FFB74D; /* Soft Orange button */
+    color: #3F4E4F; /* Dark Teal text */
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     font-size: 1.1rem;
@@ -506,7 +506,7 @@ body.sidebar-open .overlay {
 }
 
 .quiz-section button:hover {
-    background-color: #45a049;
+    background-color: #FFA726; /* Darker orange on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
@@ -522,39 +522,39 @@ body.sidebar-open .overlay {
 }
 
 .feedback.correct {
-    background-color: #e6ffe6;
-    color: #28a745;
-    border: 1px solid #28a745;
+    background-color: #E6FFE6; /* Light green */
+    color: #388E3C; /* Darker green */
+    border: 1px solid #388E3C;
 }
 
 .feedback.incorrect {
-    background-color: #ffe6e6;
-    color: #dc3545;
-    border: 1px solid #dc3545;
+    background-color: #FFE6E6; /* Light red */
+    color: #D32F2F; /* Darker red */
+    border: 1px solid #D32F2F;
 }
 
 /* --- Lesson Section Specific Styles (for modules) --- */
 .lesson-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background-color: #ffffff; /* White background */
-    border-left: 6px solid #8bc34a; /* Softer green accent bar */
+    background-color: #ffffff;
+    border-left: 6px solid #66BB6A; /* Soft Green accent bar */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .lesson-section h3 {
-    color: #2c3e50;
+    color: #3F4E4F; /* Dark Teal */
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0; /* Softer border */
+    border-bottom: 1px solid #E0E0E0;
     padding-bottom: 0.6rem;
     text-align: left;
 }
 
 .lesson-section h4 {
-    color: #4a5568; /* Matches main text color */
+    color: #4A5568; /* Matches main text color */
     font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
@@ -591,7 +591,7 @@ body.sidebar-open .overlay {
 /* Quiz Item Styling (for individual quiz containers) */
 .quiz-item {
     background-color: #fcfdfe; /* Very light background for quiz items */
-    border: 1px solid #e0e0e0; /* Softer border */
+    border: 1px solid #E0E0E0;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -607,8 +607,7 @@ body.sidebar-open .overlay {
 
 
 /* --- Responsive Adjustments --- */
-/* Default for all screens is now sidebar overlay behavior */
-
+/* Mobile/Tablet adjustments for overlay functionality */
 @media (max-width: 992px) {
     .main-header {
         padding: 1.5rem 0;
@@ -616,14 +615,9 @@ body.sidebar-open .overlay {
     .sidebar-toggle {
         left: 15px;
         font-size: 1.5rem;
+        padding: 6px 12px; /* Smaller button */
     }
 
-    .app-container {
-        flex-direction: column; /* Stack sidebar and content */
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
     .main-content-wrapper {
         padding: 1.5rem;
         margin: 0; /* Remove margin on mobile */
@@ -670,6 +664,7 @@ body.sidebar-open .overlay {
     }
     .sidebar-toggle {
         font-size: 1.3rem;
+        padding: 5px 10px; /* Even smaller button */
     }
     .main-content-wrapper {
         padding: 1rem;
@@ -711,12 +706,30 @@ body.sidebar-open .overlay {
     .sidebar-toggle {
         left: 10px;
         font-size: 1.2rem;
+        padding: 4px 8px; /* Smallest button */
     }
     .side-nav .nav-header h3 {
         font-size: 1.2rem;
     }
-    /* Pada layar sangat kecil, item nav tidak perlu justify-content: flex-start; jika tidak ada ikon */
-    /* Mereka sudah punya padding dari .nav-item */
+    .side-nav .level-list {
+        flex-direction: column; /* Stack vertically for very small screens */
+        align-items: flex-start; /* Align to the left in vertical stack */
+        padding: 0 1rem; /* Padding for items */
+    }
+    .side-nav .level-list > li {
+        width: 100%;
+        margin: 0.2rem 0;
+    }
+    .side-nav .nav-item {
+        text-align: left;
+        justify-content: flex-start; /* Align icon and text to start */
+        width: 100%;
+        padding: 0.6rem 1rem;
+    }
+    .nav-item i {
+        margin-right: 0.5rem; /* Slightly reduced margin for mobile icons */
+        font-size: 1em;
+    }
     .course-dashboard h2, .module-content h2 {
         font-size: 1.4rem;
     }
