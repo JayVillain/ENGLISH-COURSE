@@ -4,54 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 0: Absolute Beginner - English Mastery Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../assets/css/reset.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
-</head>
+    </head>
 <body>
     <header class="main-header">
+        <button class="sidebar-toggle" aria-label="Toggle Sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
         <h1>English Mastery Course</h1>
         <p class="tagline">Your Complete Journey from Absolute Beginner to Expert</p>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="#" class="active">Level 0: Absolute Beginner</a></li>
-            <li><a href="../level1-building-blocks/index.html">Level 1: Building Blocks</a></li>
-        </ul>
-    </nav>
-
-    <main class="module-content">
-        <h2>Level 0: Absolute Beginner</h2>
-        <p>Selamat datang di Level 0 dari English Mastery Course! Ini adalah titik awal yang sempurna jika Anda sama sekali belum pernah belajar bahasa Inggris, atau jika Anda ingin membangun fondasi yang sangat kuat.</p>
-        <p>Di level ini, kita akan fokus pada hal-hal paling dasar yang mutlak Anda perlukan sebelum melangkah lebih jauh. Kita akan membiasakan diri dengan bunyi bahasa Inggris, mengenali huruf, dan mempelajari kata-kata serta frasa pertama yang akan sangat berguna.</p>
-        <p>Setiap modul dirancang untuk memudahkan Anda memahami dan mempraktikkan konsep baru. Bersiaplah untuk memulai perjalanan yang menarik ini!</p>
-
-        <section class="level-modules">
-            <h3>Modul-modul di Level 0:</h3>
-            <ul>
-                <li>
-                    <h4><a href="module0.1-intro-to-english-sounds/index.html">Modul 0.1: Pengantar & Mengenal Bunyi Bahasa Inggris</a></h4>
-                    <p>Pahami mengapa Bahasa Inggris penting, strategi belajar, dan kenali alfabet beserta bunyi vokal dan konsonan dasarnya.</p>
-                </li>
-                <li>
-                    <h4><a href="module0.2-first-words-greetings/index.html">Modul 0.2: Kata-kata Pertama & Sapaan</a></h4>
-                    <p>Pelajari salam dasar, ungkapan sopan santun (`Please`, `Thank you`), serta angka 1-10.</p>
-                </li>
-                <li>
-                    <h4><a href="module0.3-basic-questions/index.html">Modul 0.3: Pertanyaan & Respons Paling Sederhana</a></h4>
-                    <p>Kuasi frasa pertanyaan dan jawaban paling mendasar untuk berinteraksi dengan lingkungan sekitar.</p>
-                </li>
-                </ul>
-        </section>
-
-        <div class="navigation-buttons">
-            <a href="../../index.html" class="btn btn-secondary">Kembali ke Dashboard Utama</a>
-            <a href="module0.1-intro-to-english-sounds/index.html" class="btn btn-primary">Mulai Level 0 (Modul 0.1)</a>
+    <aside class="side-nav">
+        <div class="nav-header">
+            <h3>Course Navigation</h3>
+            <button class="close-sidebar-toggle" aria-label="Close Sidebar">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </main>
+        <ul class="level-list">
+            <li><a href="../../index.html" class="nav-item icon-dashboard"><i class="fas fa-th-large"></i> <span>Home Dashboard</span></a></li>
+            <li>
+                <a href="index.html" class="nav-item active icon-level0"><i class="fas fa-book-open"></i> <span>Level 0: Absolute Beginner</span></a>
+                <ul class="module-list">
+                    <li><a href="module0.1-intro-to-english-sounds/index.html" class="nav-item icon-module01"><i class="fas fa-volume-up"></i> <span>Modul 0.1: Pengantar & Bunyi</span></a></li>
+                    <li><a href="module0.2-first-words-greetings/index.html" class="nav-item icon-module02"><i class="fas fa-comments"></i> <span>Modul 0.2: Kata & Sapaan Pertama</span></a></li>
+                    <li><a href="module0.3-basic-questions/index.html" class="nav-item icon-module03"><i class="fas fa-question-circle"></i> <span>Modul 0.3: Pertanyaan Sederhana</span></a></li>
+                    </ul>
+            </li>
+            <li>
+                <a href="../../levels/level1-building-blocks/index.html" class="nav-item icon-level1 disabled"><i class="fas fa-cube"></i> <span>Level 1: Building Blocks (Segera Hadir)</span></a>
+                <ul class="module-list">
+                    <li><a href="#" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 1.1: The Verb 'To Be' (Segera Hadir)</span></a></li>
+                    </ul>
+            </li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chart-line"></i> <span>Level 2: Expanding Communication (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chalkboard-teacher"></i> <span>Level 3: Building Fluency (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-lightbulb"></i> <span>Level 4: Complex Ideas (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-magic"></i> <span>Level 5: Mastering Nuance (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-star"></i> <span>Level 6: Expert Command (Segera Hadir)</span></a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>Progres Anda: 0%</p>
+        </div>
+    </aside>
 
-    <footer class="main-footer">
+    <div class="main-content-wrapper">
+        <main class="main-content-area">
+            <h2>Level 0: Absolute Beginner</h2>
+            <p>Selamat datang di Level 0 dari English Mastery Course! Ini adalah titik awal yang sempurna jika Anda sama sekali belum pernah belajar bahasa Inggris, atau jika Anda ingin membangun fondasi yang sangat kuat.</p>
+            <p>Di level ini, kita akan fokus pada hal-hal paling dasar yang mutlak Anda perlukan sebelum melangkah lebih jauh. Kita akan membiasakan diri dengan bunyi bahasa Inggris, mengenali huruf, dan mempelajari kata-kata serta frasa pertama yang akan sangat berguna.</p>
+            <p>Setiap modul dirancang untuk memudahkan Anda memahami dan mempraktikkan konsep baru. Bersiaplah untuk memulai perjalanan yang menarik ini!</p>
+
+            <section class="level-modules">
+                <h3>Modul-modul di Level 0:</h3>
+                <ul>
+                    <li>
+                        <h4><a href="module0.1-intro-to-english-sounds/index.html">Modul 0.1: Pengantar & Mengenal Bunyi Bahasa Inggris</a></h4>
+                        <p>Pahami mengapa Bahasa Inggris penting, strategi belajar, dan kenali alfabet beserta bunyi vokal dan konsonan dasarnya.</p>
+                    </li>
+                    <li>
+                        <h4><a href="module0.2-first-words-greetings/index.html">Modul 0.2: Kata-kata Pertama & Sapaan</a></h4>
+                        <p>Pelajari salam dasar, ungkapan sopan santun (`Please`, `Thank you`), serta angka 1-10.</p>
+                    </li>
+                    <li>
+                        <h4><a href="module0.3-basic-questions/index.html">Modul 0.3: Pertanyaan & Respons Paling Sederhana</a></h4>
+                        <p>Kuasi frasa pertanyaan dan jawaban paling mendasar untuk berinteraksi dengan lingkungan sekitar.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="navigation-buttons">
+                <a href="../../index.html" class="btn btn-secondary">Kembali ke Dashboard Utama</a>
+                <a href="module0.1-intro-to-english-sounds/index.html" class="btn btn-primary">Mulai Level 0 (Modul 0.1)</a>
+            </div>
+        </main>
+        <div class="overlay" onclick="closeSidebar()"></div>
+    </div> <footer class="main-footer">
         <p>&copy; 2025 English Mastery Course. All rights reserved.</p>
     </footer>
 
