@@ -23,11 +23,11 @@ body {
 
 /* --- Header Styling --- */
 .main-header {
-    background-color: #2c3e50; /* Kembali ke Dark blue/grey asli */
-    color: #ecf0f1; /* Light grey */
+    background-color: #3f51b5; /* A soft, calming blue */
+    color: #e0e7ff; /* Lighter shade of blue for text */
     padding: 2.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer shadow */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 0; /* No margin below header */
@@ -40,7 +40,7 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 800;
     letter-spacing: 0.08rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Softer text shadow */
 }
 
 .main-header .tagline {
@@ -55,44 +55,44 @@ body {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #3498db; /* Biru terang untuk tombol toggle */
-    color: #fff;
+    background-color: #4CAF50; /* Keep green for actionable button */
+    color: #fff; /* White text for contrast */
     border: none;
     font-size: 1.1rem;
-    padding: 8px 15px;
+    padding: 8px 15px; /* Button padding */
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Softer shadow */
+    display: flex; /* For icon and text alignment */
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.5rem; /* Space between icon and text */
     z-index: 1001;
 }
 
 .sidebar-toggle:hover {
-    background-color: #2980b9; /* Biru lebih gelap saat hover */
+    background-color: #45a049; /* Slightly darker green on hover */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.sidebar-toggle .fas {
-    font-size: 1.1rem;
+.sidebar-toggle .fas { /* Style for Font Awesome icon within the button */
+    font-size: 1.1rem; /* Adjust icon size */
 }
 
 /* --- Side Navigation (Overlay) --- */
 .side-nav {
-    position: fixed;
-    top: 0;
+    position: fixed; /* KUNCI: Fixed positioning for overlay */
+    top: 0; /* Mulai dari atas viewport */
     left: 0;
-    width: 280px;
-    height: 100vh;
-    background-color: #34495e; /* Kembali ke Darker blue/grey untuk sidebar */
-    color: #ecf0f1; /* Light text color */
+    width: 280px; /* Lebar sidebar */
+    height: 100vh; /* Tinggi penuh viewport */
+    background-color: #3f4e4f; /* Dark Teal for sidebar background */
+    color: #E0F2F1; /* Light text color */
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transform: translateX(-100%);
+    z-index: 1000; /* Di atas konten utama, di bawah header */
+    transform: translateX(-100%); /* Sembunyikan ke kiri secara default */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -108,14 +108,14 @@ body.sidebar-open .side-nav {
     align-items: center;
     margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.15); /* Kembali ke border yang lebih jelas */
+    border-bottom: 1px solid rgba(255,255,255,0.08); /* Softer border */
     padding-bottom: 1rem;
 }
 
 .side-nav .nav-header h3 {
     font-size: 1.7rem;
     font-weight: 700;
-    color: #3498db; /* Biru terang untuk judul sidebar */
+    color: #66BB6A; /* Soft Green for sidebar header title */
     margin-bottom: 0;
     letter-spacing: 0.05rem;
 }
@@ -123,7 +123,7 @@ body.sidebar-open .side-nav {
 .close-sidebar-toggle {
     background: none;
     border: none;
-    color: #ecf0f1; /* Light text color */
+    color: #E0F2F1; /* Light text color */
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -133,7 +133,7 @@ body.sidebar-open .side-nav {
 
 .close-sidebar-toggle:hover {
     background-color: rgba(255,255,255,0.1);
-    color: #e74c3c; /* Merah untuk tombol close */
+    color: #FFB74D; /* Soft Orange for close button hover */
 }
 
 /* --- Navigation List Items (Inside Side Nav) --- */
@@ -150,7 +150,7 @@ body.sidebar-open .side-nav {
     display: flex;
     align-items: center;
     padding: 0.9rem 1.5rem;
-    color: #ecf0f1; /* Light text color */
+    color: #E0F2F1; /* Light text color */
     font-weight: 500;
     font-size: 1.05rem;
     white-space: nowrap;
@@ -161,22 +161,22 @@ body.sidebar-open .side-nav {
 }
 
 /* Ikon Styling for nav-item */
-.nav-item i {
-    margin-right: 0.8rem;
-    color: rgba(236, 240, 241, 0.7); /* Slightly muted light text color */
-    font-size: 1.1em;
-    width: 1.2em;
+.nav-item i { /* Target Font Awesome <i> tag directly */
+    margin-right: 0.8rem; /* Ruang antara ikon dan teks */
+    color: rgba(224, 242, 241, 0.7); /* Slightly muted light text color */
+    font-size: 1.1em; /* Ukuran ikon relatif terhadap teks */
+    width: 1.2em; /* Memastikan lebar ikon konsisten untuk perataan */
     text-align: center;
 }
 
 .side-nav .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(255,255,255,0.1); /* Subtle light hover */
-    color: #3498db; /* Biru terang untuk teks hover */
-    border-left-color: #3498db;
+    background-color: rgba(255,255,255,0.08); /* Very subtle light hover */
+    color: #66BB6A; /* Soft Green text on hover */
+    border-left-color: #66BB6A;
 }
 
 .side-nav .nav-item.active {
-    background-color: #2980b9; /* Biru lebih gelap untuk active item */
+    background-color: #66BB6A; /* Soft Green for active item */
     color: #fff; /* White text for active */
     font-weight: 700;
     border-left-color: #fff;
@@ -184,7 +184,7 @@ body.sidebar-open .side-nav {
     cursor: default;
 }
 .side-nav .nav-item.active:hover {
-    background-color: #2980b9;
+    background-color: #66BB6A;
     color: #fff;
 }
 .side-nav .nav-item.active i {
@@ -207,26 +207,26 @@ body.sidebar-open .side-nav {
     padding: 0.7rem 1.5rem 0.7rem 2.5rem;
     font-size: 0.95rem;
     font-weight: 400;
-    color: rgba(236, 240, 241, 0.8); /* Slightly less vibrant for sub-modules */
+    color: rgba(224, 242, 241, 0.8); /* Slightly less vibrant for sub-modules */
 }
 .side-nav .module-list .nav-item i {
-    color: rgba(236, 240, 241, 0.6);
+    color: rgba(224, 242, 241, 0.6);
 }
 .side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(255,255,255,0.03); /* Even more subtle hover */
-    color: #3498db;
-    border-left-color: #3498db;
+    background-color: rgba(255,255,255,0.03); /* Very subtle hover */
+    color: #66BB6A;
+    border-left-color: #66BB6A;
 }
 
 .side-nav .module-list .nav-item.active {
-    background-color: #2c3e50; /* Darker blue/grey untuk active sub-item */
+    background-color: #66BB6A;
     border-left-color: #fff;
     color: #fff;
     font-weight: 600;
     box-shadow: inset 3px 0 8px rgba(0,0,0,0.3);
 }
 .side-nav .module-list .nav-item.active:hover {
-    background-color: #2c3e50;
+    background-color: #66BB6A;
 }
 .side-nav .module-list .nav-item.active i {
     color: #fff;
@@ -236,17 +236,17 @@ body.sidebar-open .side-nav {
     opacity: 0.3;
     cursor: not-allowed;
     background-color: transparent;
-    color: rgba(236, 240, 241, 0.3);
+    color: rgba(224, 242, 241, 0.3);
     border-left-color: transparent;
 }
 .side-nav .nav-item.disabled:hover {
     background-color: transparent;
-    color: rgba(236, 240, 241, 0.3);
+    color: rgba(224, 242, 241, 0.3);
     transform: none;
     box-shadow: none;
 }
 .side-nav .nav-item.disabled i {
-    color: rgba(236, 240, 241, 0.2);
+    color: rgba(224, 242, 241, 0.2);
 }
 
 .side-nav .nav-footer {
@@ -255,7 +255,7 @@ body.sidebar-open .side-nav {
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
     font-size: 0.9rem;
-    color: #bdc3c7; /* Light grey for footer text */
+    color: #B0BEC5; /* Soft Blue-Grey */
 }
 
 
@@ -295,9 +295,9 @@ body.sidebar-open .overlay {
 /* KONTEN DALAM MAIN-CONTENT-AREA */
 .module-content h2, .course-dashboard h2 {
     font-size: 2.2rem;
-    color: #2c3e50; /* Dark blue/grey */
+    color: #3F4E4F; /* Dark Teal for main headings */
     margin-bottom: 1.5rem;
-    border-bottom: 3px solid #3498db; /* Biru terang underline */
+    border-bottom: 3px solid #66BB6A; /* Soft Green underline */
     padding-bottom: 0.8rem;
     font-weight: 700;
     text-align: center;
@@ -307,16 +307,16 @@ body.sidebar-open .overlay {
 }
 .module-content h3 {
     font-size: 1.8rem;
-    color: #34495e; /* Darker blue/grey */
+    color: #4A5568; /* Matches main text color */
     margin-top: 2rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0; /* Light Grey border */
+    border-bottom: 1px solid #E0E0E0; /* Light Grey border */
     padding-bottom: 0.5rem;
     font-weight: 600;
 }
 .module-content h4 {
     font-size: 1.4rem;
-    color: #3498db; /* Biru terang aksen */
+    color: #4DB6AC; /* Primary Teal accent for sub-sub headings */
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
@@ -331,11 +331,15 @@ body.sidebar-open .overlay {
 .module-content ul, .module-content ol {
     margin-left: 2rem;
     margin-bottom: 1rem;
-    list-style-position: outside;
+    list-style-type: disc;
+    padding: 0;
+}
+.module-content ol {
+    list-style-type: decimal;
 }
 
 .module-content li {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     font-size: 1rem;
 }
 
@@ -351,12 +355,12 @@ body.sidebar-open .overlay {
 .progress-overview p {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #7f8c8d; /* Medium grey for instruction text */
+    color: #78909C; /* Softer grey for instruction text */
 }
 
 /* --- Progress Bar Styling --- */
 .progress-bar-container {
-    background-color: #e0e0e0;
+    background-color: #E0E0E0;
     border-radius: 50px;
     height: 30px;
     overflow: hidden;
@@ -366,7 +370,7 @@ body.sidebar-open .overlay {
 }
 
 .progress-bar {
-    background: linear-gradient(to right, #2ecc71, #27ae60); /* Hijau datar */
+    background: linear-gradient(to right, #66BB6A, #81C784); /* Soft Green gradient */
     height: 100%;
     width: 0%;
     border-radius: 50px;
@@ -381,7 +385,7 @@ body.sidebar-open .overlay {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #2c3e50; /* Dark blue/grey */
+    color: #3F4E4F; /* Dark Teal for progress text */
     font-weight: bold;
     font-size: 1.1rem;
     text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
@@ -404,18 +408,18 @@ body.sidebar-open .overlay {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #e0e0e0; /* Light Grey border */
+    border: 1px solid #E0E0E0; /* Light Grey border */
 }
 
 .level-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    background-color: #f8f8f8; /* Very light tint on hover */
+    background-color: #F8F8F8; /* Very light tint on hover */
 }
 
 .level-card h3 {
     font-size: 1.6rem;
-    color: #2c3e50; /* Dark blue/grey */
+    color: #3F4E4F; /* Dark Teal for card titles */
     margin-bottom: 0.8rem;
     padding-bottom: 0;
     border-bottom: none;
@@ -424,12 +428,12 @@ body.sidebar-open .overlay {
 
 .level-card h3 a {
     font-weight: 700;
-    color: #3498db; /* Biru terang untuk link kartu */
+    color: #4DB6AC; /* Primary Teal for card title links */
     transition: color 0.3s ease;
 }
 
 .level-card h3 a:hover {
-    color: #2980b9; /* Biru lebih gelap saat hover */
+    color: #66BB6A; /* Soft Green on hover */
 }
 
 .level-card p {
@@ -441,8 +445,8 @@ body.sidebar-open .overlay {
 
 /* --- Footer Styling --- */
 .main-footer {
-    background-color: #2c3e50; /* Matches header blue */
-    color: #ecf0f1;
+    background-color: #4DB6AC; /* Matches header blue */
+    color: #E0F2F1;
     text-align: center;
     padding: 1.5rem 0;
     margin-top: auto; /* Pushes footer to the bottom */
@@ -455,16 +459,16 @@ body.sidebar-open .overlay {
     background-color: #ffffff;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #E0E0E0;
     margin-top: 2.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0,0/0,0.08);
 }
 
 .quiz-section h3 {
-    color: #3498db; /* Biru terang untuk judul kuis */
+    color: #4DB6AC; /* Primary Teal for quiz headings */
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid #E0E0E0;
     padding-bottom: 0.8rem;
     text-align: center;
 }
@@ -481,7 +485,7 @@ body.sidebar-open .overlay {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #bdc3c7; /* Soft Grey border */
+    border: 1px solid #B0BEC5; /* Soft Blue-Grey border */
     border-radius: 5px;
     font-size: 1rem;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
@@ -490,13 +494,13 @@ body.sidebar-open .overlay {
 .quiz-section input[type="text"]:focus,
 .quiz-section select:focus,
 .quiz-section textarea:focus {
-    border-color: #3498db; /* Biru terang fokus */
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    border-color: #FFB74D; /* Soft Orange focus highlight */
+    box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
 }
 
 .quiz-section button { /* General button style */
-    background-color: #3498db; /* Biru terang untuk tombol */
-    color: #fff;
+    background-color: #FFB74D; /* Soft Orange button */
+    color: #3F4E4F; /* Dark Teal text */
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     font-size: 1.1rem;
@@ -507,7 +511,7 @@ body.sidebar-open .overlay {
 }
 
 .quiz-section button:hover {
-    background-color: #2980b9; /* Biru lebih gelap saat hover */
+    background-color: #FFA726; /* Darker orange on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
@@ -523,39 +527,39 @@ body.sidebar-open .overlay {
 }
 
 .feedback.correct {
-    background-color: #d4edda; /* Light green for correct */
-    color: #155724; /* Dark green text */
-    border: 1px solid #28a745;
+    background-color: #E6FFE6; /* Light green */
+    color: #388E3C; /* Darker green */
+    border: 1px solid #388E3C;
 }
 
 .feedback.incorrect {
-    background-color: #f8d7da; /* Light red for incorrect */
-    color: #721c24; /* Dark red text */
-    border: 1px solid #dc3545;
+    background-color: #FFE6E6; /* Light red */
+    color: #D32F2F; /* Darker red */
+    border: 1px solid #D32F2F;
 }
 
 /* --- Lesson Section Specific Styles (for modules) --- */
 .lesson-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background-color: #ffffff;
-    border-left: 6px solid #2ecc71; /* Hijau datar aksen bar */
+    background-color: #ffffff; /* White background */
+    border-left: 6px solid #66BB6A; /* Soft Green accent bar */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .lesson-section h3 {
-    color: #2c3e50; /* Dark blue/grey */
+    color: #3F4E4F; /* Dark Teal */
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #E0E0E0; /* Light Grey border */
     padding-bottom: 0.6rem;
     text-align: left;
 }
 
 .lesson-section h4 {
-    color: #34495e; /* Darker blue/grey */
+    color: #4A5568; /* Matches main text color */
     font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
@@ -592,7 +596,7 @@ body.sidebar-open .overlay {
 /* Quiz Item Styling (for individual quiz containers) */
 .quiz-item {
     background-color: #fcfdfe; /* Very light background for quiz items */
-    border: 1px solid #e0e0e0;
+    border: 1px solid #E0E0E0;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -609,20 +613,20 @@ body.sidebar-open .overlay {
 
 /* --- Navigation Buttons at Bottom of Modules --- */
 .navigation-buttons {
-    margin-top: 3rem;
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid #e0e0e0;
+    margin-top: 3rem; /* Memberi ruang dari konten di atasnya */
+    text-align: center; /* Memusatkan tombol */
+    padding-top: 1.5rem; /* Padding di atas garis pemisah */
+    border-top: 1px solid #e0e0e0; /* Garis pemisah lembut */
 }
 
-.navigation-buttons .btn {
-    display: inline-block;
+.navigation-buttons .btn { /* TARGET INI DENGAN PRIORITAS TINGGI */
+    display: inline-block; /* Agar tombol bisa berdampingan */
     padding: 0.8rem 1.8rem;
-    border-radius: 50px;
+    border-radius: 50px; /* Bentuk pill-shaped */
     font-size: 1.1rem;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    margin: 0 0.8rem;
+    margin: 0 0.8rem; /* Spasi antar tombol */
     text-transform: uppercase;
     letter-spacing: 0.03rem;
     text-decoration: none; /* KUNCI: Pastikan text-decoration tidak ada untuk <a>.btn */
@@ -630,26 +634,26 @@ body.sidebar-open .overlay {
 }
 
 .navigation-buttons .btn-primary {
-    background-color: #3498db; /* Biru terang untuk primary */
+    background-color: #66BB6A; /* Soft Green */
     color: white;
-    box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 3px 10px rgba(102, 187, 106, 0.3); /* Shadow yang cocok */
 }
 
 .navigation-buttons .btn-primary:hover {
-    background-color: #2980b9; /* Biru lebih gelap saat hover */
+    background-color: #5cb85f; /* Darker green on hover */
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.4);
 }
 
 .navigation-buttons .btn-secondary {
-    background-color: #bdc3c7; /* Abu-abu terang untuk secondary */
-    color: #34495e; /* Darker blue/grey text */
-    border: 1px solid #95a5a6; /* Darker grey border */
+    background-color: #E0E0E0; /* Light Grey */
+    color: #4a5568; /* Darker text */
+    border: 1px solid #B0BEC5; /* Soft border */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .navigation-buttons .btn-secondary:hover {
-    background-color: #aeb6bf; /* Abu-abu lebih gelap saat hover */
+    background-color: #D5D5D5;
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -664,18 +668,20 @@ body.sidebar-open .overlay {
     .sidebar-toggle {
         left: 15px;
         font-size: 1.5rem;
-        padding: 6px 12px;
+        padding: 6px 12px; /* Smaller button */
     }
 
     .main-content-wrapper {
         padding: 1.5rem;
-        margin: 0;
+        margin: 0; /* Remove margin on mobile */
         border-radius: 0;
         box-shadow: none;
     }
     .side-nav {
-        width: 250px;
+        width: 250px; /* Lebar sidebar di mobile */
+        /* Tetap fixed, transform translateX akan mengontrol visibility */
     }
+    /* Rest of the side-nav styles remain as defined above for its default (overlay) behavior */
 
     .main-header h1 {
         font-size: 2.5rem;
@@ -711,7 +717,7 @@ body.sidebar-open .overlay {
     }
     .sidebar-toggle {
         font-size: 1.3rem;
-        padding: 5px 10px;
+        padding: 5px 10px; /* Even smaller button */
     }
     .main-content-wrapper {
         padding: 1rem;
@@ -760,15 +766,15 @@ body.sidebar-open .overlay {
     .sidebar-toggle {
         left: 10px;
         font-size: 1.2rem;
-        padding: 4px 8px;
+        padding: 4px 8px; /* Smallest button */
     }
     .side-nav .nav-header h3 {
         font-size: 1.2rem;
     }
     .side-nav .level-list {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 1rem;
+        flex-direction: column; /* Stack vertically for very small screens */
+        align-items: flex-start; /* Align to the left in vertical stack */
+        padding: 0 1rem; /* Padding for items */
     }
     .side-nav .level-list > li {
         width: 100%;
@@ -776,12 +782,12 @@ body.sidebar-open .overlay {
     }
     .side-nav .nav-item {
         text-align: left;
-        justify-content: flex-start;
+        justify-content: flex-start; /* Align icon and text to start */
         width: 100%;
         padding: 0.6rem 1rem;
     }
     .nav-item i {
-        margin-right: 0.5rem;
+        margin-right: 0.5rem; /* Slightly reduced margin for mobile icons */
         font-size: 1em;
     }
     .course-dashboard h2, .module-content h2 {
@@ -792,8 +798,8 @@ body.sidebar-open .overlay {
     }
     /* Further adjustment for nav buttons on tiny screens */
     .navigation-buttons .btn {
-        display: block;
-        width: calc(100% - 2rem);
-        margin: 0.5rem auto;
+        display: block; /* Make them stack vertically */
+        width: calc(100% - 2rem); /* Full width minus padding */
+        margin: 0.5rem auto; /* Center them */
     }
 }
