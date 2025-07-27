@@ -1,8 +1,6 @@
 /*
  * Module 0.2 Specific Styles
- * Anda bisa menambahkan gaya khusus untuk modul ini di sini jika diperlukan.
- * Jika tidak ada gaya khusus, file ini bisa kosong atau dihapus.
- * Namun, disarankan tetap ada untuk konsistensi struktur.
+ * Menggunakan gaya dari style.css global untuk sebagian besar styling.
  */
 
 .lesson-section ul li {
@@ -15,14 +13,21 @@
 }
 
 .quiz-item {
-    background-color: #f0f8ff; /* Warna latar belakang yang sedikit berbeda untuk setiap kuis */
-    border: 1px solid #cce7f0;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 20px; /* Jarak antar item kuis */
+    background-color: #ffffff; /* White background for quiz items */
+    border: 1px solid #e0e0e0; /* Softer border */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem; /* Jarak antar item kuis */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 
 .quiz-item p {
     margin-bottom: 10px;
     font-weight: 500;
 }
+
+/* Pastikan input kuis seragam, ini sudah diatur di style.css global */
+/* .quiz-section input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+} */
