@@ -8,12 +8,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevents horizontal scroll */
-    background-color: #f0f4f8; /* Soft light blue-grey background - very soft */
-    color: #4a5568; /* Darker grey-blue for main text for good contrast */
+    overflow-x: hidden;
+    background-color: #F5F5F5; /* Soft Off-white Background */
+    color: #263238; /* Dark Grey for main text - excellent contrast */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    line-height: 1.7; /* Slightly more spacious line-height */
-    font-size: 1rem; /* Base font size */
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 /* Add a global transition for smoother changes */
@@ -23,14 +23,14 @@ body {
 
 /* --- Header Styling --- */
 .main-header {
-    background-color: #3f51b5; /* A soft, calming blue */
-    color: #e0e7ff; /* Lighter shade of blue for text */
+    background-color: #4DB6AC; /* Primary Teal */
+    color: #E0F2F1; /* Very light teal for text */
     padding: 2.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer shadow */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-bottom: 0; /* No margin below header */
+    margin-bottom: 0;
     position: relative;
     z-index: 1002;
 }
@@ -40,7 +40,7 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 800;
     letter-spacing: 0.08rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Softer text shadow */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .main-header .tagline {
@@ -55,44 +55,44 @@ body {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #4CAF50; /* Keep green for actionable button */
-    color: #fff; /* White text for contrast */
+    background-color: #FFB74D; /* Soft Orange for actionable button */
+    color: #3F4E4F; /* Dark Teal text for contrast */
     border: none;
     font-size: 1.1rem;
-    padding: 8px 15px; /* Button padding */
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Softer shadow */
-    display: flex; /* For icon and text alignment */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between icon and text */
+    gap: 0.5rem;
     z-index: 1001;
 }
 
 .sidebar-toggle:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
+    background-color: #FFA726; /* Slightly darker orange on hover */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.sidebar-toggle .fas { /* Style for Font Awesome icon within the button */
-    font-size: 1.1rem; /* Adjust icon size */
+.sidebar-toggle .fas {
+    font-size: 1.1rem;
 }
 
 /* --- Side Navigation (Overlay) --- */
 .side-nav {
-    position: fixed; /* KUNCI: Fixed positioning for overlay */
-    top: 0; /* Mulai dari atas viewport */
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 280px; /* Lebar sidebar */
-    height: 100vh; /* Tinggi penuh viewport */
-    background-color: #3f4e4f; /* Dark Teal for sidebar background */
+    width: 280px;
+    height: 100vh;
+    background-color: #3F4E4F; /* Dark Teal for sidebar background */
     color: #E0F2F1; /* Light text color */
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 15px rgba(0,0,0,0.2);
-    z-index: 1000; /* Di atas konten utama, di bawah header */
-    transform: translateX(-100%); /* Sembunyikan ke kiri secara default */
+    z-index: 1000;
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -108,7 +108,7 @@ body.sidebar-open .side-nav {
     align-items: center;
     margin-bottom: 2rem;
     padding: 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08); /* Softer border */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     padding-bottom: 1rem;
 }
 
@@ -161,11 +161,11 @@ body.sidebar-open .side-nav {
 }
 
 /* Ikon Styling for nav-item */
-.nav-item i { /* Target Font Awesome <i> tag directly */
-    margin-right: 0.8rem; /* Ruang antara ikon dan teks */
+.nav-item i {
+    margin-right: 0.8rem;
     color: rgba(224, 242, 241, 0.7); /* Slightly muted light text color */
-    font-size: 1.1em; /* Ukuran ikon relatif terhadap teks */
-    width: 1.2em; /* Memastikan lebar ikon konsisten untuk perataan */
+    font-size: 1.1em;
+    width: 1.2em;
     text-align: center;
 }
 
@@ -213,13 +213,13 @@ body.sidebar-open .side-nav {
     color: rgba(224, 242, 241, 0.6);
 }
 .side-nav .module-list .nav-item:hover:not(.active):not(.disabled) {
-    background-color: rgba(255,255,255,0.03); /* Very subtle hover */
+    background-color: rgba(255,255,255,0.03); /* Even more subtle hover */
     color: #66BB6A;
     border-left-color: #66BB6A;
 }
 
 .side-nav .module-list .nav-item.active {
-    background-color: #66BB6A;
+    background-color: #66BB6A; /* Soft Green */
     border-left-color: #fff;
     color: #fff;
     font-weight: 600;
@@ -316,7 +316,7 @@ body.sidebar-open .overlay {
 }
 .module-content h4 {
     font-size: 1.4rem;
-    color: #4DB6AC; /* Primary Teal accent for sub-sub headings */
+    color: #4DB6AC; /* Teal accent for sub-sub headings */
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
@@ -331,15 +331,11 @@ body.sidebar-open .overlay {
 .module-content ul, .module-content ol {
     margin-left: 2rem;
     margin-bottom: 1rem;
-    list-style-type: disc;
-    padding: 0;
-}
-.module-content ol {
-    list-style-type: decimal;
+    list-style-position: outside;
 }
 
 .module-content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     font-size: 1rem;
 }
 
@@ -461,7 +457,7 @@ body.sidebar-open .overlay {
     border-radius: 10px;
     border: 1px solid #E0E0E0;
     margin-top: 2.5rem;
-    box-shadow: 0 4px 10px rgba(0,0/0,0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .quiz-section h3 {
@@ -498,7 +494,7 @@ body.sidebar-open .overlay {
     box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
 }
 
-.quiz-section button { /* General button style */
+.quiz-section button {
     background-color: #FFB74D; /* Soft Orange button */
     color: #3F4E4F; /* Dark Teal text */
     padding: 0.8rem 1.5rem;
@@ -507,7 +503,6 @@ body.sidebar-open .overlay {
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    cursor: pointer; /* Ensure pointer cursor */
 }
 
 .quiz-section button:hover {
@@ -542,7 +537,7 @@ body.sidebar-open .overlay {
 .lesson-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     border-left: 6px solid #66BB6A; /* Soft Green accent bar */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -553,7 +548,7 @@ body.sidebar-open .overlay {
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #E0E0E0; /* Light Grey border */
+    border-bottom: 1px solid #E0E0E0;
     padding-bottom: 0.6rem;
     text-align: left;
 }
@@ -608,54 +603,6 @@ body.sidebar-open .overlay {
     font-weight: 500;
     font-size: 1rem;
     color: #34495e;
-}
-
-
-/* --- Navigation Buttons at Bottom of Modules --- */
-.navigation-buttons {
-    margin-top: 3rem; /* Memberi ruang dari konten di atasnya */
-    text-align: center; /* Memusatkan tombol */
-    padding-top: 1.5rem; /* Padding di atas garis pemisah */
-    border-top: 1px solid #e0e0e0; /* Garis pemisah lembut */
-}
-
-.navigation-buttons .btn { /* TARGET INI DENGAN PRIORITAS TINGGI */
-    display: inline-block; /* Agar tombol bisa berdampingan */
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px; /* Bentuk pill-shaped */
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    margin: 0 0.8rem; /* Spasi antar tombol */
-    text-transform: uppercase;
-    letter-spacing: 0.03rem;
-    text-decoration: none; /* KUNCI: Pastikan text-decoration tidak ada untuk <a>.btn */
-    cursor: pointer; /* KUNCI: Pastikan kursor pointer */
-}
-
-.navigation-buttons .btn-primary {
-    background-color: #66BB6A; /* Soft Green */
-    color: white;
-    box-shadow: 0 3px 10px rgba(102, 187, 106, 0.3); /* Shadow yang cocok */
-}
-
-.navigation-buttons .btn-primary:hover {
-    background-color: #5cb85f; /* Darker green on hover */
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.4);
-}
-
-.navigation-buttons .btn-secondary {
-    background-color: #E0E0E0; /* Light Grey */
-    color: #4a5568; /* Darker text */
-    border: 1px solid #B0BEC5; /* Soft border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.navigation-buttons .btn-secondary:hover {
-    background-color: #D5D5D5;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 
@@ -747,13 +694,6 @@ body.sidebar-open .overlay {
         font-size: 0.95rem;
         padding: 0.6rem;
     }
-
-    /* Adjust nav buttons for smaller screens if needed, ensure they remain buttons */
-    .navigation-buttons .btn {
-        padding: 0.6rem 1.2rem; /* Smaller padding for smaller buttons */
-        font-size: 1rem;
-        margin: 0 0.5rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -795,11 +735,5 @@ body.sidebar-open .overlay {
     }
     .level-cards {
         grid-template-columns: 1fr;
-    }
-    /* Further adjustment for nav buttons on tiny screens */
-    .navigation-buttons .btn {
-        display: block; /* Make them stack vertically */
-        width: calc(100% - 2rem); /* Full width minus padding */
-        margin: 0.5rem auto; /* Center them */
     }
 }
