@@ -28,7 +28,7 @@
         <ul class="level-list">
             <li><a href="../../../index.html" class="nav-item icon-dashboard"><i class="fas fa-th-large"></i> <span>Home Dashboard</span></a></li>
             <li>
-                <a href="../../index.html" class="nav-item icon-level0"><i class="fas fa-book-open"></i> <span>Level 0: Absolute Beginner</span></a>
+                <a href="../../index.html" class="nav-item active icon-level0"><i class="fas fa-book-open"></i> <span>Level 0: Absolute Beginner</span></a>
                 <ul class="module-list">
                     <li><a href="index.html" class="nav-item active icon-module01"><i class="fas fa-volume-up"></i> <span>Modul 0.1: Pengantar & Bunyi</span></a></li>
                     <li><a href="../module0.2-first-words-greetings/index.html" class="nav-item icon-module02"><i class="fas fa-comments"></i> <span>Modul 0.2: Kata & Sapaan Pertama</span></a></li>
@@ -41,11 +41,11 @@
                     <li><a href="#" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 1.1: The Verb 'To Be' (Segera Hadir)</span></a></li>
                     </ul>
             </li>
-            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chart-line"></i> <span>Level 2: Expanding Communication (Segera Hadir)</span></a></li>
-            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chalkboard-teacher"></i> <span>Level 3: Building Fluency (Segera Hadir)</span></a></li>
-            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-lightbulb"></i> <span>Level 4: Complex Ideas (Segera Hadir)</span></a></li>
-            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-magic"></i> <span>Level 5: Mastering Nuance (Segera Hadir)</span></a></li>
-            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-star"></i> <span>Level 6: Expert Command (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chart-line"></i> <span>Level 2: Expanding Communication (Segera Hadir)</a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-chalkboard-teacher"></i> <span>Level 3: Building Fluency (Segera Hadir)</a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-lightbulb"></i> <span>Level 4: Complex Ideas (Segera Hadir)</a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-magic"></i> <span>Level 5: Mastering Nuance (Segera Hadir)</a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-star"></i> <span>Level 6: Expert Command (Segera Hadir)</a></li>
         </ul>
         <div class="nav-footer">
             <p>Progres Anda: 0%</p>
@@ -203,7 +203,7 @@
                 <div id="alphabet-quiz">
                     <p><strong>Pertanyaan 1:</strong> Ketik huruf yang bunyinya dijelaskan sebagai "ei" (seperti pada kata "day").</p>
                     <input type="text" id="q1-input" placeholder="Ketik huruf di sini">
-                    <button onclick="checkAlphabetQuiz()">Periksa Jawaban</button>
+                    <button onclick="checkAlphabetQuiz()" class="btn btn-primary">Periksa Jawaban</button>
                     <p id="q1-feedback" class="feedback"></p>
                 </div>
                 <div id="vowel-quiz" style="margin-top: 20px;">
@@ -216,16 +216,21 @@
                         <option value="O">O</option>
                         <option value="U">U</option>
                     </select>
-                    <button onclick="checkVowelQuiz()">Periksa Jawaban</button>
+                    <button onclick="checkVowelQuiz()" class="btn btn-primary">Periksa Jawaban</button>
                     <p id="q2-feedback" class="feedback"></p>
                 </div>
                  <div id="consonant-quiz" style="margin-top: 20px;">
                     <p><strong>Pertanyaan 3:</strong> Huruf konsonan manakah yang bisa berbunyi /k/ (keras) dan /s/ (lembut, seperti pada "city")?</p>
                     <input type="text" id="q3-input" placeholder="Ketik huruf di sini">
-                    <button onclick="checkConsonantQuiz()">Periksa Jawaban</button>
+                    <button onclick="checkConsonantQuiz()" class="btn btn-primary">Periksa Jawaban</button>
                     <p id="q3-feedback" class="feedback"></p>
                 </div>
             </section>
+
+            <div class="navigation-buttons">
+                <a href="../../index.html" class="btn btn-secondary">Kembali ke Level 0</a>
+                <a href="../module0.2-first-words-greetings/index.html" class="btn btn-primary">Lanjut ke Modul 0.2</a>
+            </div>
         </main>
         <div class="overlay" onclick="closeSidebar()"></div>
     </div> <footer class="main-footer">
