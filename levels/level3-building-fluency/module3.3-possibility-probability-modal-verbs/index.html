@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 3.3: Kemungkinan & Probabilitas - English Mastery Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="module.css">
+</head>
+<body>
+    <header class="main-header">
+        <button class="sidebar-toggle" aria-label="Toggle Sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h1>English Mastery Course</h1>
+        <p class="tagline">Your Complete Journey from Absolute Beginner to Expert</p>
+    </header>
+
+    <aside class="side-nav">
+        <div class="nav-header">
+            <h3>Course Navigation</h3>
+            <button class="close-sidebar-toggle" aria-label="Close Sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="level-list">
+            <li><a href="../../../index.html" class="nav-item icon-dashboard"><i class="fas fa-th-large"></i> <span>Home Dashboard</span></a></li>
+            <li>
+                <a href="../../level0-absolute-beginner/index.html" class="nav-item icon-level0"><i class="fas fa-book-open"></i> <span>Level 0: Absolute Beginner</span></a>
+                <ul class="module-list">
+                    <li><a href="../../level0-absolute-beginner/module0.1-intro-to-english-sounds/index.html" class="nav-item icon-module01"><i class="fas fa-volume-up"></i> <span>Modul 0.1: Pengantar & Bunyi</span></a></li>
+                    <li><a href="../../level0-absolute-beginner/module0.2-first-words-greetings/index.html" class="nav-item icon-module02"><i class="fas fa-comments"></i> <span>Modul 0.2: Kata & Sapaan Pertama</span></a></li>
+                    <li><a href="../../level0-absolute-beginner/module0.3-basic-questions/index.html" class="nav-item icon-module03"><i class="fas fa-question-circle"></i> <span>Modul 0.3: Pertanyaan Sederhana</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../../level1-building-blocks/index.html" class="nav-item icon-level1"><i class="fas fa-cube"></i> <span>Level 1: Building Blocks</span></a>
+                <ul class="module-list">
+                    <li><a href="../../level1-building-blocks/module1.1-the-verb-to-be/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.1: The Verb 'To Be'</span></a></li>
+                    <li><a href="../../level1-building-blocks/module1.2-introducing-self-others/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.2: Memperkenalkan Diri</span></a></li>
+                    <li><a href="../../level1-building-blocks/module1.3-nouns-articles/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.3: Kata Benda & Kata Sandang</span></a></li>
+                    <li><a href="../../level1-building-blocks/module1.4-describing-things-adjectives-colors/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.4: Mendeskripsikan Sesuatu</span></a></li>
+                    <li><a href="../../level1-building-blocks/module1.5-numbers-11-100-age/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.5: Angka (11-100) & Umur</span></a></li>
+                    <li><a href="../../level1-building-blocks/module1.6-where-things-are-prepositions/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 1.6: Di Mana Lokasi</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../index.html" class="nav-item active icon-level disabled"><i class="fas fa-chart-line"></i> <span>Level 2: Expanding Communication</span></a>
+                <ul class="module-list">
+                    <li><a href="../module2.1-daily-routines-present-simple/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.1: Rutinitas Harian</span></a></li>
+                    <li><a href="../module2.2-talking-about-yesterday-regular-verbs/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.2: Berbicara Tentang Kemarin</span></a></li>
+                    <li><a href="../module2.3-irregular-past-simple-verbs/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.3: Masa Lalu Tidak Beraturan</span></a></li>
+                    <li><a href="../module2.4-planning-ahead-future-simple/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.4: Merencanakan Masa Depan</span></a></li>
+                    <li><a href="../module2.5-comparatives-superlatives/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.5: Lebih atau Kurang</span></a></li>
+                    <li><a href="../module2.6-quantifiers/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.6: Kuantitas dan Ukuran</span></a></li>
+                    <li><a href="../module2.7-possessives/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 2.7: Kepemilikan</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../index.html" class="nav-item active icon-level disabled"><i class="fas fa-chalkboard-teacher"></i> <span>Level 3: Building Fluency</span></a>
+                <ul class="module-list">
+                    <li><a href="../module3.1-experiences-duration-present-perfect/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 3.1: Pengalaman & Durasi</span></a></li>
+                    <li><a href="../module3.2-ongoing-actions-continuous-tenses/index.html" class="nav-item icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 3.2: Sedang Berlangsung</span></a></li>
+                    <li><a href="index.html" class="nav-item active icon-module-placeholder"><i class="fas fa-align-left"></i> <span>Modul 3.3: Kemungkinan & Probabilitas</span></a></li>
+                    <li><a href="../module3.4-advice-obligation-modal-verbs/index.html" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 3.4: Nasihat & Kewajiban</span></a></li>
+                    <li><a href="../module3.5-if-then-conditional-type-1/index.html" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 3.5: Jika...Maka...</span></a></li>
+                    <li><a href="../module3.6-basic-reported-speech/index.html" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 3.6: Melaporkan Percakapan</span></a></li>
+                    <li><a href="../module3.7-expressing-opinions-agreement/index.html" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 3.7: Ekspresi Opini</span></a></li>
+                    <li><a href="../module3.8-basic-conjunctions/index.html" class="nav-item icon-module-placeholder disabled"><i class="fas fa-align-left"></i> <span>Modul 3.8: Kata Penghubung Dasar</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-lightbulb"></i> <span>Level 4: Complex Ideas (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-magic"></i> <span>Level 5: Mastering Nuance (Segera Hadir)</span></a></li>
+            <li><a href="#" class="nav-item icon-level disabled"><i class="fas fa-star"></i> <span>Level 6: Expert Command (Segera Hadir)</span></a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>Progres Anda: 0%</p>
+        </div>
+    </aside>
+
+    <div class="main-content-wrapper">
+        <main class="main-content-area">
+            <h2>Modul 3.3: Kemungkinan & Probabilitas (Modal Verbs: Can, Could, May, Might)</h2>
+            <p>Di modul ini, kita akan mempelajari modal verbs yang digunakan untuk mengekspresikan kemungkinan, probabilitas, dan izin. Menguasai modal verbs ini akan menambah fleksibilitas dan presisi dalam percakapan Anda.</p>
+
+            <section class="lesson-section">
+                <h3>1. Modal Verbs 'Can' dan 'Could'</h3>
+                <p>Modal verb adalah kata kerja bantu yang mengubah makna kata kerja utama. 'Can' dan 'Could' memiliki beberapa fungsi penting:</p>
+                <ul>
+                    <li><strong>Can:</strong> Digunakan untuk mengekspresikan **kemampuan** di masa sekarang atau **izin**.
+                        <ul>
+                            <li>Contoh Kemampuan: `I **can** speak English.` (Saya bisa berbicara Bahasa Inggris.)</li>
+                            <li>Contoh Izin: `You **can** use my computer.` (Kamu boleh menggunakan komputer saya.)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Could:</strong> Digunakan untuk mengekspresikan **kemampuan** di masa lalu, **kemungkinan** yang lebih rendah, atau **permintaan yang lebih sopan**.
+                        <ul>
+                            <li>Contoh Kemampuan Masa Lalu: `She **could** swim when she was five.` (Dia bisa berenang ketika dia berumur lima tahun.)</li>
+                            <li>Contoh Kemungkinan: `It **could** rain later.` (Nanti bisa saja hujan. - Kemungkinan lebih rendah dari 'will'.)</li>
+                            <li>Contoh Permintaan Sopan: `**Could** you please help me?` (Bisakah Anda tolong bantu saya?)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="lesson-section">
+                <h3>2. Modal Verbs 'May' dan 'Might'</h3>
+                <p>Kedua modal verbs ini digunakan untuk berbicara tentang kemungkinan dan izin, dengan sedikit perbedaan nuansa:</p>
+                <ul>
+                    <li><strong>May:</strong> Digunakan untuk mengekspresikan **kemungkinan** (lebih besar dari `might`) atau **izin yang lebih formal**.
+                        <ul>
+                            <li>Contoh Kemungkinan: `He **may** be late.` (Dia mungkin telat. - Kemungkinan sedang.)</li>
+                            <li>Contoh Izin Formal: `**May** I come in?` (Bolehkah saya masuk?)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Might:</strong> Digunakan untuk mengekspresikan **kemungkinan yang lebih kecil** di masa depan.
+                        <ul>
+                            <li>Contoh: `I **might** go to the party, but I'm not sure.` (Saya mungkin akan pergi ke pesta, tapi saya tidak yakin.)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Perbedaan antara `may` dan `might` seringkali sangat halus, dengan `might` menunjukkan kemungkinan yang sedikit lebih kecil.</p>
+            </section>
+
+            <section class="quiz-section">
+                <h3>Kuis Interaktif: Modal Verbs (Kemungkinan)</h3>
+                <p>Isi bagian kosong dengan modal verb (can, could, may, might) yang paling tepat.</p>
+
+                <div id="quiz-1" class="quiz-item">
+                    <p>1. It's a possibility, but I'm not sure. He ____ be at home now.</p>
+                    <input type="text" id="q1-input" placeholder="Ketik jawaban">
+                    <button onclick="checkQuiz1()" class="btn btn-primary">Periksa Jawaban</button>
+                    <p id="q1-feedback" class="feedback"></p>
+                </div>
+
+                <div id="quiz-2" class="quiz-item">
+                    <p>2. When I was a child, I ____ climb trees easily.</p>
+                    <input type="text" id="q2-input" placeholder="Ketik jawaban">
+                    <button onclick="checkQuiz2()" class="btn btn-primary">Periksa Jawaban</button>
+                    <p id="q2-feedback" class="feedback"></p>
+                </div>
+
+                <div id="quiz-3" class="quiz-item">
+                    <p>3. ____ I borrow your pen for a moment? (Permintaan sopan)</p>
+                    <input type="text" id="q3-input" placeholder="Ketik jawaban">
+                    <button onclick="checkQuiz3()" class="btn btn-primary">Periksa Jawaban</button>
+                    <p id="q3-feedback" class="feedback"></p>
+                </div>
+
+                <div id="quiz-4" class="quiz-item">
+                    <p>4. I ____ speak three languages fluently.</p>
+                    <input type="text" id="q4-input" placeholder="Ketik jawaban">
+                    <button onclick="checkQuiz4()" class="btn btn-primary">Periksa Jawaban</button>
+                    <p id="q4-feedback" class="feedback"></p>
+                </div>
+            </section>
+
+            <div class="navigation-buttons">
+                <a href="../module3.2-ongoing-actions-continuous-tenses/index.html" class="btn btn-secondary">Modul Sebelumnya (3.2)</a>
+                <a href="../index.html" class="btn btn-secondary">Kembali ke Level 3</a>
+                <a href="../module3.4-advice-obligation-modal-verbs/index.html" class="btn btn-primary disabled">Lanjut ke Modul 3.4 (Segera Hadir)</a>
+            </div>
+        </main>
+        <div class="overlay" onclick="closeSidebar()"></div>
+    </div> <footer class="main-footer">
+        <p>&copy; 2025 English Mastery Course. All rights reserved.</p>
+    </footer>
+
+    <script src="../../../assets/js/utils.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="module.js"></script>
+</body>
+</html>
